@@ -2,6 +2,7 @@
   "name": "bala-portfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://adhishview.github.io/Adhish-Portfolio",
   "rocketCritical": {
     "dependencies": [
       "@dhiwise/component-tagger",
@@ -58,7 +59,9 @@
   "scripts": {
     "start": "vite",
     "build": "vite build --sourcemap",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -85,6 +88,7 @@
     "@tailwindcss/typography": "^0.5.16",
     "@vitejs/plugin-react": "4.3.4",
     "autoprefixer": "^10.4.2",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.4.8",
     "tailwindcss": "^3.4.6",
     "vite": "5.0.0",
