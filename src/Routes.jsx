@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes as RouterRoutes, Route } from "react-router-dom";
-import ScrollToTop from "components/ScrollToTop";
-import ErrorBoundary from "components/ErrorBoundary";
-import NotFound from "pages/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
+import ErrorBoundary from "./components/ErrorBoundary";
+import NotFound from "./pages/NotFound";
 import AchievementsHub from './pages/achievements-hub-recognition-gallery';
 import AboutProfessionalJourney from './pages/about-professional-journey';
 import ProfessionalConnectContactHub from './pages/professional-connect-contact-hub';
@@ -12,7 +12,7 @@ import HomePage from './pages/homepage-ai-engineer-portfolio-hub';
 
 const Routes = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Adhish-Portfolio">
       <ErrorBoundary>
       <ScrollToTop />
       <RouterRoutes>
