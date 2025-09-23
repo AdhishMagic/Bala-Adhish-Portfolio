@@ -126,7 +126,7 @@ const Header = () => {
             <Button
               variant="default"
               size="sm"
-              onClick={() => window.open('https://github.com/AdhishMagic', '_blank')}
+              onClick={() => window.open('https://github.com/adhishview', '_blank')}
               iconName="Github"
               iconPosition="left"
               iconSize={16}
@@ -175,7 +175,7 @@ const Header = () => {
                 <Button
                   variant="default"
                   fullWidth
-                  onClick={() => window.open('https://github.com/AdhishMagic', '_blank')}
+                  onClick={() => window.open('https://github.com/adhishview', '_blank')}
                   iconName="Github"
                   iconPosition="left"
                   iconSize={16}

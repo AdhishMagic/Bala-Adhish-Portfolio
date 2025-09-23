@@ -1,4 +1,5 @@
 import React from 'react';
+import AdhishProfile from '../assets/images/AdhishProfile.jpeg';
 
 function Image({
   src,
@@ -13,7 +14,7 @@ function Image({
       alt={alt}
       className={className}
       onError={(e) => {
-        e.target.src = "/assets/images/AdhishProfile.jpeg"
+        e.target.src = AdhishProfile
       }}
       {...props}
     />

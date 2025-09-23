@@ -85,7 +85,7 @@ const HomePage = () => {
                 </p>
                 <div className="flex space-x-4">
                   <a
-                    href="https://github.com/AdhishMagic"
+                    href="https://github.com/adhishview"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-slate-400 hover:text-white transition-colors"

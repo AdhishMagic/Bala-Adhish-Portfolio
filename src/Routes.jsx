@@ -12,7 +12,7 @@ import HomePage from './pages/homepage-ai-engineer-portfolio-hub';
 
 const Routes = () => {
   return (
-    <BrowserRouter basename="/Adhish-Portfolio">
+    <BrowserRouter basename="/Bala-Adhish-Portfolio">
       <ErrorBoundary>
       <ScrollToTop />
       <RouterRoutes>
