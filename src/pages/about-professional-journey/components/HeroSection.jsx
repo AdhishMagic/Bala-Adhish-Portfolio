@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from '../../../components/AppImage';
 import Icon from '../../../components/AppIcon';
+import AdhishProfile from '../../../assets/images/AdhishProfile.jpeg';
 
 const HeroSection = () => {
   return (
@@ -74,7 +75,7 @@ const HeroSection = () => {
               <div className="relative bg-white p-6 rounded-2xl shadow-2xl">
                 <div className="aspect-square overflow-hidden rounded-xl">
                   <Image
-                    src="/assets/images/AdhishProfile.jpeg"
+                    src={AdhishProfile}
                     alt="Bala Adhish - AI Engineer and Full-Stack Developer"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />

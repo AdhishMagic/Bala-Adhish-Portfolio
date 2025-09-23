@@ -2,7 +2,7 @@
   "name": "bala-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://adhishview.github.io/Adhish-Portfolio",
+  "homepage": "http://AdhishMagic.github.io/Bala-Adhish-Portfolio",
   "rocketCritical": {
     "dependencies": [
       "@dhiwise/component-tagger",
