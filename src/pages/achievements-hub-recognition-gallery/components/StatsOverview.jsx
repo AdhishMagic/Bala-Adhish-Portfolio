@@ -89,21 +89,21 @@ const StatsOverview = ({ achievements }) => {
   ];
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8">
       {statCards?.map((stat, index) => (
         <div
           key={index}
-          className="bg-card border border-border rounded-lg p-4 hover:shadow-md transition-shadow duration-300"
+          className="bg-card border border-border rounded-lg p-3 sm:p-4 hover:shadow-md transition-shadow duration-300"
         >
           <div className="flex items-center justify-between mb-2">
-            <div className={`w-10 h-10 ${stat?.bgColor} rounded-lg flex items-center justify-center`}>
-              <Icon name={stat?.icon} size={20} className={stat?.color} />
+            <div className={`w-8 h-8 sm:w-10 sm:h-10 ${stat?.bgColor} rounded-lg flex items-center justify-center`}>
+              <Icon name={stat?.icon} size={16} sm:size={20} className={stat?.color} />
             </div>
             <div className="text-right">
-              <div className="text-2xl font-bold text-text-primary">{stat?.value}</div>
+              <div className="text-xl sm:text-2xl font-bold text-text-primary">{stat?.value}</div>
             </div>
           </div>
-          <h3 className="text-sm font-medium text-text-secondary">{stat?.title}</h3>
+          <h3 className="text-xs sm:text-sm font-medium text-text-secondary">{stat?.title}</h3>
         </div>
       ))}
     </div>

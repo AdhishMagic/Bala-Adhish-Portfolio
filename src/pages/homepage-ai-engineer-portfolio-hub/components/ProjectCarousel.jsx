@@ -90,13 +90,13 @@ const ProjectCarousel = () => {
   };
 
   return (
-    <section className="section-padding bg-white">
+    <section className="py-16 sm:py-20 bg-white">
       <div className="container-width">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">
             Featured Projects
           </h2>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto">
             Explore my latest work in AI/ML, full-stack development, and data science. Each project represents a unique challenge solved with innovative technology.
           </p>
         </div>
@@ -106,7 +106,7 @@ const ProjectCarousel = () => {
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-border">
             <div className="grid lg:grid-cols-2 gap-0">
               {/* Project Image */}
-              <div className="relative h-64 lg:h-full">
+              <div className="relative h-64 lg:h-auto">
                 <Image
                   src={projects?.[currentProject]?.image}
                   alt={projects?.[currentProject]?.title}
@@ -130,13 +130,13 @@ const ProjectCarousel = () => {
               </div>
 
               {/* Project Details */}
-              <div className="p-8 flex flex-col justify-between">
-                <div className="space-y-6">
+              <div className="p-6 sm:p-8 flex flex-col justify-between">
+                <div className="space-y-4 sm:space-y-6">
                   <div>
-                    <h3 className="text-2xl font-bold text-text-primary mb-3">
+                    <h3 className="text-xl sm:text-2xl font-bold text-text-primary mb-3">
                       {projects?.[currentProject]?.title}
                     </h3>
-                    <p className="text-text-secondary leading-relaxed">
+                    <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
                       {projects?.[currentProject]?.description}
                     </p>
                   </div>
@@ -146,7 +146,7 @@ const ProjectCarousel = () => {
                     <div className="flex items-center space-x-2">
                       <Icon name="TrendingUp" size={20} color="#2563eb" />
                       <span className="font-semibold text-blue-800">Impact:</span>
-                      <span className="text-blue-700">{projects?.[currentProject]?.impact}</span>
+                      <span className="text-blue-700 text-sm sm:text-base">{projects?.[currentProject]?.impact}</span>
                     </div>
                   </div>
 
@@ -157,7 +157,7 @@ const ProjectCarousel = () => {
                       {projects?.[currentProject]?.techStack?.map((tech, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 bg-surface text-text-secondary rounded-full text-sm font-medium border border-border"
+                          className="px-3 py-1 bg-surface text-text-secondary rounded-full text-xs sm:text-sm font-medium border border-border"
                         >
                           {tech}
                         </span>
@@ -194,23 +194,23 @@ const ProjectCarousel = () => {
           </div>
 
           {/* Navigation Controls */}
-          <div className="flex items-center justify-between mt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between mt-8 gap-4">
             <Button
               variant="outline"
               size="icon"
               onClick={prevProject}
               iconName="ChevronLeft"
               iconSize={20}
-              className="w-12 h-12 rounded-full"
+              className="w-12 h-12 rounded-full order-2 sm:order-1"
             />
 
             {/* Project Indicators */}
-            <div className="flex space-x-2">
+            <div className="flex space-x-2 order-1 sm:order-2">
               {projects?.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentProject(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                     index === currentProject
                       ? 'bg-primary scale-125' :'bg-border hover:bg-text-secondary'
                   }`}
@@ -224,7 +224,7 @@ const ProjectCarousel = () => {
               onClick={nextProject}
               iconName="ChevronRight"
               iconSize={20}
-              className="w-12 h-12 rounded-full"
+              className="w-12 h-12 rounded-full order-3 sm:order-3"
             />
           </div>
 

@@ -49,25 +49,25 @@ const SkillsOverview = ({ skillsData }) => {
   ];
 
   return (
-    <div className="bg-card border border-border rounded-xl p-6">
-      <div className="flex items-center justify-between mb-6">
+    <div className="bg-card border border-border rounded-xl p-4 sm:p-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between mb-6">
         <div>
-          <h2 className="text-2xl font-bold text-text-primary">Skills Overview</h2>
-          <p className="text-text-secondary mt-1">Technical competencies and proficiency levels</p>
+          <h2 className="text-xl sm:text-2xl font-bold text-text-primary">Skills Overview</h2>
+          <p className="text-sm text-text-secondary mt-1">Technical competencies and proficiency levels</p>
         </div>
-        <div className="flex items-center space-x-2 text-text-secondary">
+        <div className="flex items-center space-x-2 text-text-secondary mt-2 sm:mt-0 text-xs sm:text-sm">
           <Icon name="Calendar" size={16} />
-          <span className="text-sm">Updated September 2025</span>
+          <span>Updated September 2025</span>
         </div>
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         {stats?.map((stat) => (
-          <div key={stat?.label} className="text-center">
-            <div className={`w-16 h-16 ${stat?.bgColor} rounded-xl flex items-center justify-center mx-auto mb-3`}>
-              <Icon name={stat?.icon} size={24} className={stat?.color} />
+          <div key={stat?.label} className="text-center p-2 sm:p-0">
+            <div className={`w-12 h-12 sm:w-16 sm:h-16 ${stat?.bgColor} rounded-xl flex items-center justify-center mx-auto mb-3`}>
+              <Icon name={stat?.icon} size={20} sm:size={24} className={stat?.color} />
             </div>
-            <div className="text-2xl font-bold text-text-primary">{stat?.value}</div>
-            <div className="text-sm text-text-secondary">{stat?.label}</div>
+            <div className="text-xl sm:text-2xl font-bold text-text-primary">{stat?.value}</div>
+            <div className="text-xs sm:text-sm text-text-secondary">{stat?.label}</div>
           </div>
         ))}
       </div>
@@ -85,14 +85,14 @@ const SkillsOverview = ({ skillsData }) => {
               acc + cat?.skills?.filter(s => s?.proficiency < 50)?.length, 0
             ), color: 'bg-gray-400' }
           ]?.map((item) => (
-            <div key={item?.level} className="flex items-center justify-between">
+            <div key={item?.level} className="flex items-center justify-between text-xs sm:text-sm">
               <div className="flex items-center space-x-3">
                 <div className={`w-3 h-3 ${item?.color} rounded-full`}></div>
-                <span className="text-sm text-text-secondary">{item?.level}</span>
+                <span className="text-text-secondary">{item?.level}</span>
               </div>
               <div className="flex items-center space-x-2">
-                <span className="text-sm font-medium text-text-primary">{item?.count}</span>
-                <div className="w-20 bg-muted rounded-full h-2">
+                <span className="font-medium text-text-primary">{item?.count}</span>
+                <div className="w-16 sm:w-20 bg-muted rounded-full h-2">
                   <div 
                     className={`h-full ${item?.color} rounded-full transition-all duration-1000`}
                     style={{ width: `${(item?.count / totalSkills) * 100}%` }}

@@ -50,12 +50,12 @@ const PersonalSection = () => {
       content: [
         {
           principle: "Solving Real Problems",
-          description: "I\'m motivated by the opportunity to use technology to solve genuine problems that affect people\'s lives.",
+          description: "I\'m motivated by the opportunity to use technology to solve genuine problems that affect people's lives.",
           example: "Developed an AI-powered app that helps farmers predict crop diseases, potentially saving thousands of dollars in losses."
         },
         {
           principle: "Continuous Innovation",
-          description: "The rapid pace of technological advancement excites me. There\'s always something new to learn and explore.",
+          description: "The rapid pace of technological advancement excites me. There's always something new to learn and explore.",
           example: "Currently exploring quantum computing and its potential applications in machine learning optimization."
         },
         {
@@ -92,11 +92,11 @@ const PersonalSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-gradient-to-br from-blue-50 via-white to-cyan-50">
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-blue-50 via-white to-cyan-50">
       <div className="container-width">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gradient mb-4">Personal Insights</h2>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gradient mb-4">Personal Insights</h2>
+          <p className="text-base sm:text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
             Beyond the code and algorithms, here's what makes me tick as a person and professional.
           </p>
         </div>
@@ -104,15 +104,14 @@ const PersonalSection = () => {
         {/* Personal Philosophy Tabs */}
         <div className="mb-16">
           <div className="flex justify-center mb-8">
-            <div className="bg-white rounded-lg p-2 inline-flex space-x-2 shadow-md border border-border">
+            <div className="bg-white rounded-lg p-1.5 sm:p-2 inline-flex flex-wrap justify-center gap-1 sm:gap-2 shadow-md border border-border">
               {tabs?.map((tab) => (
                 <button
                   key={tab?.id}
                   onClick={() => setActiveTab(tab?.id)}
-                  className={`flex items-center space-x-2 px-6 py-3 rounded-md font-medium transition-all duration-300 ${
-                    activeTab === tab?.id
-                      ? 'bg-primary text-white shadow-md'
-                      : 'text-text-secondary hover:text-primary hover:bg-surface'
+                  className={`flex items-center space-x-2 px-4 py-2 sm:px-6 sm:py-3 rounded-md font-medium transition-all duration-300 text-sm sm:text-base ${activeTab === tab?.id
+                    ? 'bg-primary text-white shadow-md'
+                    : 'text-text-secondary hover:text-primary hover:bg-surface'
                   }`}
                 >
                   <Icon name={tab?.icon} size={18} />
@@ -122,7 +121,7 @@ const PersonalSection = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-border">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-border">
             <h3 className="text-2xl font-bold text-text-primary mb-8 text-center">
               {personalData?.[activeTab]?.title}
             </h3>
@@ -132,13 +131,13 @@ const PersonalSection = () => {
                 <div key={index} className="space-y-4">
                   <div className="text-center">
                     <h4 className="text-lg font-bold text-primary mb-3">{item?.principle}</h4>
-                    <p className="text-text-secondary leading-relaxed mb-4">
+                    <p className="text-sm sm:text-base text-text-secondary leading-relaxed mb-4">
                       {item?.description}
                     </p>
                   </div>
                   
                   <div className="bg-surface rounded-lg p-4 border-l-4 border-primary">
-                    <p className="text-sm text-text-secondary italic">
+                    <p className="text-xs sm:text-sm text-text-secondary italic">
                       <strong>Example:</strong> {item?.example}
                     </p>
                   </div>
@@ -151,19 +150,18 @@ const PersonalSection = () => {
         {/* Interests & Technologies */}
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           {/* Current Interests */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-border">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-border">
             <div className="text-center mb-8">
               <Icon name="Zap" size={32} className="mx-auto mb-4 text-primary" />
               <h3 className="text-2xl font-bold text-text-primary">Current Interests</h3>
               <p className="text-text-secondary mt-2">Technologies I'm actively exploring</p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {interests?.map((interest, index) => (
                 <div
                   key={index}
-                  className={`p-4 rounded-lg border-2 transition-all duration-300 hover:scale-105 cursor-pointer ${
-                    interest?.color === 'primary' ? 'border-primary/20 hover:border-primary bg-primary/5' :
+                  className={`p-4 rounded-lg border-2 transition-all duration-300 hover:scale-105 cursor-pointer ${interest?.color === 'primary' ? 'border-primary/20 hover:border-primary bg-primary/5' :
                     interest?.color === 'secondary' ? 'border-secondary/20 hover:border-secondary bg-secondary/5' :
                     interest?.color === 'accent' ? 'border-accent/20 hover:border-accent bg-accent/5' :
                     interest?.color === 'success' ? 'border-success/20 hover:border-success bg-success/5' :
@@ -190,7 +188,7 @@ const PersonalSection = () => {
           </div>
 
           {/* Personal Hobbies */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-border">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-border">
             <div className="text-center mb-8">
               <Icon name="Smile" size={32} className="mx-auto mb-4 text-secondary" />
               <h3 className="text-2xl font-bold text-text-primary">Beyond Coding</h3>

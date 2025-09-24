@@ -66,15 +66,15 @@ const ProjectStats = ({ projects }) => {
   ];
 
   return (
-    <div className="bg-card border border-border rounded-lg p-6 mb-8">
-      <div className="flex items-center justify-between mb-6">
+    <div className="bg-card border border-border rounded-lg p-4 sm:p-6 mb-8">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between mb-6">
         <div>
-          <h2 className="text-2xl font-bold text-text-primary">Portfolio Overview</h2>
-          <p className="text-text-secondary mt-1">
+          <h2 className="text-xl sm:text-2xl font-bold text-text-primary">Portfolio Overview</h2>
+          <p className="text-sm text-text-secondary mt-1">
             A comprehensive view of my technical projects and achievements
           </p>
         </div>
-        <div className="hidden sm:flex items-center space-x-2 text-text-secondary">
+        <div className="hidden sm:flex items-center space-x-2 text-text-secondary mt-2 sm:mt-0">
           <Icon name="TrendingUp" size={20} />
           <span className="text-sm">Updated {new Date()?.toLocaleDateString()}</span>
         </div>
@@ -83,16 +83,16 @@ const ProjectStats = ({ projects }) => {
         {statItems?.map((stat, index) => (
           <div
             key={index}
-            className={`${stat?.bgColor} ${stat?.borderColor} border rounded-lg p-4 hover:shadow-md transition-all duration-300 hover:-translate-y-1`}
+            className={`${stat?.bgColor} ${stat?.borderColor} border rounded-lg p-3 sm:p-4 hover:shadow-md transition-all duration-300 hover:-translate-y-1`}
           >
             <div className="flex items-center justify-between mb-2">
-              <Icon name={stat?.icon} size={20} className={stat?.color} />
+              <Icon name={stat?.icon} size={16} sm:size={20} className={stat?.color} />
               <div className={`w-2 h-2 ${stat?.color?.replace('text-', 'bg-')} rounded-full animate-pulse`}></div>
             </div>
-            <div className="text-2xl font-bold text-text-primary mb-1">
+            <div className="text-xl sm:text-2xl font-bold text-text-primary mb-1">
               {stat?.value}
             </div>
-            <div className="text-sm text-text-secondary font-medium">
+            <div className="text-xs sm:text-sm text-text-secondary font-medium">
               {stat?.label}
             </div>
           </div>
@@ -102,9 +102,9 @@ const ProjectStats = ({ projects }) => {
       <div className="mt-6 pt-6 border-t border-border">
         <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-text-primary">Project Completion Rate</span>
-              <span className="text-sm text-text-secondary">
+            <div className="flex items-center justify-between mb-2 text-sm">
+              <span className="font-medium text-text-primary">Project Completion Rate</span>
+              <span className="text-text-secondary">
                 {Math.round((stats?.completed / stats?.total) * 100)}%
               </span>
             </div>
@@ -117,9 +117,9 @@ const ProjectStats = ({ projects }) => {
           </div>
           
           <div>
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-text-primary">Active Development</span>
-              <span className="text-sm text-text-secondary">
+            <div className="flex items-center justify-between mb-2 text-sm">
+              <span className="font-medium text-text-primary">Active Development</span>
+              <span className="text-text-secondary">
                 {Math.round((stats?.inProgress / stats?.total) * 100)}%
               </span>
             </div>

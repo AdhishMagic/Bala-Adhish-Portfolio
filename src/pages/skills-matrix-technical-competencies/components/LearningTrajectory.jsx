@@ -55,13 +55,13 @@ const LearningTrajectory = () => {
   ];
 
   return (
-    <div className="bg-card border border-border rounded-xl p-6">
-      <div className="flex items-center justify-between mb-6">
+    <div className="bg-card border border-border rounded-xl p-4 sm:p-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between mb-6">
         <div>
-          <h2 className="text-2xl font-bold text-text-primary">Learning Trajectory</h2>
-          <p className="text-text-secondary mt-1">Skills development over time and future plans</p>
+          <h2 className="text-xl sm:text-2xl font-bold text-text-primary">Learning Trajectory</h2>
+          <p className="text-sm text-text-secondary mt-1">Skills development over time and future plans</p>
         </div>
-        <Icon name="TrendingUp" size={24} className="text-primary" />
+        <Icon name="TrendingUp" size={24} className="text-primary mt-2 sm:mt-0" />
       </div>
       {/* Timeline */}
       <div className="relative mb-8">
@@ -70,23 +70,23 @@ const LearningTrajectory = () => {
         <div className="space-y-6">
           {learningPath?.map((item, index) => (
             <div key={item?.year} className="relative flex items-start space-x-4">
-              <div className={`w-8 h-8 ${item?.color} rounded-full flex items-center justify-center text-white font-bold text-sm z-10`}>
+              <div className={`w-8 h-8 ${item?.color} rounded-full flex items-center justify-center text-white font-bold text-xs sm:text-sm z-10 flex-shrink-0`}>
                 {item?.year?.slice(-2)}
               </div>
               
               <div className="flex-1 min-w-0">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-semibold text-text-primary">{item?.title}</h3>
-                  <span className="text-sm text-text-secondary">{item?.year}</span>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                  <h3 className="font-semibold text-text-primary text-sm sm:text-base">{item?.title}</h3>
+                  <span className="text-xs sm:text-sm text-text-secondary mt-1 sm:mt-0">{item?.year}</span>
                 </div>
                 
-                <p className="text-sm text-text-secondary mb-3">{item?.milestone}</p>
+                <p className="text-xs sm:text-sm text-text-secondary mb-3">{item?.milestone}</p>
                 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {item?.skills?.map((skill) => (
                     <span 
                       key={skill}
-                      className="px-3 py-1 bg-surface text-text-primary text-sm rounded-full border border-border"
+                      className="px-2 py-1 sm:px-3 sm:py-1 bg-surface text-text-primary text-xs sm:text-sm rounded-full border border-border"
                     >
                       {skill}
                     </span>
@@ -106,20 +106,20 @@ const LearningTrajectory = () => {
         
         <div className="grid gap-4">
           {futurePlans?.map((plan) => (
-            <div key={plan?.skill} className="flex items-center space-x-4 p-4 bg-surface rounded-lg border border-border">
-              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+            <div key={plan?.skill} className="flex items-center space-x-4 p-3 sm:p-4 bg-surface rounded-lg border border-border">
+              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Icon name={plan?.icon} size={20} className="text-primary" />
               </div>
               
-              <div className="flex-1">
-                <div className="flex items-center justify-between mb-1">
-                  <h4 className="font-medium text-text-primary">{plan?.skill}</h4>
-                  <span className="text-sm text-text-secondary">{plan?.timeline}</span>
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
+                  <h4 className="font-medium text-text-primary text-sm sm:text-base">{plan?.skill}</h4>
+                  <span className="text-xs sm:text-sm text-text-secondary mt-1 sm:mt-0">{plan?.timeline}</span>
                 </div>
-                <p className="text-sm text-text-secondary">{plan?.focus}</p>
+                <p className="text-xs sm:text-sm text-text-secondary">{plan?.focus}</p>
               </div>
               
-              <Icon name="ArrowRight" size={16} className="text-text-secondary" />
+              <Icon name="ArrowRight" size={16} className="text-text-secondary hidden sm:block" />
             </div>
           ))}
         </div>

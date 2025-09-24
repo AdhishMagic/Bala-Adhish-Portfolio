@@ -34,7 +34,7 @@ const ValuesSection = () => {
       id: 4,
       title: "Ethical Technology",
       description: "With great power comes great responsibility. I'm committed to building AI systems that are fair, transparent, and beneficial to society as a whole.",
-      example: "Implemented bias detection algorithms in ML models and advocated for diverse training datasets in all AI projects I\'ve worked on.",
+      example: "Implemented bias detection algorithms in ML models and advocated for diverse training datasets in all AI projects I've worked on.",
       icon: "Shield",
       color: "success",
       gradient: "from-green-500 to-green-600"
@@ -60,11 +60,11 @@ const ValuesSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-gradient-to-br from-slate-50 to-blue-50">
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="container-width">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gradient mb-4">Core Values & Philosophy</h2>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gradient mb-4">Core Values & Philosophy</h2>
+          <p className="text-base sm:text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
             The principles that guide my approach to technology, problem-solving, and professional growth.
           </p>
         </div>
@@ -73,25 +73,25 @@ const ValuesSection = () => {
           {values?.map((value, index) => (
             <div
               key={value?.id}
-              className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-border overflow-hidden"
+              className="group relative bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-border overflow-hidden"
             >
               {/* Background Gradient */}
               <div className={`absolute inset-0 bg-gradient-to-br ${value?.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
               
               {/* Icon */}
               <div className="relative z-10 mb-6">
-                <div className={`w-16 h-16 bg-gradient-to-br ${value?.gradient} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon name={value?.icon} size={28} color="white" />
+                <div className={`w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br ${value?.gradient} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <Icon name={value?.icon} size={24} sm:size={28} color="white" />
                 </div>
               </div>
 
               {/* Content */}
               <div className="relative z-10">
-                <h3 className="text-xl font-bold text-text-primary mb-4 group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-lg sm:text-xl font-bold text-text-primary mb-4 group-hover:text-primary transition-colors duration-300">
                   {value?.title}
                 </h3>
                 
-                <p className="text-text-secondary mb-6 leading-relaxed">
+                <p className="text-sm sm:text-base text-text-secondary mb-6 leading-relaxed">
                   {value?.description}
                 </p>
 
@@ -101,7 +101,7 @@ const ValuesSection = () => {
                     <Icon name="Zap" size={14} className="mr-2 text-primary" />
                     Real Example:
                   </h4>
-                  <p className="text-sm text-text-secondary italic">
+                  <p className="text-xs sm:text-sm text-text-secondary italic">
                     {value?.example}
                   </p>
                 </div>
@@ -116,7 +116,7 @@ const ValuesSection = () => {
 
         {/* Philosophy Statement */}
         <div className="mt-16">
-          <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-xl border border-border relative overflow-hidden">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 lg:p-12 shadow-xl border border-border relative overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-5">
               <svg className="w-full h-full" viewBox="0 0 100 100">
@@ -130,13 +130,13 @@ const ValuesSection = () => {
             </div>
 
             <div className="relative z-10 text-center">
-              <div className="w-20 h-20 bg-hero-gradient rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Icon name="Quote" size={32} color="white" />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-hero-gradient rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <Icon name="Quote" size={28} sm:size={32} color="white" />
               </div>
               
-              <h3 className="text-3xl font-bold text-gradient mb-6">My Philosophy</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold text-gradient mb-6">My Philosophy</h3>
               
-              <blockquote className="text-xl text-text-primary leading-relaxed max-w-4xl mx-auto mb-8">
+              <blockquote className="text-base sm:text-lg lg:text-xl text-text-primary leading-relaxed max-w-4xl mx-auto mb-8 italic">
                 "Technology is not just about writing code or building systems—it's about creating possibilities. 
                 Every algorithm I design, every application I build, and every problem I solve is an opportunity 
                 to make the world a little bit smarter, more connected, and more human. I believe that the future 
@@ -145,7 +145,7 @@ const ValuesSection = () => {
               
               <div className="flex items-center justify-center space-x-4">
                 <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-primary"></div>
-                <span className="text-lg font-semibold text-primary">Bala Adhish</span>
+                <span className="text-base sm:text-lg font-semibold text-primary">Bala Adhish</span>
                 <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-primary"></div>
               </div>
             </div>

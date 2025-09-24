@@ -66,13 +66,13 @@ const HomePage = () => {
         </main>
 
         {/* Footer */}
-        <footer className="bg-slate-900 text-white py-12">
+        <footer className="bg-slate-900 text-white py-12 sm:py-16">
           <div className="container-width px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
               {/* Brand */}
-              <div className="md:col-span-2">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
+              <div className="lg:col-span-2 text-center sm:text-left">
+                <div className="flex items-center justify-center sm:justify-start space-x-3 mb-4">
+                  <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
                     <span className="text-white font-bold text-lg">B</span>
                   </div>
                   <div>
@@ -80,10 +80,10 @@ const HomePage = () => {
                     <p className="text-slate-400 text-sm">AI Engineer & Full-Stack Developer</p>
                   </div>
                 </div>
-                <p className="text-slate-400 mb-4 max-w-md">
+                <p className="text-slate-400 mb-4 max-w-md mx-auto sm:mx-0">
                   Building the future through intelligent code. Passionate about creating AI solutions that make a real-world impact.
                 </p>
-                <div className="flex space-x-4">
+                <div className="flex space-x-4 justify-center sm:justify-start">
                   <a
                     href="https://github.com/adhishview"
                     target="_blank"
@@ -110,7 +110,7 @@ const HomePage = () => {
               </div>
 
               {/* Quick Links */}
-              <div>
+              <div className="text-center sm:text-left">
                 <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
                 <ul className="space-y-2">
                   <li>
@@ -137,7 +137,7 @@ const HomePage = () => {
               </div>
 
               {/* Contact */}
-              <div>
+              <div className="text-center sm:text-left">
                 <h4 className="text-lg font-semibold mb-4">Get In Touch</h4>
                 <ul className="space-y-2">
                   <li>
@@ -158,7 +158,7 @@ const HomePage = () => {
             </div>
 
             <div className="border-t border-slate-800 mt-8 pt-8 text-center">
-              <p className="text-slate-400">
+              <p className="text-slate-400 text-sm">
                 © {new Date()?.getFullYear()} Bala Adhish. All rights reserved. Built with React & Tailwind CSS.
               </p>
             </div>

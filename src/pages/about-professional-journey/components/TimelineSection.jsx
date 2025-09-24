@@ -161,23 +161,23 @@ skills: [
   };
 
   return (
-    <section className="section-padding bg-white">
+    <section className="py-16 sm:py-20 bg-white">
       <div className="container-width">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gradient mb-4">My Professional Journey</h2>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gradient mb-4">My Professional Journey</h2>
+          <p className="text-base sm:text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
             Explore the milestones, achievements, and growth that have shaped my path as an AI engineer and full-stack developer.
           </p>
         </div>
 
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12">
-          <div className="bg-surface rounded-lg p-2 inline-flex space-x-2">
+          <div className="bg-surface rounded-lg p-1.5 sm:p-2 inline-flex flex-wrap justify-center gap-1 sm:gap-2">
             {tabs?.map((tab) => (
               <button
                 key={tab?.id}
                 onClick={() => setActiveTab(tab?.id)}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-md font-medium transition-all duration-300 ${
+                className={`flex items-center space-x-2 px-4 py-2 sm:px-6 sm:py-3 rounded-md font-medium transition-all duration-300 text-sm sm:text-base ${
                   activeTab === tab?.id
                     ? 'bg-primary text-white shadow-md'
                     : 'text-text-secondary hover:text-primary hover:bg-white'
@@ -192,30 +192,30 @@ skills: [
 
         {/* Timeline Content */}
         <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-primary via-secondary to-accent h-full rounded-full"></div>
+          {/* Timeline Line for large screens */}
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-primary via-secondary to-accent h-full rounded-full"></div>
+          {/* Timeline Line for small screens */}
+          <div className="md:hidden absolute left-6 w-1 bg-gradient-to-b from-primary via-secondary to-accent h-full rounded-full"></div>
 
           {/* Timeline Items */}
           <div className="space-y-12">
             {timelineData?.[activeTab]?.map((item, index) => (
               <div
                 key={item?.id}
-                className={`relative flex items-center ${
-                  index % 2 === 0 ? 'justify-start' : 'justify-end'
-                }`}
+                className={`relative flex items-center md:justify-start`}
               >
                 {/* Timeline Node */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
+                <div className="absolute left-6 md:left-1/2 transform -translate-x-1/2 z-10">
                   <div className={`w-12 h-12 rounded-full ${getColorClasses(item?.color)} flex items-center justify-center shadow-lg`}>
                     <Icon name={item?.icon} size={20} />
                   </div>
                 </div>
 
                 {/* Content Card */}
-                <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
+                <div className={`w-full md:w-5/12 pl-20 md:pl-0 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8 md:ml-auto'}`}>
                   <div className="bg-white border border-border rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <div className="flex items-center justify-between mb-3">
-                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
+                      <span className={`px-3 py-1 rounded-full text-xs font-medium mb-2 sm:mb-0 ${ 
                         item?.color === 'primary' ? 'bg-primary/10 text-primary' :
                         item?.color === 'secondary'? 'bg-secondary/10 text-secondary' : 'bg-accent/10 text-accent'
                       }`}>
@@ -223,16 +223,16 @@ skills: [
                       </span>
                     </div>
                     
-                    <h3 className="text-xl font-bold text-text-primary mb-2">{item?.title}</h3>
-                    <p className="text-primary font-medium mb-3">{item?.institution}</p>
-                    <p className="text-text-secondary mb-4 leading-relaxed">{item?.description}</p>
+                    <h3 className="text-lg sm:text-xl font-bold text-text-primary mb-2">{item?.title}</h3>
+                    <p className="text-primary font-medium text-sm sm:text-base mb-3">{item?.institution}</p>
+                    <p className="text-sm text-text-secondary mb-4 leading-relaxed">{item?.description}</p>
                     
                     <div className="space-y-2">
                       <h4 className="font-semibold text-text-primary text-sm">Key Achievements:</h4>
                       <ul className="space-y-1">
                         {item?.achievements?.map((achievement, idx) => (
-                          <li key={idx} className="flex items-center space-x-2 text-sm text-text-secondary">
-                            <Icon name="CheckCircle" size={14} className="text-success flex-shrink-0" />
+                          <li key={idx} className="flex items-start space-x-2 text-sm text-text-secondary">
+                            <Icon name="CheckCircle" size={14} className="text-success flex-shrink-0 mt-1" />
                             <span>{achievement}</span>
                           </li>
                         ))}
@@ -247,9 +247,9 @@ skills: [
 
         {/* Timeline Summary */}
         <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5 rounded-2xl p-8 border border-border">
-            <h3 className="text-2xl font-bold text-gradient mb-4">Continuous Growth Mindset</h3>
-            <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+          <div className="bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5 rounded-2xl p-6 sm:p-8 border border-border">
+            <h3 className="text-xl sm:text-2xl font-bold text-gradient mb-4">Continuous Growth Mindset</h3>
+            <p className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto">
               Every milestone represents not just an achievement, but a stepping stone towards building 
               intelligent solutions that make a meaningful impact in the world of technology.
             </p>

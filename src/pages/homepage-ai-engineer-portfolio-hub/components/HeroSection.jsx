@@ -30,7 +30,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden pt-20 pb-10 md:pt-0 md:pb-0">
       {/* Background Animation */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
@@ -40,9 +40,9 @@ const HeroSection = () => {
       <div className="container-width relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center px-4 sm:px-6 lg:px-8">
           {/* Content Section */}
-          <div className={`space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3 mb-6">
+          <div className={`space-y-6 md:space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="space-y-4 text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start space-x-3 mb-4">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                 <span className="text-sm font-medium text-text-secondary">Available for opportunities</span>
               </div>
@@ -54,14 +54,14 @@ const HeroSection = () => {
                 </span>
               </h1>
               
-              <p className="text-lg sm:text-xl text-text-secondary max-w-2xl leading-relaxed">
+              <p className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                 AI Engineer & Full-Stack Developer passionate about creating intelligent solutions that bridge cutting-edge research with practical applications. Transforming complex problems into elegant, scalable systems.
               </p>
             </div>
 
             {/* Dynamic Skills Display */}
-            <div className="flex items-center space-x-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-border shadow-sm">
-              <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg">
+            <div className="flex items-center space-x-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-border shadow-sm max-w-md mx-auto lg:max-w-none lg:mx-0">
+              <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex-shrink-0">
                 <Icon 
                   name={skills?.[currentSkillIndex]?.icon} 
                   size={24} 
@@ -77,7 +77,7 @@ const HeroSection = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button
                 variant="default"
                 size="lg"
@@ -85,7 +85,7 @@ const HeroSection = () => {
                 iconName="FolderOpen"
                 iconPosition="left"
                 iconSize={20}
-                className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600"
+                className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 w-full sm:w-auto"
               >
                 View Technical Portfolio
               </Button>
@@ -94,6 +94,7 @@ const HeroSection = () => {
                 variant="outline"
                 size="lg"
                 asChild
+                className="w-full sm:w-auto"
               >
                 <a
                   href={resumePdf}
@@ -106,31 +107,31 @@ const HeroSection = () => {
             </div>
 
             {/* Quick Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
-              <div className="text-center">
+            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-border text-center">
+              <div>
                 <div className="text-2xl font-bold text-primary">15+</div>
-                <div className="text-sm text-text-secondary">Projects</div>
+                <div className="text-xs sm:text-sm text-text-secondary">Projects</div>
               </div>
-              <div className="text-center">
+              <div>
                 <div className="text-2xl font-bold text-primary">3</div>
-                <div className="text-sm text-text-secondary">Hackathon Wins</div>
+                <div className="text-xs sm:text-sm text-text-secondary">Hackathon Wins</div>
               </div>
-              <div className="text-center">
+              <div>
                 <div className="text-2xl font-bold text-primary">500+</div>
-                <div className="text-sm text-text-secondary">GitHub Commits</div>
+                <div className="text-xs sm:text-sm text-text-secondary">GitHub Commits</div>
               </div>
             </div>
           </div>
 
           {/* Image Section */}
-          <div className={`relative transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className={`relative transition-all duration-1000 delay-300 hidden lg:block ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="relative">
               {/* Main Image */}
-              <div className="relative w-80 h-80 mx-auto">
+              <div className="relative w-72 h-72 sm:w-80 sm:h-80 mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full animate-pulse opacity-20"></div>
                 <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl">
                   <Image
-                    src=""
+                    src="/src/assets/images/AdhishProfile.jpeg"
                     alt="Bala Adhish - AI Engineer"
                     className="w-full h-full object-cover"
                   />
@@ -152,7 +153,7 @@ const HeroSection = () => {
         </div>
       </div>
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden sm:block">
         <Icon name="ChevronDown" size={24} color="#64748b" />
       </div>
     </section>

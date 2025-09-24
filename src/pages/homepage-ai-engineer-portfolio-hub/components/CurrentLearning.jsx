@@ -69,13 +69,13 @@ const CurrentLearning = () => {
   };
 
   return (
-    <section className="section-padding bg-gradient-to-br from-slate-50 to-blue-50">
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="container-width">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">
             Continuous Learning Journey
           </h2>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto">
             Staying at the forefront of technology through continuous learning and research. Here's what I'm currently exploring and mastering.
           </p>
         </div>
@@ -99,16 +99,16 @@ const CurrentLearning = () => {
                   </div>
 
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="px-2 py-1 bg-surface text-text-secondary rounded-full text-xs font-medium">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                      <span className="px-2 py-1 bg-surface text-text-secondary rounded-full text-xs font-medium mb-2 sm:mb-0 self-start">
                         {item?.category}
                       </span>
-                      <span className="text-sm text-text-secondary">
+                      <span className="text-xs sm:text-sm text-text-secondary">
                         {item?.estimatedCompletion}
                       </span>
                     </div>
 
-                    <h4 className="text-lg font-bold text-text-primary mb-2">
+                    <h4 className="text-base sm:text-lg font-bold text-text-primary mb-2">
                       {item?.title}
                     </h4>
                     <p className="text-sm text-text-secondary mb-3">
@@ -158,15 +158,15 @@ const CurrentLearning = () => {
                     </div>
 
                     <div className="flex-1">
-                      <div className="flex items-center justify-between mb-2">
-                        <h4 className="text-lg font-bold text-text-primary">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                        <h4 className="text-base sm:text-lg font-bold text-text-primary mb-1 sm:mb-0">
                           {research?.title}
                         </h4>
                         <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(research?.status)}`}>
                           {research?.status}
                         </span>
                       </div>
-                      <p className="text-text-secondary">
+                      <p className="text-sm text-text-secondary">
                         {research?.description}
                       </p>
                     </div>
@@ -203,10 +203,10 @@ const CurrentLearning = () => {
         </div>
 
         {/* Learning Philosophy */}
-        <div className="mt-12 bg-white rounded-2xl p-8 shadow-lg border border-border">
+        <div className="mt-12 bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-border">
           <div className="text-center">
             <Icon name="Quote" size={32} color="#64748b" className="mx-auto mb-4" />
-            <blockquote className="text-xl text-text-primary font-medium mb-4 italic">
+            <blockquote className="text-lg sm:text-xl text-text-primary font-medium mb-4 italic">
               "The beautiful thing about learning is that no one can take it away from you. In the rapidly evolving field of AI, continuous learning isn't just an advantage—it's essential."
             </blockquote>
             <cite className="text-text-secondary">— My Learning Philosophy</cite>
