@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import Button from '../../../components/ui/Button';
 import Input from '../../../components/ui/Input';
 import Select from '../../../components/ui/Select';
@@ -6,6 +7,7 @@ import { Checkbox } from '../../../components/ui/Checkbox';
 import Icon from '../../../components/AppIcon';
 
 const ContactForm = () => {
+  const [state, handleSubmit] = useForm(import.meta.env.VITE_FORMSPREE_FORM_ID);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,9 +19,18 @@ const ContactForm = () => {
     urgency: '',
     newsletter: false
   });
-  const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
+  };
+
+  const handleSelectChange = (name, value) => {
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const inquiryTypes = [
     { value: 'job', label: 'Job Opportunity' },
@@ -54,72 +65,7 @@ const ContactForm = () => {
     { value: 'urgent', label: 'Urgent - Same day response needed' }
   ];
 
-  const handleInputChange = (e) => {
-    const { name, value, type, checked } = e?.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value
-    }));
-    
-    // Clear error when user starts typing
-    if (errors?.[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
-  };
-
-  const handleSelectChange = (name, value) => {
-    setFormData(prev => ({ ...prev, [name]: value }));
-    if (errors?.[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
-  };
-
-  const validateForm = () => {
-    const newErrors = {};
-    
-    if (!formData?.name?.trim()) newErrors.name = 'Name is required';
-    if (!formData?.email?.trim()) newErrors.email = 'Email is required';
-    else if (!/\S+@\S+\.\S+/?.test(formData?.email)) newErrors.email = 'Please enter a valid email';
-    if (!formData?.inquiryType) newErrors.inquiryType = 'Please select an inquiry type';
-    if (!formData?.projectDetails?.trim()) newErrors.projectDetails = 'Project details are required';
-    if (!formData?.timeline) newErrors.timeline = 'Timeline is required';
-    if (!formData?.urgency) newErrors.urgency = 'Urgency level is required';
-    
-    setErrors(newErrors);
-    return Object.keys(newErrors)?.length === 0;
-  };
-
-  const handleSubmit = async (e) => {
-    e?.preventDefault();
-    
-    if (!validateForm()) return;
-    
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      
-      // Reset form after success message
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({
-          name: '',
-          email: '',
-          company: '',
-          inquiryType: '',
-          projectDetails: '',
-          timeline: '',
-          budget: '',
-          urgency: '',
-          newsletter: false
-        });
-      }, 3000);
-    }, 2000);
-  };
-
-  if (isSubmitted) {
+  if (state.succeeded) {
     return (
       <div className="bg-card border border-border rounded-xl p-8 text-center">
         <div className="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -129,10 +75,20 @@ const ContactForm = () => {
         <p className="text-text-secondary mb-4">
           Thank you for reaching out. I'll review your inquiry and respond within the specified timeframe.
         </p>
-        <div className="flex items-center justify-center space-x-2 text-sm text-text-muted">
-          <Icon name="Clock" size={16} />
-          <span>Expected response: Based on your selected urgency level</span>
+      </div>
+    );
+  }
+
+  if (state.errors) {
+    return (
+      <div className="bg-card border border-border rounded-xl p-8 text-center">
+        <div className="w-16 h-16 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <Icon name="XCircle" size={32} className="text-destructive" />
         </div>
+        <h3 className="text-xl font-semibold text-text-primary mb-2">Message Failed to Send!</h3>
+        <p className="text-text-secondary mb-4">
+          Something went wrong. Please try again later.
+        </p>
       </div>
     );
   }
@@ -148,17 +104,21 @@ const ContactForm = () => {
           <p className="text-sm text-text-secondary">Let's discuss your project or opportunity</p>
         </div>
       </div>
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={(e) => handleSubmit(e, formData)} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Input
             label="Full Name"
             name="name"
             type="text"
             placeholder="Enter your full name"
-            value={formData?.name}
+            value={formData.name}
             onChange={handleInputChange}
-            error={errors?.name}
             required
+          />
+          <ValidationError 
+            prefix="Name" 
+            field="name"
+            errors={state.errors}
           />
           
           <Input
@@ -166,10 +126,14 @@ const ContactForm = () => {
             name="email"
             type="email"
             placeholder="your.email@company.com"
-            value={formData?.email}
+            value={formData.email}
             onChange={handleInputChange}
-            error={errors?.email}
             required
+          />
+          <ValidationError 
+            prefix="Email" 
+            field="email"
+            errors={state.errors}
           />
         </div>
 
@@ -179,7 +143,7 @@ const ContactForm = () => {
             name="company"
             type="text"
             placeholder="Your company name (optional)"
-            value={formData?.company}
+            value={formData.company}
             onChange={handleInputChange}
           />
           
@@ -187,10 +151,15 @@ const ContactForm = () => {
             label="Inquiry Type"
             placeholder="Select inquiry type"
             options={inquiryTypes}
-            value={formData?.inquiryType}
+            name="inquiryType"
+            value={formData.inquiryType}
             onChange={(value) => handleSelectChange('inquiryType', value)}
-            error={errors?.inquiryType}
             required
+          />
+          <ValidationError 
+            prefix="Inquiry Type" 
+            field="inquiryType"
+            errors={state.errors}
           />
         </div>
 
@@ -203,12 +172,15 @@ const ContactForm = () => {
             rows={4}
             className="w-full px-3 py-2 border border-input rounded-md bg-background text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent resize-none"
             placeholder="Please describe your project, opportunity, or inquiry in detail. Include any specific requirements, technologies involved, or questions you have."
-            value={formData?.projectDetails}
+            value={formData.projectDetails}
             onChange={handleInputChange}
+            required
           />
-          {errors?.projectDetails && (
-            <p className="text-sm text-destructive">{errors?.projectDetails}</p>
-          )}
+          <ValidationError 
+            prefix="Project Details" 
+            field="projectDetails"
+            errors={state.errors}
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -216,17 +188,23 @@ const ContactForm = () => {
             label="Timeline"
             placeholder="Select timeline"
             options={timelineOptions}
-            value={formData?.timeline}
+            name="timeline"
+            value={formData.timeline}
             onChange={(value) => handleSelectChange('timeline', value)}
-            error={errors?.timeline}
             required
+          />
+          <ValidationError 
+            prefix="Timeline" 
+            field="timeline"
+            errors={state.errors}
           />
           
           <Select
             label="Budget Range (Optional)"
             placeholder="Select budget range"
             options={budgetRanges}
-            value={formData?.budget}
+            name="budget"
+            value={formData.budget}
             onChange={(value) => handleSelectChange('budget', value)}
           />
         </div>
@@ -235,10 +213,15 @@ const ContactForm = () => {
           label="Response Urgency"
           placeholder="Select urgency level"
           options={urgencyLevels}
-          value={formData?.urgency}
+          name="urgency"
+          value={formData.urgency}
           onChange={(value) => handleSelectChange('urgency', value)}
-          error={errors?.urgency}
           required
+        />
+        <ValidationError 
+          prefix="Urgency" 
+          field="urgency"
+          errors={state.errors}
         />
 
         <div className="border-t border-border pt-6">
@@ -246,7 +229,7 @@ const ContactForm = () => {
             label="Subscribe to newsletter"
             description="Get updates on new projects, blog posts, and professional milestones"
             name="newsletter"
-            checked={formData?.newsletter}
+            checked={formData.newsletter}
             onChange={handleInputChange}
           />
         </div>
@@ -255,35 +238,13 @@ const ContactForm = () => {
           <Button
             type="submit"
             variant="default"
-            loading={isSubmitting}
+            loading={state.submitting}
             iconName="Send"
             iconPosition="right"
             className="flex-1"
+            disabled={state.submitting}
           >
-            {isSubmitting ? 'Sending Message...' : 'Send Message'}
-          </Button>
-          
-          <Button
-            type="button"
-            variant="outline"
-            onClick={() => {
-              setFormData({
-                name: '',
-                email: '',
-                company: '',
-                inquiryType: '',
-                projectDetails: '',
-                timeline: '',
-                budget: '',
-                urgency: '',
-                newsletter: false
-              });
-              setErrors({});
-            }}
-            iconName="RotateCcw"
-            iconPosition="left"
-          >
-            Reset Form
+            {state.submitting ? 'Sending Message...' : 'Send Message'}
           </Button>
         </div>
       </form>
