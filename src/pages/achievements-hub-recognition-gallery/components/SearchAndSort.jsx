@@ -15,7 +15,7 @@ const SearchAndSort = ({ searchTerm, onSearchChange, sortBy, onSortChange, viewM
   return (
     <div className="flex flex-col sm:flex-row gap-4 items-center justify-between mb-6">
       {/* Search */}
-      <div className="flex-1 max-w-md">
+      <div className="w-full sm:max-w-md">
         <Input
           type="search"
           placeholder="Search achievements..."
@@ -25,7 +25,7 @@ const SearchAndSort = ({ searchTerm, onSearchChange, sortBy, onSortChange, viewM
         />
       </div>
       {/* Sort and View Controls */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 self-end sm:self-center">
         {/* Sort Dropdown */}
         <Select
           options={sortOptions}

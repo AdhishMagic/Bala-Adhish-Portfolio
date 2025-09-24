@@ -66,18 +66,18 @@ const SkillsMatrix = () => {
   };
 
   return (
-    <section className="section-padding bg-gradient-to-br from-slate-50 to-blue-50">
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="container-width">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">
             Technical Expertise
           </h2>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto">
             A comprehensive overview of my technical skills across AI/ML, full-stack development, and data science domains.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {skillCategories?.map((category, categoryIndex) => (
             <div
               key={categoryIndex}
@@ -85,10 +85,10 @@ const SkillsMatrix = () => {
             >
               {/* Category Header */}
               <div className="flex items-center space-x-3 mb-6">
-                <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${category?.color} flex items-center justify-center`}>
+                <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${category?.color} flex items-center justify-center flex-shrink-0`}>
                   <Icon name={category?.icon} size={24} color="white" />
                 </div>
-                <h3 className="text-xl font-bold text-text-primary">
+                <h3 className="text-lg sm:text-xl font-bold text-text-primary">
                   {category?.title}
                 </h3>
               </div>
@@ -101,7 +101,7 @@ const SkillsMatrix = () => {
                   
                   return (
                     <div key={skillIndex} className="space-y-2">
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between text-sm sm:text-base">
                         <div className="flex items-center space-x-2">
                           <Icon name={skill?.icon} size={16} color="#64748b" />
                           <span className="font-medium text-text-primary">
@@ -142,23 +142,23 @@ const SkillsMatrix = () => {
         </div>
 
         {/* Overall Skills Summary */}
-        <div className="bg-white rounded-2xl p-8 shadow-lg border border-border">
-          <div className="grid md:grid-cols-4 gap-6 text-center">
-            <div className="space-y-2">
-              <div className="text-3xl font-bold text-blue-600">15+</div>
-              <div className="text-sm text-text-secondary">Programming Languages</div>
+        <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-border">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="space-y-1">
+              <div className="text-2xl sm:text-3xl font-bold text-blue-600">15+</div>
+              <div className="text-xs sm:text-sm text-text-secondary">Programming Languages</div>
             </div>
-            <div className="space-y-2">
-              <div className="text-3xl font-bold text-green-600">25+</div>
-              <div className="text-sm text-text-secondary">Frameworks & Libraries</div>
+            <div className="space-y-1">
+              <div className="text-2xl sm:text-3xl font-bold text-green-600">25+</div>
+              <div className="text-xs sm:text-sm text-text-secondary">Frameworks & Libraries</div>
             </div>
-            <div className="space-y-2">
-              <div className="text-3xl font-bold text-purple-600">10+</div>
-              <div className="text-sm text-text-secondary">AI/ML Models Built</div>
+            <div className="space-y-1">
+              <div className="text-2xl sm:text-3xl font-bold text-purple-600">10+</div>
+              <div className="text-xs sm:text-sm text-text-secondary">AI/ML Models Built</div>
             </div>
-            <div className="space-y-2">
-              <div className="text-3xl font-bold text-orange-600">2+</div>
-              <div className="text-sm text-text-secondary">Years Experience</div>
+            <div className="space-y-1">
+              <div className="text-2xl sm:text-3xl font-bold text-orange-600">2+</div>
+              <div className="text-xs sm:text-sm text-text-secondary">Years Experience</div>
             </div>
           </div>
         </div>

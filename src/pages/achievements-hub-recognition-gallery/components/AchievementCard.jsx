@@ -51,14 +51,14 @@ const AchievementCard = ({ achievement, onViewDetails }) => {
           alt={achievement?.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
-        <div className="absolute top-4 left-4">
-          <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(achievement?.category)}`}>
+        <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+          <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border ${getCategoryColor(achievement?.category)}`}>
             <Icon name={getCategoryIcon(achievement?.category)} size={12} className="mr-1" />
             {achievement?.category}
           </span>
         </div>
         {achievement?.featured && (
-          <div className="absolute top-4 right-4">
+          <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
             <div className="bg-accent text-white px-2 py-1 rounded-full text-xs font-medium flex items-center">
               <Icon name="Star" size={12} className="mr-1" />
               Featured
@@ -67,31 +67,31 @@ const AchievementCard = ({ achievement, onViewDetails }) => {
         )}
       </div>
       {/* Achievement Content */}
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         <div className="flex items-start justify-between mb-3">
-          <h3 className="text-lg font-semibold text-text-primary group-hover:text-primary transition-colors duration-300 line-clamp-2">
+          <h3 className="text-base sm:text-lg font-semibold text-text-primary group-hover:text-primary transition-colors duration-300 line-clamp-2">
             {achievement?.title}
           </h3>
-          <div className="flex items-center text-text-secondary text-sm ml-4">
+          <div className="hidden sm:flex items-center text-text-secondary text-sm ml-4 flex-shrink-0">
             <Icon name="Calendar" size={14} className="mr-1" />
             {formatDate(achievement?.date)}
           </div>
         </div>
 
-        <p className="text-text-secondary text-sm mb-4 line-clamp-3">
+        <p className="text-sm text-text-secondary mb-4 line-clamp-3">
           {achievement?.description}
         </p>
 
         {/* Achievement Stats */}
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between mb-4 text-xs">
           {achievement?.participants && (
-            <div className="flex items-center text-text-secondary text-xs">
+            <div className="flex items-center text-text-secondary">
               <Icon name="Users" size={12} className="mr-1" />
               {achievement?.participants} participants
             </div>
           )}
           {achievement?.rank && (
-            <div className="flex items-center text-accent text-xs font-medium">
+            <div className="flex items-center text-accent font-medium">
               <Icon name="Medal" size={12} className="mr-1" />
               {achievement?.rank}
             </div>
@@ -100,7 +100,7 @@ const AchievementCard = ({ achievement, onViewDetails }) => {
 
         {/* Skills Tags */}
         {achievement?.skills && achievement?.skills?.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-4">
+          <div className="flex flex-wrap gap-1.5 mb-4">
             {achievement?.skills?.slice(0, 3)?.map((skill, index) => (
               <span
                 key={index}

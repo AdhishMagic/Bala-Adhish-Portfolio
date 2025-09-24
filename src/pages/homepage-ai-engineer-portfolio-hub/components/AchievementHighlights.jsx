@@ -75,13 +75,13 @@ const AchievementHighlights = () => {
   };
 
   return (
-    <section className="section-padding bg-white">
+    <section className="py-16 sm:py-20 bg-white">
       <div className="container-width">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">
             Recognition & Achievements
           </h2>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto">
             Celebrating milestones in my journey as an AI engineer, from competition victories to research contributions and professional certifications.
           </p>
         </div>
@@ -95,24 +95,24 @@ const AchievementHighlights = () => {
             >
               <div className="flex items-start space-x-4">
                 {/* Achievement Icon */}
-                <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${achievement?.color} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-                  <span className="text-2xl">{achievement?.badge}</span>
+                <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-r ${achievement?.color} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                  <span className="text-2xl sm:text-3xl">{achievement?.badge}</span>
                 </div>
 
                 <div className="flex-1 min-w-0">
                   {/* Header */}
-                  <div className="flex items-center justify-between mb-2">
-                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${getTypeColor(achievement?.type)}`}>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${getTypeColor(achievement?.type)} mb-2 sm:mb-0`}>
                       {achievement?.type}
                     </span>
-                    <span className="text-sm text-text-secondary">{achievement?.date}</span>
+                    <span className="text-xs sm:text-sm text-text-secondary">{achievement?.date}</span>
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-text-primary mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold text-text-primary mb-2 group-hover:text-primary transition-colors">
                     {achievement?.title}
                   </h3>
-                  <p className="text-text-secondary mb-3 leading-relaxed">
+                  <p className="text-sm sm:text-base text-text-secondary mb-3 leading-relaxed">
                     {achievement?.description}
                   </p>
 
@@ -130,18 +130,18 @@ const AchievementHighlights = () => {
         </div>
 
         {/* Certifications Grid */}
-        <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-8 mb-12">
+        <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-6 sm:p-8 mb-12">
           <h3 className="text-2xl font-bold text-text-primary mb-6 text-center">
             Professional Certifications
           </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {certifications?.map((cert, index) => (
               <div
                 key={index}
                 className="bg-white rounded-lg p-4 shadow-sm border border-border hover:shadow-md transition-all duration-300"
               >
                 <div className="flex items-center space-x-3 mb-2">
-                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Icon name="Award" size={16} color="white" />
                   </div>
                   <span className="text-sm font-medium text-text-secondary">{cert?.year}</span>
@@ -156,22 +156,22 @@ const AchievementHighlights = () => {
         </div>
 
         {/* Achievement Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-          <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-border">
-            <div className="text-3xl font-bold text-yellow-600 mb-2">3</div>
-            <div className="text-sm text-text-secondary">Competition Wins</div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12">
+          <div className="text-center p-4 sm:p-6 bg-white rounded-xl shadow-sm border border-border">
+            <div className="text-2xl sm:text-3xl font-bold text-yellow-600 mb-2">3</div>
+            <div className="text-xs sm:text-sm text-text-secondary">Competition Wins</div>
           </div>
-          <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-border">
-            <div className="text-3xl font-bold text-blue-600 mb-2">5</div>
-            <div className="text-sm text-text-secondary">Research Papers</div>
+          <div className="text-center p-4 sm:p-6 bg-white rounded-xl shadow-sm border border-border">
+            <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-2">5</div>
+            <div className="text-xs sm:text-sm text-text-secondary">Research Papers</div>
           </div>
-          <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-border">
-            <div className="text-3xl font-bold text-green-600 mb-2">12</div>
-            <div className="text-sm text-text-secondary">Certifications</div>
+          <div className="text-center p-4 sm:p-6 bg-white rounded-xl shadow-sm border border-border">
+            <div className="text-2xl sm:text-3xl font-bold text-green-600 mb-2">12</div>
+            <div className="text-xs sm:text-sm text-text-secondary">Certifications</div>
           </div>
-          <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-border">
-            <div className="text-3xl font-bold text-purple-600 mb-2">200+</div>
-            <div className="text-sm text-text-secondary">Open Source PRs</div>
+          <div className="text-center p-4 sm:p-6 bg-white rounded-xl shadow-sm border border-border">
+            <div className="text-2xl sm:text-3xl font-bold text-purple-600 mb-2">200+</div>
+            <div className="text-xs sm:text-sm text-text-secondary">Open Source PRs</div>
           </div>
         </div>
 

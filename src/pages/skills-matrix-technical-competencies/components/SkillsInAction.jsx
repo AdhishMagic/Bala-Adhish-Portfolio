@@ -127,30 +127,30 @@ const SkillsInAction = () => {
   };
 
   return (
-    <div className="bg-card border border-border rounded-xl p-6">
-      <div className="flex items-center justify-between mb-6">
+    <div className="bg-card border border-border rounded-xl p-4 sm:p-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between mb-6">
         <div>
-          <h2 className="text-2xl font-bold text-text-primary">Skills in Action</h2>
-          <p className="text-text-secondary mt-1">Real-world applications and project implementations</p>
+          <h2 className="text-xl sm:text-2xl font-bold text-text-primary">Skills in Action</h2>
+          <p className="text-sm text-text-secondary mt-1">Real-world applications and project implementations</p>
         </div>
-        <Icon name="Zap" size={24} className="text-primary" />
+        <Icon name="Zap" size={24} className="text-primary mt-2 sm:mt-0" />
       </div>
       <div className="grid lg:grid-cols-4 gap-6">
         {/* Skills Navigation */}
         <div className="lg:col-span-1">
           <h3 className="font-semibold text-text-primary mb-4">Select Skill</h3>
-          <div className="space-y-2">
+          <div className="flex flex-row lg:flex-col overflow-x-auto lg:overflow-x-visible space-x-2 lg:space-x-0 lg:space-y-2 pb-2 lg:pb-0">
             {skillsList?.map((skill) => (
               <button
                 key={skill}
                 onClick={() => setSelectedSkill(skill)}
-                className={`w-full flex items-center space-x-3 p-3 rounded-lg text-left transition-all duration-300 ${
+                className={`w-full flex items-center space-x-3 p-3 rounded-lg text-left transition-all duration-300 flex-shrink-0 lg:flex-shrink-1 ${
                   selectedSkill === skill
                     ? 'bg-primary text-white shadow-md'
                     : 'bg-surface hover:bg-surface-hover text-text-secondary hover:text-text-primary'
                 }`}
               >
-                <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
                   selectedSkill === skill ? 'bg-white/20' : 'bg-primary/10'
                 }`}>
                   <Icon 
@@ -159,7 +159,7 @@ const SkillsInAction = () => {
                     className={selectedSkill === skill ? 'text-white' : 'text-primary'} 
                   />
                 </div>
-                <span className="font-medium">{skill}</span>
+                <span className="font-medium text-sm sm:text-base">{skill}</span>
               </button>
             ))}
           </div>
@@ -168,37 +168,37 @@ const SkillsInAction = () => {
         {/* Projects Display */}
         <div className="lg:col-span-3">
           <div className="flex items-center space-x-3 mb-6">
-            <div className={`w-12 h-12 bg-gradient-to-r ${getSkillColor(selectedSkill)} rounded-xl flex items-center justify-center`}>
-              <Icon name={getSkillIcon(selectedSkill)} size={24} color="white" />
+            <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${getSkillColor(selectedSkill)} rounded-xl flex items-center justify-center flex-shrink-0`}>
+              <Icon name={getSkillIcon(selectedSkill)} size={20} sm:size={24} color="white" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-text-primary">{selectedSkill} Projects</h3>
-              <p className="text-text-secondary">{skillProjects?.[selectedSkill]?.length || 0} implementations</p>
+              <h3 className="text-lg sm:text-xl font-bold text-text-primary">{selectedSkill} Projects</h3>
+              <p className="text-sm text-text-secondary">{skillProjects?.[selectedSkill]?.length || 0} implementations</p>
             </div>
           </div>
 
           <div className="space-y-6">
             {skillProjects?.[selectedSkill]?.map((project, index) => (
-              <div key={index} className="bg-surface border border-border rounded-lg p-6 hover:shadow-md transition-all duration-300">
-                <div className="flex items-start justify-between mb-4">
+              <div key={index} className="bg-surface border border-border rounded-lg p-4 sm:p-6 hover:shadow-md transition-all duration-300">
+                <div className="flex flex-col sm:flex-row items-start sm:justify-between mb-4">
                   <div className="flex-1">
-                    <h4 className="text-lg font-semibold text-text-primary mb-2">{project?.project}</h4>
-                    <p className="text-text-secondary mb-4">{project?.description}</p>
+                    <h4 className="text-base sm:text-lg font-semibold text-text-primary mb-2">{project?.project}</h4>
+                    <p className="text-sm text-text-secondary mb-4">{project?.description}</p>
                   </div>
-                  <div className="ml-4 text-right">
-                    <div className="text-sm text-text-secondary">{project?.duration}</div>
+                  <div className="ml-0 sm:ml-4 text-left sm:text-right flex-shrink-0 mt-2 sm:mt-0">
+                    <div className="text-xs sm:text-sm text-text-secondary">{project?.duration}</div>
                     <div className="text-xs text-primary font-medium">{project?.role}</div>
                   </div>
                 </div>
 
                 {/* Technologies */}
                 <div className="mb-4">
-                  <h5 className="font-medium text-text-primary mb-2">Technologies Used</h5>
+                  <h5 className="font-medium text-text-primary mb-2 text-sm">Technologies Used</h5>
                   <div className="flex flex-wrap gap-2">
                     {project?.technologies?.map((tech) => (
                       <span 
                         key={tech}
-                        className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20"
+                        className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full border border-primary/20"
                       >
                         {tech}
                       </span>
@@ -207,15 +207,15 @@ const SkillsInAction = () => {
                 </div>
 
                 {/* Impact & Actions */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between">
+                  <div className="flex items-center space-x-2 mb-3 sm:mb-0">
                     <Icon name="TrendingUp" size={16} className="text-success" />
                     <span className="text-sm font-medium text-success">{project?.impact}</span>
                   </div>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 self-end sm:self-center">
                     <Button
                       variant="outline"
-                      size="sm"
+                      size="xs"
                       iconName="Github"
                       iconPosition="left"
                       iconSize={14}
@@ -224,7 +224,7 @@ const SkillsInAction = () => {
                     </Button>
                     <Button
                       variant="ghost"
-                      size="sm"
+                      size="xs"
                       iconName="ExternalLink"
                       iconPosition="left"
                       iconSize={14}
@@ -247,28 +247,28 @@ const SkillsInAction = () => {
       <div className="border-t border-border pt-6 mt-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="text-center">
-            <div className="text-2xl font-bold text-primary">
+            <div className="text-xl sm:text-2xl font-bold text-primary">
               {Object.values(skillProjects)?.flat()?.length}
             </div>
-            <div className="text-sm text-text-secondary">Total Projects</div>
+            <div className="text-xs sm:text-sm text-text-secondary">Total Projects</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-secondary">
+            <div className="text-xl sm:text-2xl font-bold text-secondary">
               {skillsList?.length}
             </div>
-            <div className="text-sm text-text-secondary">Skills Applied</div>
+            <div className="text-xs sm:text-sm text-text-secondary">Skills Applied</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-accent">
+            <div className="text-xl sm:text-2xl font-bold text-accent">
               {Object.values(skillProjects)?.flat()?.filter(p => p?.impact?.includes('%'))?.length}
             </div>
-            <div className="text-sm text-text-secondary">Measurable Impact</div>
+            <div className="text-xs sm:text-sm text-text-secondary">Measurable Impact</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-success">
+            <div className="text-xl sm:text-2xl font-bold text-success">
               {new Set(Object.values(skillProjects).flat().flatMap(p => p.technologies))?.size}
             </div>
-            <div className="text-sm text-text-secondary">Technologies Used</div>
+            <div className="text-xs sm:text-sm text-text-secondary">Technologies Used</div>
           </div>
         </div>
       </div>

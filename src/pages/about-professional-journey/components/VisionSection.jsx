@@ -63,34 +63,34 @@ const VisionSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-white">
+    <section className="py-16 sm:py-20 bg-white">
       <div className="container-width">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gradient mb-4">Vision & Future Goals</h2>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gradient mb-4">Vision & Future Goals</h2>
+          <p className="text-base sm:text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
             My roadmap for making a meaningful impact in AI engineering and full-stack development, 
             with a focus on building solutions that benefit humanity.
           </p>
         </div>
 
         {/* Vision Areas */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 sm:mb-20">
           {visionAreas?.map((area) => (
             <div
               key={area?.id}
-              className="bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 border border-border shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              className="bg-gradient-to-br from-white to-slate-50 rounded-2xl p-6 sm:p-8 border border-border shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             >
               <div className="text-center mb-6">
-                <div className={`w-16 h-16 mx-auto rounded-xl flex items-center justify-center shadow-lg mb-4 ${
+                <div className={`w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-xl flex items-center justify-center shadow-lg mb-4 ${
                   area?.color === 'primary' ? 'bg-primary' :
                   area?.color === 'secondary' ? 'bg-secondary' : 'bg-accent'
                 }`}>
-                  <Icon name={area?.icon} size={28} color="white" />
+                  <Icon name={area?.icon} size={24} sm:size={28} color="white" />
                 </div>
-                <h3 className="text-xl font-bold text-text-primary">{area?.title}</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-text-primary">{area?.title}</h3>
               </div>
 
-              <p className="text-text-secondary mb-6 leading-relaxed text-center">
+              <p className="text-sm sm:text-base text-text-secondary mb-6 leading-relaxed text-center">
                 {area?.description}
               </p>
 
@@ -111,10 +111,10 @@ const VisionSection = () => {
         </div>
 
         {/* Future Roadmap */}
-        <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-3xl p-8 lg:p-12">
+        <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-3xl p-6 sm:p-8 lg:p-12">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gradient mb-4">Future Roadmap</h3>
-            <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gradient mb-4">Future Roadmap</h3>
+            <p className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto">
               A strategic timeline of my professional aspirations and the milestones I aim to achieve.
             </p>
           </div>
@@ -124,27 +124,27 @@ const VisionSection = () => {
               <div key={index} className="relative">
                 {/* Timeline Line */}
                 {index < futureGoals?.length - 1 && (
-                  <div className="absolute left-8 top-16 w-0.5 h-24 bg-gradient-to-b from-primary to-secondary"></div>
+                  <div className="absolute left-8 top-16 w-0.5 h-full bg-gradient-to-b from-primary to-secondary"></div>
                 )}
 
-                <div className="flex items-start space-x-6">
+                <div className="flex items-start space-x-4 sm:space-x-6">
                   {/* Timeline Node */}
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-hero-gradient rounded-full flex items-center justify-center shadow-lg">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-hero-gradient rounded-full flex items-center justify-center shadow-lg">
                       <span className="text-white font-bold text-sm">{index + 1}</span>
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="flex-1 bg-white rounded-xl p-6 shadow-md border border-border">
-                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
-                      <h4 className="text-xl font-bold text-text-primary">{goal?.title}</h4>
-                      <span className="text-primary font-semibold bg-primary/10 px-3 py-1 rounded-full text-sm mt-2 lg:mt-0 inline-block">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                      <h4 className="text-lg sm:text-xl font-bold text-text-primary">{goal?.title}</h4>
+                      <span className="text-primary font-semibold bg-primary/10 px-3 py-1 rounded-full text-xs sm:text-sm mt-2 sm:mt-0 inline-block self-start">
                         {goal?.timeline}
                       </span>
                     </div>
 
-                    <p className="text-text-secondary mb-4 leading-relaxed">
+                    <p className="text-sm sm:text-base text-text-secondary mb-4 leading-relaxed">
                       {goal?.description}
                     </p>
 
@@ -182,8 +182,8 @@ const VisionSection = () => {
 
             <div className="relative z-10">
               <Icon name="Rocket" size={48} className="mx-auto mb-6" />
-              <h3 className="text-3xl font-bold mb-4">Let's Build the Future Together</h3>
-              <p className="text-xl opacity-90 max-w-2xl mx-auto mb-8">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4">Let's Build the Future Together</h3>
+              <p className="text-base sm:text-lg lg:text-xl opacity-90 max-w-2xl mx-auto mb-8">
                 I'm always excited to collaborate with like-minded individuals and organizations 
                 who share the vision of using technology to create positive impact.
               </p>

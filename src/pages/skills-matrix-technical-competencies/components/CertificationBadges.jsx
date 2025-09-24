@@ -94,19 +94,19 @@ const CertificationBadges = () => {
   ];
 
   return (
-    <div className="bg-card border border-border rounded-xl p-6">
-      <div className="flex items-center justify-between mb-6">
+    <div className="bg-card border border-border rounded-xl p-4 sm:p-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between mb-6">
         <div>
-          <h2 className="text-2xl font-bold text-text-primary">Professional Certifications</h2>
-          <p className="text-text-secondary mt-1">Verified credentials and industry recognition</p>
+          <h2 className="text-xl sm:text-2xl font-bold text-text-primary">Professional Certifications</h2>
+          <p className="text-sm text-text-secondary mt-1">Verified credentials and industry recognition</p>
         </div>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 mt-2 sm:mt-0">
           <Icon name="Shield" size={20} className="text-success" />
           <span className="text-sm text-success font-medium">{certifications?.length} Verified</span>
         </div>
       </div>
       {/* Certification Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8">
         {certifications?.map((cert) => (
           <div key={cert?.id} className="group relative bg-surface border border-border rounded-lg p-4 hover:shadow-lg transition-all duration-300">
             {/* Gradient Border Effect */}
@@ -115,14 +115,14 @@ const CertificationBadges = () => {
             <div className="relative">
               {/* Header */}
               <div className="flex items-start justify-between mb-3">
-                <div className="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center overflow-hidden">
+                <div className="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center overflow-hidden flex-shrink-0">
                   <img 
                     src={cert?.logo} 
                     alt={cert?.issuer}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center space-x-1 ml-2">
                   <Icon name="CheckCircle" size={16} className="text-success" />
                   <span className="text-xs text-success font-medium">{cert?.status}</span>
                 </div>
@@ -130,8 +130,8 @@ const CertificationBadges = () => {
 
               {/* Content */}
               <div className="mb-4">
-                <h3 className="font-semibold text-text-primary mb-1 line-clamp-2">{cert?.name}</h3>
-                <p className="text-sm text-text-secondary mb-2">{cert?.issuer}</p>
+                <h3 className="font-semibold text-text-primary mb-1 line-clamp-2 text-sm sm:text-base">{cert?.name}</h3>
+                <p className="text-xs sm:text-sm text-text-secondary mb-2">{cert?.issuer}</p>
                 <p className="text-xs text-text-secondary">{cert?.date}</p>
               </div>
 
@@ -154,7 +154,7 @@ const CertificationBadges = () => {
 
               {/* Actions */}
               <div className="flex items-center justify-between">
-                <div className="text-xs text-text-secondary">
+                <div className="text-xs text-text-secondary truncate pr-2">
                   ID: {cert?.credentialId}
                 </div>
                 <Button
@@ -181,17 +181,17 @@ const CertificationBadges = () => {
         
         <div className="space-y-4">
           {upcomingCerts?.map((cert) => (
-            <div key={cert?.name} className="flex items-center space-x-4 p-4 bg-surface rounded-lg border border-border">
-              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+            <div key={cert?.name} className="flex items-center space-x-4 p-3 sm:p-4 bg-surface rounded-lg border border-border">
+              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Icon name="BookOpen" size={20} className="text-primary" />
               </div>
               
-              <div className="flex-1">
-                <div className="flex items-center justify-between mb-2">
-                  <h4 className="font-medium text-text-primary">{cert?.name}</h4>
-                  <span className="text-sm text-text-secondary">{cert?.plannedDate}</span>
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                  <h4 className="font-medium text-text-primary text-sm sm:text-base">{cert?.name}</h4>
+                  <span className="text-xs sm:text-sm text-text-secondary mt-1 sm:mt-0">{cert?.plannedDate}</span>
                 </div>
-                <p className="text-sm text-text-secondary mb-2">{cert?.issuer}</p>
+                <p className="text-xs sm:text-sm text-text-secondary mb-2">{cert?.issuer}</p>
                 
                 {/* Progress Bar */}
                 <div className="flex items-center space-x-2">
@@ -210,8 +210,8 @@ const CertificationBadges = () => {
       </div>
       {/* Download Section */}
       <div className="border-t border-border pt-6 mt-6">
-        <div className="flex items-center justify-between">
-          <div>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between">
+          <div className="mb-4 sm:mb-0">
             <h3 className="font-semibold text-text-primary">Skills & Certifications Summary</h3>
             <p className="text-sm text-text-secondary">Download comprehensive skills report for recruiters</p>
           </div>
@@ -220,6 +220,7 @@ const CertificationBadges = () => {
             iconName="Download"
             iconPosition="left"
             iconSize={16}
+            className="w-full sm:w-auto"
           >
             Download PDF
           </Button>

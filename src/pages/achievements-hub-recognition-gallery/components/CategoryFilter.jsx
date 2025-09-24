@@ -20,12 +20,12 @@ const CategoryFilter = ({ categories, activeCategory, onCategoryChange }) => {
   };
 
   return (
-    <div className="flex flex-wrap gap-3 mb-8">
+    <div className="flex flex-wrap gap-2 sm:gap-3 mb-8">
       {categories?.map((category) => (
         <button
           key={category?.name}
           onClick={() => onCategoryChange(category?.name)}
-          className={`flex items-center px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+          className={`flex items-center px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg font-medium transition-all duration-300 text-sm ${
             activeCategory === category?.name
               ? 'bg-primary text-white shadow-md'
               : 'bg-surface text-text-secondary hover:bg-surface-hover hover:text-text-primary'

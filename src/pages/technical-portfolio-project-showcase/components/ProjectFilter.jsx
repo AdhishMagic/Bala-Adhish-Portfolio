@@ -49,7 +49,7 @@ const ProjectFilter = ({
   const hasActiveFilters = Object.values(activeFilters)?.some(filters => filters?.length > 0);
 
   return (
-    <div className="bg-card border border-border rounded-lg p-6 mb-8">
+    <div className="bg-card border border-border rounded-lg p-4 sm:p-6 mb-8">
       {/* Search and Sort */}
       <div className="flex flex-col lg:flex-row gap-4 mb-6">
         {/* Search */}
@@ -62,7 +62,7 @@ const ProjectFilter = ({
             />
             <input
               type="text"
-              placeholder="Search projects by name, description, or technology..."
+              placeholder="Search projects..."
               value={searchQuery}
               onChange={(e) => onSearchChange(e?.target?.value)}
               className="w-full pl-10 pr-4 py-3 border border-border rounded-lg bg-background text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
@@ -94,12 +94,12 @@ const ProjectFilter = ({
         </div>
       </div>
       {/* Filter Categories */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
         {filterCategories?.map(category => (
           <div key={category?.key} className="space-y-3">
             <div className="flex items-center space-x-2">
               <Icon name={category?.icon} size={16} className="text-primary" />
-              <h4 className="font-medium text-text-primary">{category?.label}</h4>
+              <h4 className="font-medium text-text-primary text-sm sm:text-base">{category?.label}</h4>
             </div>
             <div className="space-y-2">
               {category?.options?.map(option => (
@@ -136,7 +136,7 @@ const ProjectFilter = ({
             filters?.map(filter => (
               <span
                 key={`${category}-${filter}`}
-                className="inline-flex items-center space-x-1 px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20"
+                className="inline-flex items-center space-x-1 px-2.5 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20"
               >
                 <span>{filter}</span>
                 <button
@@ -158,7 +158,7 @@ const ProjectFilter = ({
             iconName="RotateCcw"
             iconPosition="left"
             iconSize={14}
-            className="ml-2"
+            className="ml-auto"
           >
             Clear All
           </Button>

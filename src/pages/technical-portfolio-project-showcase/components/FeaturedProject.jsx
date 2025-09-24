@@ -27,15 +27,15 @@ const FeaturedProject = ({ project, onViewDetails }) => {
   return (
     <div className="bg-card border border-border rounded-xl overflow-hidden mb-8 shadow-lg">
       {/* Header */}
-      <div className="bg-hero-gradient text-white p-6">
+      <div className="bg-hero-gradient text-white p-4 sm:p-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-              <Icon name="Star" size={24} className="text-white" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+              <Icon name="Star" size={20} sm:size={24} className="text-white" />
             </div>
             <div>
-              <h2 className="text-2xl font-bold">Featured Project</h2>
-              <p className="text-white/80">Showcasing technical excellence and innovation</p>
+              <h2 className="text-lg sm:text-2xl font-bold">Featured Project</h2>
+              <p className="text-white/80 text-xs sm:text-sm">Showcasing technical excellence and innovation</p>
             </div>
           </div>
           <div className="hidden sm:flex items-center space-x-2">
@@ -46,7 +46,7 @@ const FeaturedProject = ({ project, onViewDetails }) => {
       </div>
       <div className="grid lg:grid-cols-2 gap-0">
         {/* Image Section */}
-        <div className="relative h-80 lg:h-96">
+        <div className="relative h-64 sm:h-80 lg:h-auto">
           <Image
             src={project?.gallery ? project?.gallery?.[currentImageIndex] : project?.image}
             alt={project?.title}
@@ -58,13 +58,13 @@ const FeaturedProject = ({ project, onViewDetails }) => {
             <>
               <button
                 onClick={prevImage}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-all duration-300"
+                className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-all duration-300"
               >
                 <Icon name="ChevronLeft" size={20} />
               </button>
               <button
                 onClick={nextImage}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-all duration-300"
+                className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-all duration-300"
               >
                 <Icon name="ChevronRight" size={20} />
               </button>
@@ -85,8 +85,8 @@ const FeaturedProject = ({ project, onViewDetails }) => {
           )}
 
           {/* Status Badge */}
-          <div className="absolute top-4 right-4">
-            <span className={`px-3 py-1 rounded-full text-sm font-medium border ${
+          <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
+            <span className={`px-2.5 py-1 rounded-full text-xs sm:text-sm font-medium border ${
               project?.status === 'Completed' 
                 ? 'text-green-600 bg-green-50 border-green-200' 
                 : project?.status === 'In Progress' ?'text-blue-600 bg-blue-50 border-blue-200' :'text-orange-600 bg-orange-50 border-orange-200'
@@ -97,30 +97,30 @@ const FeaturedProject = ({ project, onViewDetails }) => {
 
           {/* Awards Badge */}
           {project?.awards && project?.awards?.length > 0 && (
-            <div className="absolute top-4 left-4">
-              <div className="flex items-center space-x-1 px-3 py-1 bg-yellow-50 text-yellow-700 rounded-full border border-yellow-200">
+            <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+              <div className="flex items-center space-x-1 px-2.5 py-1 bg-yellow-50 text-yellow-700 rounded-full border border-yellow-200">
                 <Icon name="Award" size={14} />
-                <span className="text-sm font-medium">{project?.awards?.[0]}</span>
+                <span className="text-xs sm:text-sm font-medium">{project?.awards?.[0]}</span>
               </div>
             </div>
           )}
         </div>
 
         {/* Content Section */}
-        <div className="p-6 lg:p-8 flex flex-col justify-between">
+        <div className="p-4 sm:p-6 lg:p-8 flex flex-col justify-between">
           <div>
             {/* Title and Type */}
             <div className="mb-4">
-              <h3 className="text-2xl font-bold text-text-primary mb-2">{project?.title}</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-text-primary mb-2">{project?.title}</h3>
               <div className="flex items-center space-x-2 mb-3">
-                <span className={`px-3 py-1 rounded-full text-sm font-medium border ${
+                <span className={`px-3 py-1 rounded-full text-xs sm:text-sm font-medium border ${
                   project?.type === 'AI/ML' ? 'text-purple-600 bg-purple-50 border-purple-200' :
                   project?.type === 'Web Development' ? 'text-blue-600 bg-blue-50 border-blue-200' :
                   project?.type === 'Mobile'? 'text-green-600 bg-green-50 border-green-200' : 'text-gray-600 bg-gray-50 border-gray-200'
                 }`}>
                   {project?.type}
                 </span>
-                <span className={`px-3 py-1 rounded-full text-sm font-medium border ${
+                <span className={`px-3 py-1 rounded-full text-xs sm:text-sm font-medium border ${
                   project?.difficulty === 'Advanced' ? 'text-red-600 bg-red-50 border-red-200' :
                   project?.difficulty === 'Intermediate'? 'text-yellow-600 bg-yellow-50 border-yellow-200' : 'text-green-600 bg-green-50 border-green-200'
                 }`}>
@@ -130,7 +130,7 @@ const FeaturedProject = ({ project, onViewDetails }) => {
             </div>
 
             {/* Description */}
-            <p className="text-text-secondary mb-6 leading-relaxed">
+            <p className="text-sm sm:text-base text-text-secondary mb-6 leading-relaxed line-clamp-4">
               {project?.fullDescription || project?.description}
             </p>
 
@@ -141,7 +141,7 @@ const FeaturedProject = ({ project, onViewDetails }) => {
                 {project?.keyFeatures?.slice(0, 3)?.map((feature, index) => (
                   <div key={index} className="flex items-start space-x-2">
                     <Icon name="Check" size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-text-secondary text-sm">{feature}</span>
+                    <span className="text-sm text-text-secondary">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -154,13 +154,13 @@ const FeaturedProject = ({ project, onViewDetails }) => {
                 {project?.technologies?.slice(0, 6)?.map((tech, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1 bg-surface text-text-secondary text-sm rounded-md font-medium border border-border"
+                    className="px-2 py-1 bg-surface text-text-secondary text-xs sm:text-sm rounded-md font-medium border border-border"
                   >
                     {tech}
                   </span>
                 ))}
                 {project?.technologies?.length > 6 && (
-                  <span className="px-3 py-1 bg-surface text-text-secondary text-sm rounded-md font-medium border border-border">
+                  <span className="px-2 py-1 bg-surface text-text-secondary text-xs sm:text-sm rounded-md font-medium border border-border">
                     +{project?.technologies?.length - 6} more
                   </span>
                 )}
@@ -170,15 +170,15 @@ const FeaturedProject = ({ project, onViewDetails }) => {
             {/* Metrics */}
             <div className="grid grid-cols-3 gap-4 mb-6 py-4 border-t border-b border-border">
               <div className="text-center">
-                <div className="text-lg font-bold text-primary">{project?.metrics?.linesOfCode}</div>
+                <div className="text-base sm:text-lg font-bold text-primary">{project?.metrics?.linesOfCode}</div>
                 <div className="text-xs text-text-secondary">Lines of Code</div>
               </div>
               <div className="text-center">
-                <div className="text-lg font-bold text-primary">{project?.metrics?.duration}</div>
+                <div className="text-base sm:text-lg font-bold text-primary">{project?.metrics?.duration}</div>
                 <div className="text-xs text-text-secondary">Duration</div>
               </div>
               <div className="text-center">
-                <div className="text-lg font-bold text-primary">{project?.metrics?.userImpact}</div>
+                <div className="text-base sm:text-lg font-bold text-primary">{project?.metrics?.userImpact}</div>
                 <div className="text-xs text-text-secondary">Impact</div>
               </div>
             </div>
