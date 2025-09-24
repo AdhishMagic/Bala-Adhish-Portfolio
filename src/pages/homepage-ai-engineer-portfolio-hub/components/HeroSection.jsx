@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
+import resumePdf from '../../../assets/resume/Resume.pdf';
 
 const HeroSection = () => {
   const navigate = useNavigate();
@@ -26,14 +27,6 @@ const HeroSection = () => {
 
   const handleViewPortfolio = () => {
     navigate('/technical-portfolio-project-showcase');
-  };
-
-  const handleDownloadResume = () => {
-    // Mock resume download
-    const link = document.createElement('a');
-    link.href = '/assets/resume/bala-adhish-resume.pdf';
-    link.download = 'Bala_Adhish_Resume.pdf';
-    link?.click();
   };
 
   return (
@@ -100,12 +93,15 @@ const HeroSection = () => {
               <Button
                 variant="outline"
                 size="lg"
-                onClick={handleDownloadResume}
-                iconName="Download"
-                iconPosition="left"
-                iconSize={20}
+                asChild
               >
-                Download Resume
+                <a
+                  href={resumePdf}
+                  download="Bala_Adhish_Resume.pdf"
+                >
+                  <Icon name="Download" size={20} className="mr-2" />
+                  <span>Download Resume</span>
+                </a>
               </Button>
             </div>
 
