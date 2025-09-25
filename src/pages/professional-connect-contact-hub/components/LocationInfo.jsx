@@ -3,7 +3,7 @@ import Icon from '../../../components/AppIcon';
 
 const LocationInfo = () => {
   const locationData = {
-    city: 'Chennai',
+    city: 'Coimbatore',
     state: 'Tamil Nadu',
     country: 'India',
     timezone: 'IST (UTC+5:30)',
@@ -30,7 +30,7 @@ const LocationInfo = () => {
     },
     {
       type: 'On-site (Local)',
-      availability: 'Chennai Area',
+      availability: 'Coimbatore Area',
       description: 'Available for local opportunities',
       icon: 'MapPin',
       color: 'text-accent'
@@ -94,7 +94,7 @@ const LocationInfo = () => {
               width="100%"
               height="200"
               loading="lazy"
-              title="Chennai Location"
+              title="Coimbatore Location"
               referrerPolicy="no-referrer-when-downgrade"
               src={`https://www.google.com/maps?q=${locationData?.coordinates?.lat},${locationData?.coordinates?.lng}&z=12&output=embed`}
               className="border-0"
@@ -164,7 +164,7 @@ const LocationInfo = () => {
           <span className="font-medium text-primary">Local Opportunities</span>
         </div>
         <p className="text-sm text-text-secondary">
-          Particularly interested in Chennai-based startups and tech companies. 
+          Particularly interested in Coimbatore-based startups and tech companies. 
           Available for in-person meetings and on-site collaboration.
         </p>
       </div>

@@ -5,7 +5,6 @@ import TimelineSection from './components/TimelineSection';
 import ValuesSection from './components/ValuesSection';
 import VisionSection from './components/VisionSection';
 import PersonalSection from './components/PersonalSection';
-
 import DownloadSection from './components/DownloadSection';
 
 const AboutProfessionalJourney = () => {
@@ -35,23 +34,26 @@ const AboutProfessionalJourney = () => {
         
         {/* Personal Section */}
         <PersonalSection />
+
+        {/* Download Section */}
+        <DownloadSection />
         
         
       </main>
       {/* Footer */}
-      <footer className="bg-slate-900 text-white py-12">
+      <footer className="bg-background text-foreground py-12">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="text-center">
             <div className="mb-6">
               <div className="w-12 h-12 bg-hero-gradient rounded-lg flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-lg">B</span>
+                <span className="text-primary-foreground font-bold text-lg">B</span>
               </div>
               <h3 className="text-xl font-bold mb-2">Bala Adhish</h3>
-              <p className="text-slate-400">AI Engineer & Full-Stack Visionary</p>
+              <p className="text-text-secondary">AI Engineer & Full-Stack Visionary</p>
             </div>
             
-            <div className="border-t border-slate-700 pt-6">
-              <p className="text-slate-400 text-sm">
+            <div className="border-t border-border pt-6">
+              <p className="text-text-secondary text-sm">
                 © {new Date()?.getFullYear()} Bala Adhish. All rights reserved. Built with passion for innovation and excellence.
               </p>
             </div>

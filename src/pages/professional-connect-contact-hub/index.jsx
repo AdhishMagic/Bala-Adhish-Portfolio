@@ -6,7 +6,7 @@ import AvailabilityStatus from './components/AvailabilityStatus';
 import QuickConnect from './components/QuickConnect';
 import LocationInfo from './components/LocationInfo';
 import ContactFAQ from './components/ContactFAQ';
-import ReferenceSection from './components/ReferenceSection';
+
 
 const ProfessionalConnectContactHub = () => {
   useEffect(() => {
@@ -35,7 +35,7 @@ const ProfessionalConnectContactHub = () => {
     },
     {
       label: 'Location',
-      value: 'Chennai, India',
+      value: 'Coimbatore, India',
       icon: 'MapPin',
       color: 'text-secondary'
     }
@@ -118,12 +118,7 @@ const ProfessionalConnectContactHub = () => {
           </div>
         </div>
       </section>
-      {/* References Section */}
-      <section className="py-16 bg-surface">
-        <div className="container-width px-4 sm:px-6 lg:px-8">
-          <ReferenceSection />
-        </div>
-      </section>
+      
       {/* Security & Trust Section */}
       <section className="py-16">
         <div className="container-width px-4 sm:px-6 lg:px-8">
