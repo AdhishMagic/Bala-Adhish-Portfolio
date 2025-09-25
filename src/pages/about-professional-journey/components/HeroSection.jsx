@@ -5,7 +5,7 @@ import AdhishProfile from '../../../assets/images/AdhishProfile.jpeg';
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-16 sm:py-20 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-muted/50 via-background to-muted/50 py-16 sm:py-20 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-32 h-32 bg-primary rounded-full blur-3xl"></div>
@@ -22,8 +22,8 @@ const HeroSection = () => {
               <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-secondary/20 rounded-full blur-xl"></div>
               
               {/* Main Image Container */}
-              <div className="relative bg-white p-4 sm:p-6 rounded-2xl shadow-2xl">
-                <div className="aspect-square overflow-hidden rounded-xl">
+              <div className="relative bg-card p-4 sm:p-6 rounded-2xl shadow-2xl">
+                <div className="aspect-square overflow-hidden rounded-xl border-4 border-card">
                   <Image
                     src={AdhishProfile}
                     alt="Bala Adhish - AI Engineer and Full-Stack Developer"
@@ -39,14 +39,15 @@ const HeroSection = () => {
               </div>
 
               {/* Floating Elements */}
-              <div className="absolute top-1/4 -left-4 sm:-left-8 bg-white p-2 sm:p-3 rounded-lg shadow-lg animate-float">
-                <Icon name="Code" size={16} sm:size={20} className="text-primary" />
+              {/* Floating Tech Icons */}
+              <div className="absolute top-8 left-8 w-14 h-14 bg-card rounded-full shadow-lg flex items-center justify-center animate-float">
+                <Icon name="Brain" size={20} className="text-primary" />
               </div>
-              <div className="absolute bottom-1/4 -right-4 sm:-right-8 bg-white p-2 sm:p-3 rounded-lg shadow-lg animate-float" style={{animationDelay: '1s'}}>
-                <Icon name="Brain" size={16} sm:size={20} className="text-secondary" />
+              <div className="absolute top-1/2 right-8 w-14 h-14 bg-card rounded-full shadow-lg flex items-center justify-center animate-float" style={{animationDelay: '1s'}}>
+                <Icon name="Code" size={20} className="text-secondary" />
               </div>
-              <div className="absolute top-1/2 -right-6 sm:-right-12 bg-white p-2 sm:p-3 rounded-lg shadow-lg animate-float" style={{animationDelay: '2s'}}>
-                <Icon name="Lightbulb" size={16} sm:size={20} className="text-accent" />
+              <div className="absolute bottom-8 left-8 w-14 h-14 bg-card rounded-full shadow-lg flex items-center justify-center animate-float" style={{animationDelay: '2s'}}>
+                <Icon name="Database" size={20} className="text-accent" />
               </div>
             </div>
           </div>
@@ -76,15 +77,15 @@ const HeroSection = () => {
 
             {/* Quick Stats */}
             <div className="grid grid-cols-3 gap-4 sm:gap-6">
-              <div className="text-center p-4 bg-white/60 backdrop-blur-sm rounded-lg border border-border">
+              <div className="text-center p-4 bg-card/60 backdrop-blur-sm rounded-lg border border-border">
                 <div className="text-xl sm:text-2xl font-bold text-primary">3+</div>
                 <div className="text-xs sm:text-sm text-text-secondary">Years Coding</div>
               </div>
-              <div className="text-center p-4 bg-white/60 backdrop-blur-sm rounded-lg border border-border">
+              <div className="text-center p-4 bg-card/60 backdrop-blur-sm rounded-lg border border-border">
                 <div className="text-xl sm:text-2xl font-bold text-primary">10+</div>
                 <div className="text-xs sm:text-sm text-text-secondary">Projects Built</div>
               </div>
-              <div className="text-center p-4 bg-white/60 backdrop-blur-sm rounded-lg border border-border">
+              <div className="text-center p-4 bg-card/60 backdrop-blur-sm rounded-lg border border-border">
                 <div className="text-xl sm:text-2xl font-bold text-primary">30+</div>
                 <div className="text-xs sm:text-sm text-text-secondary">Certifications</div>
               </div>
