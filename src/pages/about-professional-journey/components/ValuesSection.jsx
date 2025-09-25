@@ -61,7 +61,7 @@ const ValuesSection = () => {
 
   return (
     <section className="py-16 sm:py-20 bg-gradient-to-br from-slate-50 to-blue-50">
-      <div className="container-width">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gradient mb-4">Core Values & Philosophy</h2>
           <p className="text-base sm:text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">

@@ -3,7 +3,7 @@ import { BrowserRouter, Routes as RouterRoutes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import ErrorBoundary from "./components/ErrorBoundary";
 import NotFound from "./pages/NotFound";
-import AchievementsHub from './pages/achievements-hub-recognition-gallery';
+
 import AboutProfessionalJourney from './pages/about-professional-journey';
 import ProfessionalConnectContactHub from './pages/professional-connect-contact-hub';
 import SkillsMatrixPage from './pages/skills-matrix-technical-competencies';
@@ -18,7 +18,7 @@ const Routes = () => {
       <RouterRoutes>
         {/* Define your route here */}
         <Route path="/" element={<AboutProfessionalJourney />} />
-        <Route path="/achievements-hub-recognition-gallery" element={<AchievementsHub />} />
+        
         <Route path="/about-professional-journey" element={<AboutProfessionalJourney />} />
         <Route path="/professional-connect-contact-hub" element={<ProfessionalConnectContactHub />} />
         <Route path="/skills-matrix-technical-competencies" element={<SkillsMatrixPage />} />

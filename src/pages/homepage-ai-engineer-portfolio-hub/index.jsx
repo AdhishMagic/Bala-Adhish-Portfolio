@@ -67,7 +67,7 @@ const HomePage = () => {
 
         {/* Footer */}
         <footer className="bg-slate-900 text-white py-12 sm:py-16">
-          <div className="container-width px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
               {/* Brand */}
               <div className="lg:col-span-2 text-center sm:text-left">

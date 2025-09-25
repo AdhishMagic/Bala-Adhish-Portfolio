@@ -37,7 +37,7 @@ const HeroSection = () => {
         <div className="absolute top-40 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
       </div>
-      <div className="container-width relative z-10">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center px-4 sm:px-6 lg:px-8">
           {/* Content Section */}
           <div className={`space-y-6 md:space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>

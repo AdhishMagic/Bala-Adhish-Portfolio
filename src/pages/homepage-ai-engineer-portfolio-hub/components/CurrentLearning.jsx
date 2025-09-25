@@ -70,7 +70,7 @@ const CurrentLearning = () => {
 
   return (
     <section className="py-16 sm:py-20 bg-gradient-to-br from-slate-50 to-blue-50">
-      <div className="container-width">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">
             Continuous Learning Journey
