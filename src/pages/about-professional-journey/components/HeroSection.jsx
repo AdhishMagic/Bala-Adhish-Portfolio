@@ -12,7 +12,7 @@ const HeroSection = () => {
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-secondary rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-accent rounded-full blur-3xl"></div>
       </div>
-      <div className="container-width relative z-10">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Profile Image */}
           <div className="relative w-full max-w-xs sm:max-w-sm mx-auto lg:mx-0 lg:max-w-none lg:w-2/5">
@@ -32,8 +32,8 @@ const HeroSection = () => {
                 </div>
                 
                 {/* Status Indicator */}
-                <div className="absolute top-4 right-4 flex items-center space-x-2 bg-success/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-medium">
-                  <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                <div className="absolute top-8 right-6 flex items-center space-x-2 bg-success/90 backdrop-blur-sm text-green-500 px-3 py-1 rounded-full text-xs font-medium">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                   <span>Available</span>
                 </div>
               </div>
@@ -81,12 +81,12 @@ const HeroSection = () => {
                 <div className="text-xs sm:text-sm text-text-secondary">Years Coding</div>
               </div>
               <div className="text-center p-4 bg-white/60 backdrop-blur-sm rounded-lg border border-border">
-                <div className="text-xl sm:text-2xl font-bold text-primary">15+</div>
+                <div className="text-xl sm:text-2xl font-bold text-primary">10+</div>
                 <div className="text-xs sm:text-sm text-text-secondary">Projects Built</div>
               </div>
               <div className="text-center p-4 bg-white/60 backdrop-blur-sm rounded-lg border border-border">
-                <div className="text-xl sm:text-2xl font-bold text-primary">5+</div>
-                <div className="text-xs sm:text-sm text-text-secondary">Awards Won</div>
+                <div className="text-xl sm:text-2xl font-bold text-primary">30+</div>
+                <div className="text-xs sm:text-sm text-text-secondary">Certifications</div>
               </div>
             </div>
 

@@ -5,7 +5,7 @@ import TimelineSection from './components/TimelineSection';
 import ValuesSection from './components/ValuesSection';
 import VisionSection from './components/VisionSection';
 import PersonalSection from './components/PersonalSection';
-import TestimonialsSection from './components/TestimonialsSection';
+
 import DownloadSection from './components/DownloadSection';
 
 const AboutProfessionalJourney = () => {
@@ -36,12 +36,11 @@ const AboutProfessionalJourney = () => {
         {/* Personal Section */}
         <PersonalSection />
         
-        {/* Download Section */}
-        <DownloadSection />
+        
       </main>
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-12">
-        <div className="container-width">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="text-center">
             <div className="mb-6">
               <div className="w-12 h-12 bg-hero-gradient rounded-lg flex items-center justify-center mx-auto mb-4">

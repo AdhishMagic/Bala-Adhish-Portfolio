@@ -4,86 +4,91 @@ import Icon from '../../../components/AppIcon';
 const PersonalSection = () => {
   const [activeTab, setActiveTab] = useState('philosophy');
 
-  const personalData = {
-    philosophy: {
-      title: "Learning Philosophy",
-      content: [
-        {
-          principle: "Learn by Building",
-          description: "I believe the best way to understand a concept is to implement it. Every new technology I learn, I immediately apply it to a practical project.",
-          example: "When learning TensorFlow, I built a real-time object detection system for my college's security department."
-        },
-        {
-          principle: "Teach to Learn",
-          description: "Teaching others solidifies my own understanding. I regularly mentor junior developers and write technical blogs to share knowledge.",
-          example: "Created a YouTube series on 'AI for Beginners' that has helped over 5,000 students understand machine learning concepts."
-        },
-        {
-          principle: "Fail Fast, Learn Faster",
-          description: "I embrace failure as a learning opportunity. Quick iterations and rapid prototyping help me discover what works and what doesn't.",
-          example: "Failed at my first three startup ideas, but each failure taught me valuable lessons about market research and user validation."
-        }
-      ]
-    },
-    technologies: {
-      title: "Favorite Technologies",
-      content: [
-        {
-          principle: "Python & AI/ML Stack",
-          description: "Python's simplicity combined with powerful libraries like TensorFlow, PyTorch, and scikit-learn makes it my go-to for AI development.",
-          example: "Built 15+ machine learning models using Python, from simple linear regression to complex neural networks."
-        },
-        {
-          principle: "React & Modern JavaScript",
-          description: "React's component-based architecture and the modern JavaScript ecosystem enable me to build scalable, maintainable web applications.",
-          example: "Developed a real-time collaboration platform using React, WebSockets, and Node.js that supports 1000+ concurrent users."
-        },
-        {
-          principle: "Cloud Technologies",
-          description: "AWS and Google Cloud provide the infrastructure needed to deploy and scale AI applications globally.",
-          example: "Deployed machine learning models on AWS Lambda that process over 100,000 requests daily with 99.9% uptime."
-        }
-      ]
-    },
-    motivation: {
-      title: "What Drives Me",
-      content: [
-        {
-          principle: "Solving Real Problems",
-          description: "I\'m motivated by the opportunity to use technology to solve genuine problems that affect people's lives.",
-          example: "Developed an AI-powered app that helps farmers predict crop diseases, potentially saving thousands of dollars in losses."
-        },
-        {
-          principle: "Continuous Innovation",
-          description: "The rapid pace of technological advancement excites me. There's always something new to learn and explore.",
-          example: "Currently exploring quantum computing and its potential applications in machine learning optimization."
-        },
-        {
-          principle: "Building Community",
-          description: "I believe in the power of community and collaboration. The best innovations come from diverse teams working together.",
-          example: "Founded a local AI meetup group that now has 500+ members and hosts monthly workshops and hackathons."
-        }
-      ]
-    }
-  };
+const personalData = {
+  philosophy: {
+    title: "Learning Philosophy",
+    content: [
+      {
+        principle: "Learn by Doing",
+        description: "I believe that real learning happens through practice. Whenever I explore a new concept, I try to implement it in a project immediately.",
+        example: "When I started with HTML, CSS, and JavaScript, I built my own portfolio website as my first project."
+      },
+      {
+        principle: "Share Knowledge, Grow Knowledge",
+        description: "Explaining concepts to others and collaborating with peers helps me strengthen my own understanding.",
+        example: "Guided my friends during hackathons and group projects, ensuring everyone learned and contributed equally."
+      },
+      {
+        principle: "Embrace Challenges",
+        description: "Every failure is an opportunity to improve. Hackathons and competitions have shaped my problem-solving mindset.",
+        example: "Even when my team struggled in a hackathon, we gained lessons on time management, teamwork, and strategy."
+      }
+    ]
+  },
+  technologies: {
+    title: "Favorite Technologies",
+    content: [
+      {
+        principle: "Python & AI/ML",
+        description: "Python is my go-to language for building intelligent systems and solving data-driven problems.",
+        example: "Developed AI projects like irrigation & fertigation prediction models and a computer sales prediction system."
+      },
+      {
+        principle: "Web Development",
+        description: "Frontend and full-stack development allow me to create interactive, user-friendly applications.",
+        example: "Built projects like StudyBuddy (a study planner) and HealthHive (a wellness platform) using HTML, CSS, JavaScript, and Django."
+      },
+      {
+        principle: "Cloud Technologies",
+        description: "Cloud platforms enable me to scale and deploy applications efficiently, making solutions widely accessible.",
+        example: "Deployed web applications and AI models on cloud platforms to ensure scalability and reliability."
+      }
+    ]
+  },
+  motivation: {
+    title: "What Drives Me",
+    content: [
+      {
+        principle: "Real-World Impact",
+        description: "I’m motivated to solve real challenges in fields like education, productivity, and healthcare.",
+        example: "Created an AI-powered crop disease detection model to help farmers reduce losses."
+      },
+      {
+        principle: "Growth & Exploration",
+        description: "The continuous evolution of technology inspires me to keep learning and adapting.",
+        example: "Currently preparing for TCS Digital while strengthening my knowledge in DSA, Python, and full-stack development."
+      },
+      {
+        principle: "Teamwork & Community",
+        description: "I enjoy collaborating with peers and believe the best ideas come from working together.",
+        example: "Participated in hackathons with my team Hack Elites, where we gained recognition and valuable experience."
+      }
+    ]
+  }
+};
 
-  const interests = [
-    { name: "Quantum Computing", icon: "Atom", color: "primary" },
-    { name: "Computer Vision", icon: "Eye", color: "secondary" },
-    { name: "Natural Language Processing", icon: "MessageSquare", color: "accent" },
-    { name: "Blockchain Technology", icon: "Link", color: "success" },
-    { name: "IoT & Edge Computing", icon: "Wifi", color: "warning" },
-    { name: "Robotics", icon: "Bot", color: "error" }
-  ];
 
-  const hobbies = [
-    { name: "Photography", icon: "Camera", description: "Capturing moments and exploring creative perspectives" },
-    { name: "Chess", icon: "Crown", description: "Strategic thinking and pattern recognition" },
-    { name: "Hiking", icon: "Mountain", description: "Connecting with nature and staying physically active" },
-    { name: "Reading", icon: "BookOpen", description: "Sci-fi novels and technology biographies" },
-    { name: "Music", icon: "Music", description: "Playing guitar and exploring different genres" },
-    { name: "Cooking", icon: "ChefHat", description: "Experimenting with cuisines from around the world" }
-  ];
+const interests = [
+  { name: "Artificial Intelligence", icon: "Cpu", color: "primary" },
+  { name: "Machine Learning", icon: "Brain", color: "secondary" },
+  { name: "Deep Learning", icon: "Activity", color: "accent" },
+  { name: "Web Development", icon: "Globe", color: "success" },
+  { name: "Software Development", icon: "Laptop", color: "warning" },
+  { name: "Data Structures & Algorithms", icon: "Code", color: "error" },
+  { name: "Generative AI", icon: "Sparkles", color: "info" },
+  { name: "Natural Language Processing", icon: "MessageSquare", color: "purple" }
+];
+
+
+ const hobbies = [
+  { name: "Cooking", icon: "ChefHat", description: "Experimenting with different cuisines and recipes" },
+  { name: "Sports & Fitness", icon: "Activity", description: "Staying active and maintaining a healthy lifestyle" },
+  { name: "Chess", icon: "Crown", description: "Strategic thinking and enhancing problem-solving skills" },
+  { name: "Reading Articles", icon: "BookOpen", description: "Learning from tech blogs, news, and insightful articles" },
+  { name: "Listening to Music", icon: "Music", description: "Relaxing and enjoying different music genres" },
+  { name: "Watching Movies", icon: "Film", description: "Exploring stories, creativity, and visual storytelling" }
+];
+
 
   const tabs = [
     { id: 'philosophy', label: 'Learning Philosophy', icon: 'Lightbulb' },
@@ -92,8 +97,8 @@ const PersonalSection = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-br from-blue-50 via-white to-cyan-50">
-      <div className="container-width">
+    <section className="py-4 sm:py-5 bg-gradient-to-br from-blue-50 via-white to-cyan-50">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gradient mb-4">Personal Insights</h2>
           <p className="text-base sm:text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">

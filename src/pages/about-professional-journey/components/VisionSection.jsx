@@ -1,5 +1,7 @@
 import React from 'react';
 import Icon from '../../../components/AppIcon';
+import Button from '../../../components/ui/Button';
+import resumePdf from '../../../assets/resume/Resume.pdf';
 
 const VisionSection = () => {
   const visionAreas = [
@@ -64,7 +66,7 @@ const VisionSection = () => {
 
   return (
     <section className="py-16 sm:py-20 bg-white">
-      <div className="container-width">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gradient mb-4">Vision & Future Goals</h2>
           <p className="text-base sm:text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
@@ -188,14 +190,32 @@ const VisionSection = () => {
                 who share the vision of using technology to create positive impact.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors duration-300 flex items-center justify-center space-x-2">
-                  <Icon name="Mail" size={20} />
+                <Button
+                variant="default"
+                size="lg"
+                asChild
+                className="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors duration-300 flex items-center justify-center space-x-2 w-full sm:w-auto"
+              >
+                <a href="/Bala-Adhish-Portfolio/professional-connect-contact-hub">
+                  <Icon name="Mail" size={20} className="mr-2" />
                   <span>Get In Touch</span>
-                </button>
-                <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-all duration-300 flex items-center justify-center space-x-2">
-                  <Icon name="Download" size={20} />
+                </a>
+              </Button>
+                <Button
+                variant="outline"
+                size="lg"
+                asChild
+                className="w-full sm:w-auto"
+              >
+                <a
+                  href={resumePdf}
+                  download="Bala_Adhish_Resume.pdf"
+                  className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-all duration-300 flex items-center justify-center space-x-2"
+                >
+                  <Icon name="Download" size={20} className="mr-2" />
                   <span>Download Resume</span>
-                </button>
+                </a>
+              </Button>
               </div>
             </div>
           </div>
