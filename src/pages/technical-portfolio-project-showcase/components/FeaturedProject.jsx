@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
+import { getImageForProject } from '../../../utils/projectImages';
 
 const FeaturedProject = ({ project, onViewDetails }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   if (!project) return null;
+
+  // Compute the cover image source deterministically (no conditional hook calls)
+  const coverSrc = useMemo(() => {
+    if (project?.gallery && project?.gallery?.length > 0) {
+      return project?.gallery?.[currentImageIndex];
+    }
+    return getImageForProject(project);
+  }, [project, currentImageIndex]);
 
   const nextImage = () => {
     if (project?.gallery && project?.gallery?.length > 1) {
@@ -48,7 +57,7 @@ const FeaturedProject = ({ project, onViewDetails }) => {
         {/* Image Section */}
         <div className="relative h-64 sm:h-80 lg:h-auto">
           <Image
-            src={project?.gallery ? project?.gallery?.[currentImageIndex] : project?.image}
+            src={coverSrc}
             alt={project?.title}
             className="w-full h-full object-cover"
           />

@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
+import { getImageForProject } from '../../../utils/projectImages';
 
 const ProjectModal = ({ project, isOpen, onClose }) => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -88,7 +89,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
               {/* Hero Image */}
               <div className="relative h-64 rounded-lg overflow-hidden">
                 <Image
-                  src={project?.image}
+                  src={useMemo(() => getImageForProject(project), [project])}
                   alt={project?.title}
                   className="w-full h-full object-cover"
                 />
