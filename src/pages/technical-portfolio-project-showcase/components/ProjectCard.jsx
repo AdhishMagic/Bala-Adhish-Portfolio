@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
+import { getImageForProject } from '../../../utils/projectImages';
 
 const ProjectCard = ({ project, onViewDetails }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -35,7 +36,7 @@ const ProjectCard = ({ project, onViewDetails }) => {
       {/* Project Image */}
       <div className="relative overflow-hidden h-48">
         <Image
-          src={project?.image}
+          src={useMemo(() => getImageForProject(project), [project])}
           alt={project?.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />

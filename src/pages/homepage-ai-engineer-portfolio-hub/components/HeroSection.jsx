@@ -109,15 +109,15 @@ const HeroSection = () => {
             {/* Quick Stats */}
             <div className="grid grid-cols-3 gap-4 pt-6 border-t border-border text-center">
               <div>
-                <div className="text-2xl font-bold text-primary">15+</div>
+                <div className="text-2xl font-bold text-primary">10+</div>
                 <div className="text-xs sm:text-sm text-text-secondary">Projects</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-primary">3</div>
-                <div className="text-xs sm:text-sm text-text-secondary">Hackathon Wins</div>
+                <div className="text-2xl font-bold text-primary">20+</div>
+                <div className="text-xs sm:text-sm text-text-secondary">Mini Projects</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-primary">500+</div>
+                <div className="text-2xl font-bold text-primary">150+</div>
                 <div className="text-xs sm:text-sm text-text-secondary">GitHub Commits</div>
               </div>
             </div>
