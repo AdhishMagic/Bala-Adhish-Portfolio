@@ -2,20 +2,26 @@ import React from 'react';
 import Icon from '../../../components/AppIcon';
 
 const SkillsOverview = ({ skillsData }) => {
-  const totalSkills = skillsData?.reduce((acc, category) => acc + category?.skills?.length, 0);
-  const averageProficiency = Math.round(
-    skillsData?.reduce((acc, category) => 
-      acc + category?.skills?.reduce((skillAcc, skill) => skillAcc + skill?.proficiency, 0)
-    , 0) / totalSkills
-  );
+  const totalSkills = skillsData?.reduce((acc, category) => acc + (category?.skills?.length || 0), 0) || 0;
+  const sumProficiency = skillsData?.reduce((acc, category) => 
+    acc + category?.skills?.reduce((skillAcc, skill) => skillAcc + (skill?.proficiency || 0), 0)
+  , 0);
+  const averageProficiency = totalSkills ? Math.round(((sumProficiency / totalSkills)) * 10) / 10 : 0;
   
   const expertSkills = skillsData?.reduce((acc, category) => 
-    acc + category?.skills?.filter(skill => skill?.proficiency >= 85)?.length, 0
-  );
-  
+    acc + (category?.skills?.filter(skill => (skill?.proficiency || 0) >= 85)?.length || 0), 0
+  ) || 0;
   const advancedSkills = skillsData?.reduce((acc, category) => 
-    acc + category?.skills?.filter(skill => skill?.proficiency >= 70 && skill?.proficiency < 85)?.length, 0
-  );
+    acc + (category?.skills?.filter(skill => (skill?.proficiency || 0) >= 70 && (skill?.proficiency || 0) < 85)?.length || 0), 0
+  ) || 0;
+  const intermediateSkills = skillsData?.reduce((acc, category) => 
+    acc + (category?.skills?.filter(skill => (skill?.proficiency || 0) >= 50 && (skill?.proficiency || 0) < 70)?.length || 0), 0
+  ) || 0;
+  const beginnerSkills = skillsData?.reduce((acc, category) => 
+    acc + (category?.skills?.filter(skill => (skill?.proficiency || 0) < 50)?.length || 0), 0
+  ) || 0;
+
+  const pct = (n) => totalSkills ? `${Math.round((n / totalSkills) * 100)}%` : '0%';
 
   const stats = [
     {
@@ -35,14 +41,14 @@ const SkillsOverview = ({ skillsData }) => {
     {
       icon: 'Star',
       label: 'Expert Level',
-      value: expertSkills,
+      value: `${expertSkills} (${pct(expertSkills)})`,
       color: 'text-accent',
       bgColor: 'bg-accent/10'
     },
     {
       icon: 'Award',
       label: 'Advanced Level',
-      value: advancedSkills,
+      value: `${advancedSkills} (${pct(advancedSkills)})`,
       color: 'text-success',
       bgColor: 'bg-success/10'
     }
@@ -78,12 +84,8 @@ const SkillsOverview = ({ skillsData }) => {
           {[
             { level: 'Expert (85-100%)', count: expertSkills, color: 'bg-green-500' },
             { level: 'Advanced (70-84%)', count: advancedSkills, color: 'bg-blue-500' },
-            { level: 'Intermediate (50-69%)', count: skillsData?.reduce((acc, cat) => 
-              acc + cat?.skills?.filter(s => s?.proficiency >= 50 && s?.proficiency < 70)?.length, 0
-            ), color: 'bg-yellow-500' },
-            { level: 'Beginner (0-49%)', count: skillsData?.reduce((acc, cat) => 
-              acc + cat?.skills?.filter(s => s?.proficiency < 50)?.length, 0
-            ), color: 'bg-gray-400' }
+            { level: 'Intermediate (50-69%)', count: intermediateSkills, color: 'bg-yellow-500' },
+            { level: 'Beginner (0-49%)', count: beginnerSkills, color: 'bg-gray-400' }
           ]?.map((item) => (
             <div key={item?.level} className="flex items-center justify-between text-xs sm:text-sm">
               <div className="flex items-center space-x-3">
@@ -91,11 +93,11 @@ const SkillsOverview = ({ skillsData }) => {
                 <span className="text-text-secondary">{item?.level}</span>
               </div>
               <div className="flex items-center space-x-2">
-                <span className="font-medium text-text-primary">{item?.count}</span>
+                <span className="font-medium text-text-primary">{item?.count} ({pct(item?.count)})</span>
                 <div className="w-16 sm:w-20 bg-muted rounded-full h-2">
                   <div 
                     className={`h-full ${item?.color} rounded-full transition-all duration-1000`}
-                    style={{ width: `${(item?.count / totalSkills) * 100}%` }}
+                    style={{ width: totalSkills ? `${(item?.count / totalSkills) * 100}%` : '0%' }}
                   />
                 </div>
               </div>

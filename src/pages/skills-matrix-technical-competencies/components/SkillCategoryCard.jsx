@@ -5,13 +5,22 @@ import Icon from '../../../components/AppIcon';
 const SkillCategoryCard = ({ category, skills, isExpanded, onToggle }) => {
   const [hoveredSkill, setHoveredSkill] = useState(null);
 
+  const levelFromProficiency = (p) => {
+    const val = typeof p === 'number' ? p : 0;
+    if (val >= 85) return 'Expert';
+    if (val >= 70) return 'Advanced';
+    if (val >= 50) return 'Intermediate';
+    return 'Beginner';
+  };
+
   const getCategoryIcon = (categoryName) => {
     const iconMap = {
       'AI/ML': 'Brain',
       'Full-Stack Development': 'Code',
       'Supporting Technologies': 'Settings',
       'Cloud & DevOps': 'Cloud',
-      'Databases': 'Database'
+      'Databases': 'Database',
+      'Generative AI': 'Sparkles'
     };
     return iconMap?.[categoryName] || 'Code';
   };
@@ -22,7 +31,8 @@ const SkillCategoryCard = ({ category, skills, isExpanded, onToggle }) => {
       'Full-Stack Development': 'from-blue-500 to-cyan-500',
       'Supporting Technologies': 'from-green-500 to-teal-500',
       'Cloud & DevOps': 'from-orange-500 to-red-500',
-      'Databases': 'from-indigo-500 to-purple-500'
+      'Databases': 'from-indigo-500 to-purple-500',
+      'Generative AI': 'from-fuchsia-500 to-violet-500'
     };
     return colorMap?.[categoryName] || 'from-blue-500 to-cyan-500';
   };
@@ -46,7 +56,11 @@ const SkillCategoryCard = ({ category, skills, isExpanded, onToggle }) => {
           </div>
           <div className="flex items-center space-x-2">
             <div className="text-white/80 text-sm hidden sm:block">
-              {Math.round(skills?.reduce((acc, skill) => acc + skill?.proficiency, 0) / skills?.length)}% avg
+              {(() => {
+                const count = skills?.length || 0;
+                const total = skills?.reduce((acc, skill) => acc + (skill?.proficiency || 0), 0) || 0;
+                return count ? Math.round(((total / count) * 10)) / 10 : 0;
+              })()}% avg
             </div>
             <Icon 
               name={isExpanded ? 'ChevronUp' : 'ChevronDown'} 
@@ -78,7 +92,7 @@ const SkillCategoryCard = ({ category, skills, isExpanded, onToggle }) => {
                 </div>
                 <div className="text-right">
                   <div className="text-sm font-medium text-text-primary">{skill?.proficiency}%</div>
-                  <div className="text-xs text-text-secondary">{skill?.level}</div>
+                  <div className="text-xs text-text-secondary">{levelFromProficiency(skill?.proficiency)}</div>
                 </div>
               </div>
 

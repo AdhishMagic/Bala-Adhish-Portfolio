@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 import Header from '../../components/ui/Header';
 import Icon from '../../components/AppIcon';
 import Button from '../../components/ui/Button';
 import SkillsOverview from './components/SkillsOverview';
 import SkillCategoryCard from './components/SkillCategoryCard';
 import LearningTrajectory from './components/LearningTrajectory';
-import CertificationBadges from './components/CertificationBadges';
-import SkillsInAction from './components/SkillsInAction';
+// Removed Certifications and Skills in Action as requested
 import RecentLearning from './components/RecentLearning';
+import { generateSkillsSummaryPDF } from '../../utils/generateSkillsSummary';
 
 const SkillsMatrixPage = () => {
   const [expandedCategories, setExpandedCategories] = useState({});
@@ -26,57 +27,98 @@ const SkillsMatrixPage = () => {
       category: 'AI/ML',
       skills: [
         {
-          name: 'Python',
-          proficiency: 92,
-          level: 'Expert',
-          experience: '3+ years',
+          name: 'Python (DSA + ML basics)',
+          proficiency: 95,
+          level: 'Advanced',
+          experience: 'Ongoing',
           icon: 'Code',
-          technologies: ['NumPy', 'Pandas', 'Matplotlib', 'Seaborn', 'Jupyter'],
-          projects: ['Sentiment Analysis Tool', 'Predictive Analytics Model', 'Data Pipeline'],
-          certifications: [
-            { name: 'Python for Data Science', issuer: 'IBM' }
-          ]
+          technologies: ['DSA', 'Pandas', 'NumPy', 'Matplotlib', 'Jupyter'],
+          projects: ['Sales Forecasting (SARIMA/Holt-Winters)', 'Wine Quality Classification', 'Medical Insurance Regression'],
+          certifications: []
         },
         {
-          name: 'TensorFlow',
+          name: 'TensorFlow (basics)',
+          proficiency: 88,
+          level: 'Proficient',
+          experience: 'Basics',
+          icon: 'Brain',
+          technologies: ['Keras', 'Model Training', 'Evaluation'],
+          projects: ['CNN-based Image Classification'],
+          certifications: []
+        },
+        {
+          name: 'PyTorch (learning phase)',
+          proficiency: 82,
+          level: 'Intermediate',
+          experience: 'Learning phase',
+          icon: 'Zap',
+          technologies: ['Torchvision', 'Training Loops'],
+          projects: ['Model experiments (notebook-based)'],
+          certifications: []
+        },
+        {
+          name: 'Hugging Face (beginner exploration)',
+          proficiency: 80,
+          level: 'Beginner',
+          experience: 'Exploration',
+          icon: 'BarChart',
+          technologies: ['Transformers', 'Pipelines', 'Tokenizers'],
+          projects: ['NLP experimentation'],
+          certifications: []
+        },
+        {
+          name: 'AI Model Integration',
+          proficiency: 90,
+          level: 'Advanced',
+          experience: 'Project-based',
+          icon: 'TrendingUp',
+          technologies: ['Computer Vision', 'Inference', 'Edge/IoT concepts'],
+          projects: ['Plant disease detection', 'Irrigation prediction (IoT-assisted)'],
+          certifications: []
+        }
+      ]
+    },
+    {
+      category: 'Generative AI',
+      skills: [
+        {
+          name: 'LLMs (Large Language Models)',
           proficiency: 88,
           level: 'Advanced',
-          experience: '2+ years',
+          experience: 'Projects & exploration',
           icon: 'Brain',
-          technologies: ['Keras', 'TensorBoard', 'TF Serving', 'TF Lite'],
-          projects: ['Image Classification System', 'Neural Network Models'],
-          certifications: [
-            { name: 'TensorFlow Developer Certificate', issuer: 'Google' }
-          ]
+          technologies: ['Transformers', 'Tokenization', 'Inference'],
+          projects: ['Chatbot prototypes', 'Content summarization'],
+          certifications: []
         },
         {
-          name: 'PyTorch',
+          name: 'RAG Systems (Retrieval-Augmented Generation)',
+          proficiency: 86,
+          level: 'Advanced',
+          experience: 'PoCs',
+          icon: 'Layers',
+          technologies: ['Vector Stores', 'Embeddings', 'Indexing'],
+          projects: ['RAG knowledge assistant'],
+          certifications: []
+        },
+        {
+          name: 'Prompt Engineering',
+          proficiency: 84,
+          level: 'Proficient',
+          experience: 'Daily practice',
+          icon: 'Code',
+          technologies: ['System prompts', 'Few-shot', 'Chain-of-thought'],
+          projects: ['Task-specific prompt libraries'],
+          certifications: []
+        },
+        {
+          name: 'Fine-Tuning (basic level)',
           proficiency: 82,
-          level: 'Advanced',
-          experience: '1.5+ years',
-          icon: 'Zap',
-          technologies: ['PyTorch Lightning', 'Torchvision', 'ONNX'],
-          projects: ['Deep Learning Research', 'Computer Vision Models'],
-          certifications: []
-        },
-        {
-          name: 'Scikit-learn',
-          proficiency: 90,
-          level: 'Expert',
-          experience: '2.5+ years',
-          icon: 'BarChart',
-          technologies: ['Preprocessing', 'Model Selection', 'Ensemble Methods'],
-          projects: ['ML Classification Models', 'Feature Engineering Pipeline'],
-          certifications: []
-        },
-        {
-          name: 'Data Analysis',
-          proficiency: 85,
-          level: 'Advanced',
-          experience: '2+ years',
-          icon: 'TrendingUp',
-          technologies: ['Pandas', 'NumPy', 'Matplotlib', 'Plotly'],
-          projects: ['Business Intelligence Dashboard', 'Statistical Analysis'],
+          level: 'Intermediate',
+          experience: 'Basics',
+          icon: 'Settings',
+          technologies: ['LoRA', 'Adapters', 'Data curation'],
+          projects: ['Small domain-tuning experiments'],
           certifications: []
         }
       ]
@@ -85,55 +127,13 @@ const SkillsMatrixPage = () => {
       category: 'Full-Stack Development',
       skills: [
         {
-          name: 'JavaScript',
-          proficiency: 90,
-          level: 'Expert',
-          experience: '3+ years',
-          icon: 'Code',
-          technologies: ['ES6+', 'TypeScript', 'Async/Await', 'Modules'],
-          projects: ['E-commerce Platform', 'Real-time Chat App', 'Portfolio Website'],
-          certifications: []
-        },
-        {
-          name: 'React',
+          name: 'Django (StudyBuddy project)',
           proficiency: 88,
-          level: 'Advanced',
-          experience: '2.5+ years',
-          icon: 'Layers',
-          technologies: ['Hooks', 'Context API', 'Redux', 'Next.js'],
-          projects: ['Interactive Dashboard', 'Social Media App', 'Portfolio Site'],
-          certifications: [
-            { name: 'React Developer Certification', issuer: 'Meta' }
-          ]
-        },
-        {
-          name: 'Node.js',
-          proficiency: 85,
-          level: 'Advanced',
-          experience: '2+ years',
+          level: 'Proficient',
+          experience: 'Project-based',
           icon: 'Server',
-          technologies: ['Express.js', 'Fastify', 'Socket.io', 'Passport.js'],
-          projects: ['RESTful API', 'Real-time Applications', 'Microservices'],
-          certifications: []
-        },
-        {
-          name: 'HTML/CSS',
-          proficiency: 95,
-          level: 'Expert',
-          experience: '4+ years',
-          icon: 'Layout',
-          technologies: ['Tailwind CSS', 'SASS', 'CSS Grid', 'Flexbox'],
-          projects: ['Responsive Websites', 'UI Component Library'],
-          certifications: []
-        },
-        {
-          name: 'REST APIs',
-          proficiency: 87,
-          level: 'Advanced',
-          experience: '2+ years',
-          icon: 'Globe',
-          technologies: ['OpenAPI', 'Postman', 'Swagger', 'GraphQL'],
-          projects: ['API Gateway', 'Microservices Architecture'],
+          technologies: ['Django ORM', 'Templates', 'Auth'],
+          projects: ['StudyBuddy (Django)'],
           certifications: []
         }
       ]
@@ -142,35 +142,33 @@ const SkillsMatrixPage = () => {
       category: 'Databases',
       skills: [
         {
-          name: 'MongoDB',
-          proficiency: 83,
-          level: 'Advanced',
-          experience: '2+ years',
+          name: 'SQL (basic)',
+          proficiency: 75,
+          level: 'Beginner',
+          experience: 'Basics',
           icon: 'Database',
-          technologies: ['Mongoose', 'Aggregation', 'Indexing', 'Sharding'],
-          projects: ['E-commerce Database', 'Content Management System'],
-          certifications: [
-            { name: 'MongoDB Developer Path', issuer: 'MongoDB University' }
-          ]
-        },
-        {
-          name: 'PostgreSQL',
-          proficiency: 78,
-          level: 'Intermediate',
-          experience: '1.5+ years',
-          icon: 'Database',
-          technologies: ['SQL', 'Joins', 'Stored Procedures', 'Triggers'],
-          projects: ['Analytics Database', 'User Management System'],
+          technologies: ['SELECT/WHERE', 'Joins', 'Aggregations'],
+          projects: ['Practice queries', 'Reporting tasks'],
           certifications: []
         },
         {
-          name: 'Redis',
-          proficiency: 72,
+          name: 'NoSQL (concepts)',
+          proficiency: 80,
           level: 'Intermediate',
-          experience: '1+ year',
-          icon: 'Zap',
-          technologies: ['Caching', 'Pub/Sub', 'Lua Scripts'],
-          projects: ['Session Management', 'Real-time Features'],
+          experience: 'Conceptual',
+          icon: 'Database',
+          technologies: ['Key-Value', 'Document Models', 'Schema Design'],
+          projects: ['Prototype schemas'],
+          certifications: []
+        },
+        {
+          name: 'MongoDB (concepts)',
+          proficiency: 79,
+          level: 'Intermediate',
+          experience: 'Conceptual',
+          icon: 'Database',
+          technologies: ['CRUD', 'Indexing', 'Aggregation (basics)'],
+          projects: ['Learning exercises'],
           certifications: []
         }
       ]
@@ -179,47 +177,43 @@ const SkillsMatrixPage = () => {
       category: 'Cloud & DevOps',
       skills: [
         {
-          name: 'AWS',
-          proficiency: 80,
-          level: 'Advanced',
-          experience: '1.5+ years',
-          icon: 'Cloud',
-          technologies: ['EC2', 'S3', 'Lambda', 'RDS', 'CloudWatch'],
-          projects: ['Serverless Applications', 'Cloud Infrastructure'],
-          certifications: [
-            { name: 'AWS Cloud Practitioner', issuer: 'Amazon Web Services' }
-          ]
-        },
-        {
-          name: 'Docker',
-          proficiency: 85,
+          name: 'Git/GitHub (version control)',
+          proficiency: 90,
           level: 'Advanced',
           experience: '2+ years',
-          icon: 'Package',
-          technologies: ['Docker Compose', 'Multi-stage builds', 'Volumes'],
-          projects: ['Containerized Applications', 'Development Environment'],
-          certifications: [
-            { name: 'Docker Certified Associate', issuer: 'Docker Inc.' }
-          ]
-        },
-        {
-          name: 'Git',
-          proficiency: 92,
-          level: 'Expert',
-          experience: '3+ years',
           icon: 'GitBranch',
-          technologies: ['GitHub', 'GitLab', 'Branching', 'Merging'],
-          projects: ['All Development Projects', 'Open Source Contributions'],
+          technologies: ['Branching', 'PRs', 'Issues'],
+          projects: ['All repos in portfolio'],
           certifications: []
         },
         {
-          name: 'CI/CD',
-          proficiency: 75,
+          name: 'Open Weaver',
+          proficiency: 80,
           level: 'Intermediate',
-          experience: '1+ year',
+          experience: 'Hackathons/PoCs',
+          icon: 'Package',
+          technologies: ['Project scaffolding', 'Boilerplates'],
+          projects: ['Hackathon tooling'],
+          certifications: []
+        },
+        {
+          name: 'n8n (workflow automation)',
+          proficiency: 78,
+          level: 'Intermediate',
+          experience: 'Automation',
           icon: 'RefreshCw',
-          technologies: ['GitHub Actions', 'Jenkins', 'Docker Hub'],
-          projects: ['Automated Deployments', 'Testing Pipelines'],
+          technologies: ['Triggers', 'Nodes', 'Integrations'],
+          projects: ['Automation PoCs'],
+          certifications: []
+        },
+        {
+          name: 'Deployment & Integration (basic)',
+          proficiency: 84,
+          level: 'Proficient',
+          experience: 'Basic deployments',
+          icon: 'Cloud',
+          technologies: ['Hosting', 'Env config', 'Builds'],
+          projects: ['Portfolio deployments'],
           certifications: []
         }
       ]
@@ -228,33 +222,33 @@ const SkillsMatrixPage = () => {
       category: 'Supporting Technologies',
       skills: [
         {
-          name: 'Linux',
-          proficiency: 82,
-          level: 'Advanced',
-          experience: '2+ years',
+          name: 'Java (inventory management project)',
+          proficiency: 72,
+          level: 'Intermediate',
+          experience: 'Project-based',
+          icon: 'Code',
+          technologies: ['OOP', 'Collections', 'File IO'],
+          projects: ['Inventory Management System'],
+          certifications: []
+        },
+        {
+          name: 'C (fundamentals + OS concepts)',
+          proficiency: 70,
+          level: 'Intermediate',
+          experience: 'Academic',
           icon: 'Terminal',
-          technologies: ['Ubuntu', 'CentOS', 'Shell Scripting', 'System Admin'],
-          projects: ['Server Management', 'Development Environment'],
+          technologies: ['Pointers', 'Memory', 'Processes'],
+          projects: ['Learning exercises'],
           certifications: []
         },
         {
-          name: 'Agile/Scrum',
-          proficiency: 78,
-          level: 'Intermediate',
-          experience: '1.5+ years',
-          icon: 'Users',
-          technologies: ['Jira', 'Trello', 'Sprint Planning', 'Retrospectives'],
-          projects: ['Team Collaboration', 'Project Management'],
-          certifications: []
-        },
-        {
-          name: 'Testing',
-          proficiency: 75,
-          level: 'Intermediate',
-          experience: '1+ year',
-          icon: 'CheckCircle',
-          technologies: ['Jest', 'Pytest', 'Unit Testing', 'Integration Testing'],
-          projects: ['Test Automation', 'Quality Assurance'],
+          name: 'Excel (data handling/project)',
+          proficiency: 85,
+          level: 'Proficient',
+          experience: 'Projects',
+          icon: 'BarChart',
+          technologies: ['Pivot Tables', 'Charts', 'Formulas'],
+          projects: ['Data handling & reporting'],
           certifications: []
         }
       ]
@@ -272,8 +266,7 @@ const SkillsMatrixPage = () => {
     { id: 'overview', label: 'Overview', icon: 'BarChart3' },
     { id: 'skills', label: 'Skills Matrix', icon: 'Grid3x3' },
     { id: 'trajectory', label: 'Learning Path', icon: 'TrendingUp' },
-    { id: 'certifications', label: 'Certifications', icon: 'Award' },
-    { id: 'action', label: 'Skills in Action', icon: 'Zap' },
+  // Certifications and Skills in Action tabs removed
     { id: 'learning', label: 'Recent Learning', icon: 'BookOpen' }
   ];
 
@@ -282,7 +275,7 @@ const SkillsMatrixPage = () => {
       <Helmet>
         <title>Skills Matrix - Technical Competencies | Bala Adhish Portfolio</title>
         <meta name="description" content="Comprehensive technical skills matrix showcasing AI/ML expertise, full-stack development capabilities, and continuous learning journey of Bala Adhish." />
-        <meta name="keywords" content="technical skills, AI ML, full-stack development, Python, React, TensorFlow, certifications, learning trajectory" />
+  <meta name="keywords" content="technical skills, AI ML, Generative AI, Django, Python, React, TensorFlow, learning trajectory" />
       </Helmet>
       <Header />
       <main className="pt-20">
@@ -312,6 +305,7 @@ const SkillsMatrixPage = () => {
                   iconName="Download"
                   iconPosition="left"
                   iconSize={20}
+                  onClick={() => generateSkillsSummaryPDF(skillsData)}
                 >
                   Download Skills Summary
                 </Button>
@@ -321,7 +315,7 @@ const SkillsMatrixPage = () => {
                   iconName="ExternalLink"
                   iconPosition="left"
                   iconSize={20}
-                  onClick={() => window.open('https://github.com', '_blank')}
+                  onClick={() => window.open('https://github.com/bala-adhish', '_blank')}
                 >
                   View GitHub Profile
                 </Button>
@@ -388,8 +382,7 @@ const SkillsMatrixPage = () => {
               )}
               
               {activeView === 'trajectory' && <LearningTrajectory />}
-              {activeView === 'certifications' && <CertificationBadges />}
-              {activeView === 'action' && <SkillsInAction />}
+              {/* Certifications and Skills in Action sections removed */}
               {activeView === 'learning' && <RecentLearning />}
             </div>
           </div>
@@ -407,22 +400,24 @@ const SkillsMatrixPage = () => {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
                 <Button
+                  asChild
                   variant="default"
                   size="lg"
                   iconName="Mail"
                   iconPosition="left"
                   iconSize={20}
                 >
-                  Get in Touch
+                  <Link to="/professional-connect-contact-hub">Get in Touch</Link>
                 </Button>
                 <Button
+                  asChild
                   variant="outline"
                   size="lg"
-                  iconName="Calendar"
+                  iconName="Github"
                   iconPosition="left"
                   iconSize={20}
                 >
-                  Schedule a Call
+                  <a href="https://github.com/bala-adhish" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </Button>
               </div>
             </div>
