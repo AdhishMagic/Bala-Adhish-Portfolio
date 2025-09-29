@@ -7,13 +7,13 @@ const RecentLearning = () => {
     {
       id: 1,
       type: 'course',
-      title: 'Advanced Machine Learning Specialization',
-      platform: 'Coursera - Stanford University',
-      progress: 85,
+      title: 'Generative AI with LLMs: Applications',
+      platform: 'DeepLearning.AI (Coursera)',
+      progress: 65,
       status: 'In Progress',
-      startDate: '2025-08-15',
-      estimatedCompletion: '2025-10-30',
-      skills: ['Deep Learning', 'Neural Networks', 'Computer Vision'],
+      startDate: '2025-09-15',
+      estimatedCompletion: '2025-10-20',
+      skills: ['Prompt Engineering', 'RAG', 'LLM Safety'],
       icon: 'BookOpen',
       color: 'text-blue-500',
       bgColor: 'bg-blue-50'
@@ -21,12 +21,12 @@ const RecentLearning = () => {
     {
       id: 2,
       type: 'tutorial',
-      title: 'Kubernetes for Developers',
-      platform: 'YouTube - TechWorld with Nana',
+      title: 'Django REST Framework — Real-world APIs',
+      platform: 'YouTube',
       progress: 100,
       status: 'Completed',
-      completedDate: '2025-09-10',
-      skills: ['Kubernetes', 'Container Orchestration', 'DevOps'],
+      completedDate: '2025-09-25',
+      skills: ['Django', 'DRF', 'API Design'],
       icon: 'Play',
       color: 'text-green-500',
       bgColor: 'bg-green-50'
@@ -34,12 +34,12 @@ const RecentLearning = () => {
     {
       id: 3,
       type: 'documentation',
-      title: 'Next.js 14 App Router Documentation',
-      platform: 'Next.js Official Docs',
-      progress: 70,
+      title: 'LangChain v0.3 Docs — RAG & Evaluation',
+      platform: 'LangChain Official Docs',
+      progress: 80,
       status: 'In Progress',
-      startDate: '2025-09-05',
-      skills: ['Next.js', 'React', 'Full-Stack Development'],
+      startDate: '2025-09-10',
+      skills: ['LangChain', 'Retrievers', 'Evaluation'],
       icon: 'FileText',
       color: 'text-purple-500',
       bgColor: 'bg-purple-50'
@@ -47,12 +47,12 @@ const RecentLearning = () => {
     {
       id: 4,
       type: 'project',
-      title: 'Building a RAG System with LangChain',
+      title: 'Production-ready RAG with Qdrant',
       platform: 'Personal Project',
-      progress: 60,
+      progress: 55,
       status: 'In Progress',
-      startDate: '2025-09-01',
-      skills: ['LangChain', 'Vector Databases', 'LLMs'],
+      startDate: '2025-09-18',
+      skills: ['Qdrant', 'Embeddings', 'LLMOps'],
       icon: 'Code',
       color: 'text-orange-500',
       bgColor: 'bg-orange-50'
@@ -60,12 +60,12 @@ const RecentLearning = () => {
     {
       id: 5,
       type: 'article',
-      title: 'Understanding Transformer Architecture',
-      platform: 'Towards Data Science - Medium',
+      title: 'Managing Secrets for AI Applications',
+      platform: 'OpenAI Developer Blog',
       progress: 100,
       status: 'Completed',
-      completedDate: '2025-08-28',
-      skills: ['Transformers', 'NLP', 'Attention Mechanisms'],
+      completedDate: '2025-09-12',
+      skills: ['Security', 'Key Management', 'Best Practices'],
       icon: 'Newspaper',
       color: 'text-indigo-500',
       bgColor: 'bg-indigo-50'
@@ -73,10 +73,10 @@ const RecentLearning = () => {
   ];
 
   const learningStats = {
-    hoursThisWeek: 12,
-    coursesCompleted: 3,
-    articlesRead: 8,
-    projectsStarted: 2
+    hoursThisWeek: 14,
+    coursesCompleted: 2,
+    articlesRead: 5,
+    projectsStarted: 1
   };
 
   const getStatusColor = (status) => {

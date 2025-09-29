@@ -5,53 +5,77 @@ const LearningTrajectory = () => {
   const learningPath = [
     {
       year: '2022',
-      title: 'Foundation Building',
-      skills: ['Python', 'JavaScript', 'HTML/CSS', 'Git'],
+      title: 'Foundation Building – 2022',
+      skills: ['C', 'Python basics', 'Java basics', 'Git/GitHub'],
       milestone: 'Started Computer Science Journey',
-      color: 'bg-blue-500'
+      color: 'bg-blue-500',
     },
     {
       year: '2023',
-      title: 'Full-Stack Development',
-      skills: ['React', 'Node.js', 'MongoDB', 'Express'],
-      milestone: 'First Full-Stack Project',
-      color: 'bg-green-500'
+      title: 'Full-Stack Development – 2023',
+      skills: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'Tailwind CSS', 'Django StudyBuddy project'],
+      milestone: 'First Frontend & Full-Stack Projects',
+      color: 'bg-green-500',
     },
     {
       year: '2024',
-      title: 'AI/ML Specialization',
-      skills: ['TensorFlow', 'PyTorch', 'Scikit-learn', 'Pandas'],
-      milestone: 'AI Research Project',
-      color: 'bg-purple-500'
+      title: 'AI/ML Specialization – 2024',
+      skills: ['TensorFlow', 'PyTorch learning', 'Hugging Face', 'AI Model Integration – disease detection, irrigation prediction'],
+      milestone: 'AI and Data Science Research & Projects',
+      color: 'bg-purple-500',
     },
     {
       year: '2025',
-      title: 'Advanced Technologies',
-      skills: ['Docker', 'AWS', 'Kubernetes', 'GraphQL'],
-      milestone: 'Cloud Architecture Mastery',
-      color: 'bg-orange-500'
-    }
+      title: 'Generative AI & Advanced Tech – 2025',
+      skills: ['LLMs', 'RAG Systems', 'Prompt Engineering', 'Fine-Tuning basics', 'Open Weaver', 'n8n'],
+      milestone: 'Exploring GenAI and Modern Development Tools',
+      color: 'bg-orange-500',
+    },
+    {
+      year: '2026',
+      title: 'Future Mastery – 2026',
+      skills: [
+        'Advanced Deep Learning – Transformers, GANs, Multimodal AI',
+        'MLOps – CI/CD, Monitoring, MLflow, Kubernetes',
+        'Quantum Computing – Qiskit, quantum algorithms',
+        'Advanced Full-Stack – Microservices, GraphQL, scalable backends',
+      ],
+      milestone: 'Deep Tech and Career-Oriented Skills',
+      color: 'bg-rose-500',
+    },
   ];
 
   const futurePlans = [
     {
       skill: 'Advanced Deep Learning',
       timeline: 'Q4 2025',
-      focus: 'Transformer architectures, GANs',
-      icon: 'Brain'
+      focus: 'Transformer architectures, GANs, multimodal AI',
+      icon: 'Brain',
     },
     {
       skill: 'MLOps & Production AI',
       timeline: 'Q1 2026',
-      focus: 'Model deployment, monitoring',
-      icon: 'Cpu'
+      focus: 'Model deployment, CI/CD for ML, monitoring with MLflow/Kubernetes',
+      icon: 'Cpu',
     },
     {
       skill: 'Quantum Computing',
       timeline: 'Q2 2026',
-      focus: 'Qiskit, quantum algorithms',
-      icon: 'Zap'
-    }
+      focus: 'Qiskit, quantum algorithms, applications in optimization & AI',
+      icon: 'Zap',
+    },
+    {
+      skill: 'Advanced Full-Stack Engineering',
+      timeline: 'Q3 2026',
+  focus: 'Microservices, GraphQL, scalable backend with Django',
+      icon: 'Server',
+    },
+    {
+      skill: 'Generative AI Applications',
+      timeline: 'Q4 2026',
+      focus: 'LLMs fine-tuning, RAG systems, AI agents',
+      icon: 'Sparkles',
+    },
   ];
 
   return (

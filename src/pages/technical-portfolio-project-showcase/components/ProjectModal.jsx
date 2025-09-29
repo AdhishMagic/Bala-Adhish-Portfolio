@@ -8,7 +8,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
   const [activeTab, setActiveTab] = useState('overview');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  useEffect(() => {
+  useEffect(() => { 
     if (isOpen) {
       document.body.style.overflow = 'hidden';
       setActiveTab('overview');

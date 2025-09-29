@@ -52,10 +52,10 @@ const QuickConnect = () => {
 
   const quickActions = [
     {
-      title: 'Schedule a Call',
-      description: 'Book a 30-minute consultation',
-      icon: 'Calendar',
-      action: () => window.open('https://calendly.com/bala-adhish', '_blank'),
+      title: 'GitHub',
+      description: 'Explore code and projects',
+      icon: 'Github',
+      action: () => window.open('https://github.com/bala-adhish', '_blank'),
       variant: 'default'
     },
     {
