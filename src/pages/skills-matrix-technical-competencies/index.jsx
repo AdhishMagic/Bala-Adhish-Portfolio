@@ -127,13 +127,53 @@ const SkillsMatrixPage = () => {
       category: 'Full-Stack Development',
       skills: [
         {
-          name: 'Django (StudyBuddy project)',
+          name: 'Django',
           proficiency: 88,
           level: 'Proficient',
           experience: 'Project-based',
           icon: 'Server',
           technologies: ['Django ORM', 'Templates', 'Auth'],
           projects: ['StudyBuddy (Django)'],
+          certifications: []
+        },
+        {
+          name: 'React',
+          proficiency: 90,
+          level: 'Proficient',
+          experience: 'Projects & portfolio',
+          icon: 'Layers',
+          technologies: ['Hooks', 'Routing', 'State Mgmt (basic)'],
+          projects: ['This portfolio', 'UI components'],
+          certifications: []
+        },
+        {
+          name: 'JavaScript',
+          proficiency: 92,
+          level: 'Advanced',
+          experience: '2+ years',
+          icon: 'FileCode',
+          technologies: ['ES6+', 'Async/Await', 'Modules'],
+          projects: ['Multiple web apps'],
+          certifications: []
+        },
+        {
+          name: 'HTML & CSS',
+          proficiency: 88,
+          level: 'Proficient',
+          experience: '2+ years',
+          icon: 'Code2',
+          technologies: ['Semantic HTML', 'Flexbox/Grid', 'Responsive UI'],
+          projects: ['Responsive landing pages', 'Portfolio layout'],
+          certifications: []
+        },
+        {
+          name: 'REST API',
+          proficiency: 84,
+          level: 'Proficient',
+          experience: 'Project-based',
+          icon: 'Globe',
+          technologies: ['CRUD', 'Auth', 'JSON'],
+          projects: ['Backend integrations', 'API consumption (frontend)'],
           certifications: []
         }
       ]
@@ -291,12 +331,9 @@ const SkillsMatrixPage = () => {
                 <Icon name="Brain" size={32} color="white" />
                 <Icon name="Zap" size={32} color="white" />
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Technical Skills Matrix
-              </h1>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">Technical Skills Matrix</h1>
               <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-                A comprehensive visualization of technical competencies, proficiency levels, 
-                and continuous learning journey in AI/ML and full-stack development
+                A concise view of my technical competencies, proficiency levels, and continuous learning across AI/ML and full‑stack development.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
                 <Button
@@ -315,7 +352,7 @@ const SkillsMatrixPage = () => {
                   iconName="ExternalLink"
                   iconPosition="left"
                   iconSize={20}
-                  onClick={() => window.open('https://github.com/bala-adhish', '_blank')}
+                  onClick={() => window.open('https://github.com/AdhishMagic', '_blank')}
                 >
                   View GitHub Profile
                 </Button>
@@ -417,7 +454,7 @@ const SkillsMatrixPage = () => {
                   iconPosition="left"
                   iconSize={20}
                 >
-                  <a href="https://github.com/bala-adhish" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a href="https://github.com/AdhishMagic" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </Button>
               </div>
             </div>

@@ -6,8 +6,8 @@ const ValuesSection = () => {
     {
       id: 1,
       title: "Intelligent Innovation",
-      description: "I believe in creating solutions that are not just technically sound, but genuinely intelligent. Every line of code should serve a purpose in making systems smarter and more intuitive.",
-      example: "Developed an AI-powered debugging tool that learns from code patterns to predict and prevent common errors before they occur.",
+  description: "I focus on solutions that are both technically sound and genuinely useful. Code should make systems smarter and more intuitive.",
+  example: "Prototyped an AI‑assisted debugging helper that learns from code patterns to suggest fixes earlier.",
       icon: "Lightbulb",
       color: "primary",
       gradient: "from-blue-500 to-blue-600"
@@ -15,8 +15,8 @@ const ValuesSection = () => {
     {
       id: 2,
       title: "Continuous Learning",
-      description: "Technology evolves rapidly, and so must we. I dedicate time daily to learning new concepts, exploring emerging technologies, and challenging my existing knowledge.",
-      example: "Completed 15+ online courses in 2024, from advanced ML algorithms to quantum computing fundamentals, always staying ahead of the curve.",
+  description: "Technology evolves rapidly. I consistently invest time in learning, exploring emerging tools, and testing new ideas.",
+  example: "Completed advanced ML coursework and practical projects, documenting lessons learned.",
       icon: "BookOpen",
       color: "secondary",
       gradient: "from-cyan-500 to-cyan-600"
@@ -24,8 +24,8 @@ const ValuesSection = () => {
     {
       id: 3,
       title: "Collaborative Problem-Solving",
-      description: "The best solutions emerge from diverse perspectives. I thrive in collaborative environments where ideas can be shared, challenged, and refined collectively.",
-      example: "Led a cross-functional team of 8 developers in a hackathon, combining different expertise areas to build a winning healthcare AI solution.",
+  description: "Strong outcomes come from diverse perspectives. I thrive in environments where ideas can be shared, challenged, and refined.",
+  example: "Led cross‑functional hackathon teams, combining different expertise to build impactful prototypes.",
       icon: "Users",
       color: "accent",
       gradient: "from-emerald-500 to-emerald-600"
@@ -33,8 +33,8 @@ const ValuesSection = () => {
     {
       id: 4,
       title: "Ethical Technology",
-      description: "With great power comes great responsibility. I'm committed to building AI systems that are fair, transparent, and beneficial to society as a whole.",
-      example: "Implemented bias detection algorithms in ML models and advocated for diverse training datasets in all AI projects I've worked on.",
+  description: "I’m committed to building AI systems that are fair, transparent, and privacy‑aware.",
+  example: "Added bias checks and advocated for diverse datasets across ML projects.",
       icon: "Shield",
       color: "success",
       gradient: "from-green-500 to-green-600"
@@ -42,8 +42,8 @@ const ValuesSection = () => {
     {
       id: 5,
       title: "User-Centric Design",
-      description: "Technology should serve people, not the other way around. I always prioritize user experience and accessibility in every solution I build.",
-      example: "Redesigned a complex data visualization dashboard, reducing user task completion time by 45% through intuitive interface design.",
+  description: "Technology should serve people. I prioritize user experience and accessibility in every solution.",
+  example: "Iterated on a data visualization dashboard to streamline tasks and reduce friction.",
       icon: "Heart",
       color: "warning",
       gradient: "from-amber-500 to-amber-600"
@@ -51,8 +51,8 @@ const ValuesSection = () => {
     {
       id: 6,
       title: "Quality Excellence",
-      description: "I believe in writing clean, maintainable code and building robust systems. Quality is never an accident; it's always the result of intelligent effort.",
-      example: "Maintained 95%+ code coverage across all projects and established coding standards that reduced bug reports by 60% in team projects.",
+  description: "Clean, maintainable code and robust systems are non‑negotiable.",
+  example: "Established coding standards and tests to reduce regressions and improve reliability.",
       icon: "Award",
       color: "error",
       gradient: "from-red-500 to-red-600"

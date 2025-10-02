@@ -64,14 +64,13 @@ const HeroSection = () => {
                     About Bala Adhish N D
                   </h1>
                   <p className="text-base sm:text-lg text-text-secondary mt-1">
-                    AI Engineer & Full-Stack Visionary
+                    AI Engineer & Full‑Stack Developer
                   </p>
                 </div>
               </div>
               
               <p className="text-base sm:text-lg lg:text-xl text-text-primary leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Bridging the gap between cutting-edge AI research and practical full-stack solutions. 
-                I'm passionate about building intelligent systems that solve real-world problems.
+                I build intelligent systems that apply cutting‑edge AI in practical, full‑stack solutions—always focused on solving real‑world problems.
               </p>
             </div>
 

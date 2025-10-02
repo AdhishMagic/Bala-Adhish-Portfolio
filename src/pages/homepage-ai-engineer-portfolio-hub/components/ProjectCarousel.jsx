@@ -1,63 +1,36 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
+import allProjects from '../../../data/projects';
+import { getImageForProject } from '../../../utils/projectImages';
 
 const ProjectCarousel = () => {
   const navigate = useNavigate();
   const [currentProject, setCurrentProject] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchEndX, setTouchEndX] = useState(null);
 
-  const projects = [
-    {
-      id: 1,
-      title: "AI-Powered Code Review Assistant",
-      description: "Machine learning model that analyzes code quality, suggests improvements, and detects potential bugs using natural language processing.",
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=400&fit=crop",
-      techStack: ["Python", "TensorFlow", "React", "Node.js", "MongoDB"],
-      githubUrl: "https://github.com/bala/ai-code-review",
-      liveUrl: "https://ai-code-review.demo.com",
-      category: "AI/ML",
-      status: "Completed",
-      impact: "40% faster code reviews"
-    },
-    {
-      id: 2,
-      title: "Smart Campus Navigation System",
-      description: "Full-stack web application with real-time indoor navigation using IoT sensors and machine learning for optimal route prediction.",
-      image: "https://images.unsplash.com/photo-1562774053-701939374585?w=600&h=400&fit=crop",
-      techStack: ["React", "Express.js", "PostgreSQL", "Socket.io", "Python"],
-      githubUrl: "https://github.com/bala/campus-navigation",
-      liveUrl: "https://campus-nav.demo.com",
-      category: "Full-Stack",
-      status: "In Development",
-      impact: "Used by 2000+ students"
-    },
-    {
-      id: 3,
-      title: "Predictive Maintenance Dashboard",
-      description: "IoT-based system that predicts equipment failures using sensor data and machine learning algorithms, reducing downtime by 60%.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      techStack: ["Python", "Scikit-learn", "React", "FastAPI", "InfluxDB"],
-      githubUrl: "https://github.com/bala/predictive-maintenance",
-      liveUrl: "https://pred-maintenance.demo.com",
-      category: "Data Science",
-      status: "Completed",
-      impact: "60% reduction in downtime"
-    },
-    {
-      id: 4,
-      title: "Neural Style Transfer Web App",
-      description: "Interactive web application that applies artistic styles to images using deep neural networks and provides real-time style transfer.",
-      image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&h=400&fit=crop",
-      techStack: ["TensorFlow.js", "React", "Python", "Flask", "AWS"],
-      githubUrl: "https://github.com/bala/neural-style-transfer",
-      liveUrl: "https://style-transfer.demo.com",
-      category: "AI/ML",
-      status: "Completed",
-      impact: "10K+ images processed"
-    }
-  ];
+  // Use the existing projects list; take those marked featured.
+  const projects = useMemo(() => {
+    const list = Array.isArray(allProjects) ? allProjects : [];
+    const featured = list.filter(p => p?.featured);
+    // Map to the shape expected by this component with sensible fallbacks
+    return featured.map(p => ({
+      id: p.id,
+      title: p.title,
+      description: p.description,
+      image: getImageForProject(p) || p.image,
+      techStack: p.technologies || [],
+      githubUrl: p.githubUrl || undefined,
+      liveUrl: p.liveDemo || undefined,
+      category: p.type,
+      status: p.status,
+      impact: p.metrics?.userImpact || undefined,
+    }));
+  }, []);
 
   const nextProject = () => {
     setCurrentProject((prev) => (prev + 1) % projects?.length);
@@ -66,6 +39,16 @@ const ProjectCarousel = () => {
   const prevProject = () => {
     setCurrentProject((prev) => (prev - 1 + projects?.length) % projects?.length);
   };
+
+  // Auto-advance carousel with pause on hover
+  useEffect(() => {
+    if (!projects?.length) return;
+    if (isHovered) return; // pause when hovered
+    const interval = setInterval(() => {
+      setCurrentProject((prev) => (prev + 1) % projects.length);
+    }, 5000); // 5s per slide
+    return () => clearInterval(interval);
+  }, [projects?.length, isHovered]);
 
   const handleViewAllProjects = () => {
     navigate('/technical-portfolio-project-showcase');
@@ -89,8 +72,35 @@ const ProjectCarousel = () => {
     return colors?.[status] || 'bg-gray-100 text-gray-800';
   };
 
+  // Swipe handlers for mobile
+  const minSwipeDistance = 50; // px
+  const onTouchStart = (e) => {
+    setTouchEndX(null);
+    setTouchStartX(e.changedTouches?.[0]?.clientX ?? 0);
+  };
+  const onTouchMove = (e) => setTouchEndX(e.changedTouches?.[0]?.clientX ?? 0);
+  const onTouchEnd = () => {
+    if (touchStartX === null || touchEndX === null) return;
+    const distance = touchStartX - touchEndX;
+    if (Math.abs(distance) < minSwipeDistance) return;
+    if (distance > 0) {
+      // swipe left -> next
+      nextProject();
+    } else {
+      // swipe right -> prev
+      prevProject();
+    }
+  };
+
   return (
-    <section className="py-16 sm:py-20 bg-white">
+    <section
+      className="py-16 sm:py-20 bg-white"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">
@@ -103,10 +113,10 @@ const ProjectCarousel = () => {
 
         <div className="relative max-w-6xl mx-auto">
           {/* Main Project Display */}
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-border">
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-border transition-shadow duration-500">
             <div className="grid lg:grid-cols-2 gap-0">
               {/* Project Image */}
-              <div className="relative h-64 lg:h-auto">
+              <div className="relative h-64 lg:h-auto transition-opacity duration-500" key={`img-${projects?.[currentProject]?.id ?? currentProject}`}>
                 <Image
                   src={projects?.[currentProject]?.image}
                   alt={projects?.[currentProject]?.title}
@@ -130,7 +140,7 @@ const ProjectCarousel = () => {
               </div>
 
               {/* Project Details */}
-              <div className="p-6 sm:p-8 flex flex-col justify-between">
+              <div className="p-6 sm:p-8 flex flex-col justify-between transition-opacity duration-500" key={`info-${projects?.[currentProject]?.id ?? currentProject}`}>
                 <div className="space-y-4 sm:space-y-6">
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold text-text-primary mb-3">
@@ -169,22 +179,12 @@ const ProjectCarousel = () => {
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-3 mt-6">
                   <Button
-                    variant="default"
-                    onClick={() => window.open(projects?.[currentProject]?.liveUrl, '_blank')}
-                    iconName="ExternalLink"
-                    iconPosition="right"
-                    iconSize={16}
-                    className="flex-1"
-                  >
-                    View Live Demo
-                  </Button>
-                  <Button
                     variant="outline"
                     onClick={() => window.open(projects?.[currentProject]?.githubUrl, '_blank')}
                     iconName="Github"
                     iconPosition="left"
                     iconSize={16}
-                    className="flex-1"
+                    className="w-full"
                   >
                     View Code
                   </Button>
@@ -238,7 +238,7 @@ const ProjectCarousel = () => {
               iconPosition="right"
               iconSize={16}
             >
-              View All Projects ({projects?.length})
+              View All Projects
             </Button>
           </div>
         </div>

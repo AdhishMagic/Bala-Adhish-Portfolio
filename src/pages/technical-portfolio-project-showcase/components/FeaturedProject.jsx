@@ -4,7 +4,7 @@ import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
 import { getImageForProject } from '../../../utils/projectImages';
 
-const FeaturedProject = ({ project, onViewDetails }) => {
+const FeaturedProject = ({ project }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   if (!project) return null;
@@ -195,16 +195,6 @@ const FeaturedProject = ({ project, onViewDetails }) => {
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-3">
-            <Button
-              variant="default"
-              onClick={() => onViewDetails(project)}
-              iconName="Eye"
-              iconPosition="left"
-              iconSize={16}
-              className="flex-1"
-            >
-              View Full Details
-            </Button>
             <div className="flex gap-2">
               {project?.liveDemo && (
                 <Button

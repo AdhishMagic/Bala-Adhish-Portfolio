@@ -4,7 +4,6 @@ import Icon from '../../components/AppIcon';
 import ContactForm from './components/ContactForm';
 import AvailabilityStatus from './components/AvailabilityStatus';
 import QuickConnect from './components/QuickConnect';
-import LocationInfo from './components/LocationInfo';
 import ContactFAQ from './components/ContactFAQ';
 
 
@@ -113,7 +112,7 @@ const ProfessionalConnectContactHub = () => {
             <div className="space-y-8">
               <AvailabilityStatus />
               <QuickConnect />
-              <LocationInfo />
+              {/* Location & Availability removed as requested */}
             </div>
           </div>
         </div>
@@ -167,7 +166,7 @@ const ProfessionalConnectContactHub = () => {
               </button>
               
               <button
-                onClick={() => window.open('https://linkedin.com/in/bala-adhish', '_blank')}
+                onClick={() => window.open('https://www.linkedin.com/in/bala-adhish4/', '_blank')}
                 className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-all duration-300 flex items-center justify-center space-x-2"
               >
                 <Icon name="Linkedin" size={20} />
@@ -197,25 +196,19 @@ const ProfessionalConnectContactHub = () => {
             
             <div className="flex justify-center space-x-6 mb-6">
               <button
-                onClick={() => window.open('https://github.com/bala-adhish', '_blank')}
+                onClick={() => window.open('https://github.com/AdhishMagic', '_blank')}
                 className="text-text-muted hover:text-primary transition-colors duration-300"
               >
                 <Icon name="Github" size={24} />
               </button>
               <button
-                onClick={() => window.open('https://linkedin.com/in/bala-adhish', '_blank')}
+                onClick={() => window.open('https://www.linkedin.com/in/bala-adhish4/', '_blank')}
                 className="text-text-muted hover:text-primary transition-colors duration-300"
               >
                 <Icon name="Linkedin" size={24} />
               </button>
               <button
-                onClick={() => window.open('https://twitter.com/bala_adhish', '_blank')}
-                className="text-text-muted hover:text-primary transition-colors duration-300"
-              >
-                <Icon name="Twitter" size={24} />
-              </button>
-              <button
-                onClick={() => window.open('mailto:bala.adhish@email.com', '_blank')}
+                onClick={() => window.open('mailto:balaadhish.cbe@gmail.com', '_blank')}
                 className="text-text-muted hover:text-primary transition-colors duration-300"
               >
                 <Icon name="Mail" size={24} />

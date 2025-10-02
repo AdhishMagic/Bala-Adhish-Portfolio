@@ -6,42 +6,43 @@ import Button from '../../../components/ui/Button';
 const SkillsMatrix = () => {
   const navigate = useNavigate();
   const [animatedSkills, setAnimatedSkills] = useState({});
+  const [activeTab, setActiveTab] = useState(0); // 0: AI/ML, 1: Full Stack, 2: Gen AI
 
   const skillCategories = [
     {
-      title: "AI & Machine Learning",
+      title: "AI/ML",
       icon: "Brain",
       color: "from-blue-500 to-blue-600",
       skills: [
         { name: "Python", level: 90, icon: "Code" },
         { name: "TensorFlow", level: 85, icon: "Cpu" },
-        { name: "PyTorch", level: 80, icon: "Zap" },
+        { name: "PyTorch", level: 82, icon: "Zap" },
         { name: "Scikit-learn", level: 88, icon: "BarChart3" },
         { name: "OpenCV", level: 75, icon: "Eye" }
       ]
     },
     {
-      title: "Full-Stack Development",
+      title: "Full Stack",
       icon: "Code",
       color: "from-green-500 to-green-600",
       skills: [
-        { name: "JavaScript", level: 92, icon: "FileCode" },
+        { name: "Django", level: 85, icon: "Server" },
         { name: "React", level: 90, icon: "Layers" },
-        { name: "Node.js", level: 85, icon: "Server" },
-        { name: "Express.js", level: 82, icon: "Globe" },
-        { name: "MongoDB", level: 78, icon: "Database" }
+        { name: "JavaScript", level: 92, icon: "FileCode" },
+        { name: "HTML & CSS", level: 88, icon: "Code2" },
+        { name: "REST API", level: 84, icon: "Globe" }
       ]
     },
     {
-      title: "Data Science & Analytics",
-      icon: "BarChart3",
-      color: "from-purple-500 to-purple-600",
+      title: "Gen AI",
+      icon: "Sparkles",
+      color: "from-purple-500 to-pink-600",
       skills: [
-        { name: "Pandas", level: 88, icon: "Table" },
-        { name: "NumPy", level: 85, icon: "Calculator" },
-        { name: "Matplotlib", level: 80, icon: "PieChart" },
-        { name: "SQL", level: 87, icon: "Database" },
-        { name: "R", level: 70, icon: "TrendingUp" }
+        { name: "OpenAI API", level: 85, icon: "Globe" },
+        { name: "LangChain", level: 80, icon: "Layers" },
+        { name: "Prompt Engineering", level: 88, icon: "MessageSquare" },
+        { name: "RAG Pipelines", level: 82, icon: "Database" },
+        { name: "Transformers (HF)", level: 78, icon: "Zap" }
       ]
     }
   ];
@@ -68,77 +69,104 @@ const SkillsMatrix = () => {
   return (
     <section className="py-16 sm:py-20 bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10 sm:mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">
             Technical Expertise
           </h2>
           <p className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto">
-            A comprehensive overview of my technical skills across AI/ML, full-stack development, and data science domains.
+            Explore my skills across AI/ML, Full‑Stack, and Gen AI—organized in simple tabs.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {skillCategories?.map((category, categoryIndex) => (
-            <div
-              key={categoryIndex}
-              className="bg-white rounded-2xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300"
-            >
-              {/* Category Header */}
-              <div className="flex items-center space-x-3 mb-6">
-                <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${category?.color} flex items-center justify-center flex-shrink-0`}>
-                  <Icon name={category?.icon} size={24} color="white" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-text-primary">
-                  {category?.title}
-                </h3>
-              </div>
+        {/* Tabs */}
+        <div className="mb-8">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            {skillCategories?.map((tab, idx) => {
+              const isActive = idx === activeTab;
+              return (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => setActiveTab(idx)}
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border transition-all text-sm sm:text-base ${
+                    isActive
+                      ? 'bg-slate-900 text-white border-slate-900 shadow'
+                      : 'bg-white text-slate-700 border-border hover:border-slate-300 hover:bg-slate-50'
+                  }`}
+                  aria-pressed={isActive}
+                >
+                  <Icon name={tab?.icon} size={18} color={isActive ? 'white' : '#0f172a'} />
+                  <span className="font-medium">{tab?.title}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
 
-              {/* Skills List */}
-              <div className="space-y-4">
-                {category?.skills?.map((skill, skillIndex) => {
-                  const skillKey = `${categoryIndex}-${skillIndex}`;
-                  const isAnimated = animatedSkills?.[skillKey];
-                  
-                  return (
-                    <div key={skillIndex} className="space-y-2">
-                      <div className="flex items-center justify-between text-sm sm:text-base">
-                        <div className="flex items-center space-x-2">
-                          <Icon name={skill?.icon} size={16} color="#64748b" />
-                          <span className="font-medium text-text-primary">
-                            {skill?.name}
+        {/* Active Tab Content */}
+        <div className="mb-12">
+          {(() => {
+            const categoryIndex = activeTab;
+            const category = skillCategories?.[categoryIndex];
+            return (
+              <div className="bg-white rounded-2xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
+                {/* Category Header */}
+                <div className="flex items-center space-x-3 mb-6">
+                  <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${category?.color} flex items-center justify-center flex-shrink-0`}>
+                    <Icon name={category?.icon} size={24} color="white" />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-text-primary">
+                    {category?.title}
+                  </h3>
+                </div>
+
+                {/* Skills List */}
+                <div className="space-y-4">
+                  {category?.skills?.map((skill, skillIndex) => {
+                    const skillKey = `${categoryIndex}-${skillIndex}`;
+                    const isAnimated = animatedSkills?.[skillKey];
+
+                    return (
+                      <div key={skillIndex} className="space-y-2">
+                        <div className="flex items-center justify-between text-sm sm:text-base">
+                          <div className="flex items-center space-x-2">
+                            <Icon name={skill?.icon} size={16} color="#64748b" />
+                            <span className="font-medium text-text-primary">
+                              {skill?.name}
+                            </span>
+                          </div>
+                          <span className="text-sm font-semibold text-text-secondary">
+                            {skill?.level}%
                           </span>
                         </div>
-                        <span className="text-sm font-semibold text-text-secondary">
-                          {skill?.level}%
-                        </span>
+                        {/* Progress Bar */}
+                        <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                          <div
+                            className={`h-full bg-gradient-to-r ${category?.color} rounded-full transition-all duration-1000 ease-out ${
+                              isAnimated ? 'opacity-100' : 'opacity-0'
+                            }`}
+                            style={{
+                              width: isAnimated ? `${skill?.level}%` : '0%'
+                            }}
+                          ></div>
+                        </div>
                       </div>
-                      {/* Progress Bar */}
-                      <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-                        <div
-                          className={`h-full bg-gradient-to-r ${category?.color} rounded-full transition-all duration-1000 ease-out ${
-                            isAnimated ? 'opacity-100' : 'opacity-0'
-                          }`}
-                          style={{
-                            width: isAnimated ? `${skill?.level}%` : '0%'
-                          }}
-                        ></div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+                    );
+                  })}
+                </div>
 
-              {/* Category Stats */}
-              <div className="mt-6 pt-4 border-t border-border">
-                <div className="flex justify-between text-sm">
-                  <span className="text-text-secondary">Avg. Proficiency</span>
-                  <span className="font-semibold text-text-primary">
-                    {Math.round(category?.skills?.reduce((acc, skill) => acc + skill?.level, 0) / category?.skills?.length)}%
-                  </span>
+                {/* Category Stats */}
+                <div className="mt-6 pt-4 border-t border-border">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-text-secondary">Avg. Proficiency</span>
+                    <span className="font-semibold text-text-primary">
+                      {Math.round(category?.skills?.reduce((acc, skill) => acc + skill?.level, 0) / category?.skills?.length)}%
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })()}
         </div>
 
         {/* Overall Skills Summary */}

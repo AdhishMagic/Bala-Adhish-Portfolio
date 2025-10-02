@@ -1,13 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/ui/Button';
 import Icon from '../../../components/AppIcon';
+import resumePdf from '../../../assets/resume/Resume.pdf';
 
 const QuickConnect = () => {
+  const navigate = useNavigate();
+
   const socialProfiles = [
     {
       name: 'LinkedIn',
-      username: '@bala-adhish',
-      url: 'https://linkedin.com/in/bala-adhish',
+      username: '@bala-adhish4',
+      url: 'https://www.linkedin.com/in/bala-adhish4/',
       icon: 'Linkedin',
       description: 'Professional network and career updates',
       color: 'text-blue-600',
@@ -17,8 +21,8 @@ const QuickConnect = () => {
     },
     {
       name: 'GitHub',
-      username: '@bala-adhish',
-      url: 'https://github.com/bala-adhish',
+      username: '@AdhishMagic',
+      url: 'https://github.com/AdhishMagic',
       icon: 'Github',
       description: 'Open source projects and code repositories',
       color: 'text-gray-800',
@@ -27,20 +31,9 @@ const QuickConnect = () => {
       followers: '150+ followers'
     },
     {
-      name: 'Twitter',
-      username: '@bala_adhish',
-      url: 'https://twitter.com/bala_adhish',
-      icon: 'Twitter',
-      description: 'Tech insights and industry discussions',
-      color: 'text-blue-500',
-      bgColor: 'bg-blue-50',
-      hoverColor: 'hover:bg-blue-100',
-      followers: '300+ followers'
-    },
-    {
       name: 'Email',
-      username: 'bala.adhish@email.com',
-      url: 'mailto:bala.adhish@email.com',
+      username: 'balaadhish.cbe@gmail.com',
+      url: 'mailto:balaadhish.cbe@gmail.com',
       icon: 'Mail',
       description: 'Direct professional communication',
       color: 'text-red-600',
@@ -55,7 +48,7 @@ const QuickConnect = () => {
       title: 'GitHub',
       description: 'Explore code and projects',
       icon: 'Github',
-      action: () => window.open('https://github.com/bala-adhish', '_blank'),
+      action: () => window.open('https://github.com/AdhishMagic', '_blank'),
       variant: 'default'
     },
     {
@@ -63,11 +56,12 @@ const QuickConnect = () => {
       description: 'Get the latest PDF version',
       icon: 'Download',
       action: () => {
-        // Simulate resume download
         const link = document.createElement('a');
-        link.href = '/assets/resume/Bala_Adhish_Resume.pdf';
+        link.href = resumePdf;
         link.download = 'Bala_Adhish_Resume.pdf';
-        link?.click();
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
       },
       variant: 'outline'
     },
@@ -75,7 +69,7 @@ const QuickConnect = () => {
       title: 'View Portfolio',
       description: 'Explore technical projects',
       icon: 'FolderOpen',
-      action: () => window.open('/technical-portfolio-project-showcase', '_self'),
+      action: () => navigate('/technical-portfolio-project-showcase'),
       variant: 'secondary'
     }
   ];

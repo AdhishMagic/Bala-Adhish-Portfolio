@@ -142,7 +142,7 @@ const ContactFAQ = () => {
             <span>Send a message</span>
           </button>
           <button
-            onClick={() => window.open('mailto:bala.adhish@email.com', '_blank')}
+            onClick={() => window.open('mailto:balaadhish.cbe@gmail.com', '_blank')}
             className="text-sm text-primary hover:text-primary/80 font-medium flex items-center space-x-1"
           >
             <Icon name="Mail" size={14} />

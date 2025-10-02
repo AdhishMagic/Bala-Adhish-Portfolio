@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Header from '../../components/ui/Header';
 import HeroSection from './components/HeroSection';
 import ProjectCarousel from './components/ProjectCarousel';
 import SkillsMatrix from './components/SkillsMatrix';
-import AchievementHighlights from './components/AchievementHighlights';
 import CurrentLearning from './components/CurrentLearning';
 import SocialProof from './components/SocialProof';
 
@@ -56,8 +56,7 @@ const HomePage = () => {
           {/* Skills Matrix */}
           <SkillsMatrix />
 
-          {/* Achievement Highlights */}
-          <AchievementHighlights />
+          {/* Achievement Highlights removed as requested */}
 
           {/* Current Learning */}
           <CurrentLearning />
@@ -85,7 +84,7 @@ const HomePage = () => {
                 </p>
                 <div className="flex space-x-4 justify-center sm:justify-start">
                   <a
-                    href="https://github.com/adhishview"
+                    href="https://github.com/AdhishMagic"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-slate-400 hover:text-white transition-colors"
@@ -114,25 +113,21 @@ const HomePage = () => {
                 <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
                 <ul className="space-y-2">
                   <li>
-                    <a href="/about-professional-journey" className="text-slate-400 hover:text-white transition-colors">
+                    <Link to="/about-professional-journey" className="text-slate-400 hover:text-white transition-colors">
                       About
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="/technical-portfolio-project-showcase" className="text-slate-400 hover:text-white transition-colors">
+                    <Link to="/technical-portfolio-project-showcase" className="text-slate-400 hover:text-white transition-colors">
                       Projects
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="/skills-matrix-technical-competencies" className="text-slate-400 hover:text-white transition-colors">
+                    <Link to="/skills-matrix-technical-competencies" className="text-slate-400 hover:text-white transition-colors">
                       Skills
-                    </a>
+                    </Link>
                   </li>
-                  <li>
-                    <a href="/achievements-hub-recognition-gallery" className="text-slate-400 hover:text-white transition-colors">
-                      Achievements
-                    </a>
-                  </li>
+                  {/* Achievements link removed as requested */}
                 </ul>
               </div>
 
@@ -141,12 +136,12 @@ const HomePage = () => {
                 <h4 className="text-lg font-semibold mb-4">Get In Touch</h4>
                 <ul className="space-y-2">
                   <li>
-                    <a href="/professional-connect-contact-hub" className="text-slate-400 hover:text-white transition-colors">
+                    <Link to="/professional-connect-contact-hub" className="text-slate-400 hover:text-white transition-colors">
                       Contact Form
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="mailto:bala.adhish@example.com" className="text-slate-400 hover:text-white transition-colors">
+                    <a href="mailto:balaadhish.cbe@gmail.com" className="text-slate-400 hover:text-white transition-colors">
                       Email
                     </a>
                   </li>
