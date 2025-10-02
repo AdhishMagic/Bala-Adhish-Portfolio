@@ -104,15 +104,6 @@ const interests = [
           <p className="text-base sm:text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
           Beyond code and algorithms—what motivates me as a person and professional.
           </p>
-  description: "Real learning happens through practice. When I explore a new concept, I implement it in a project immediately.",
-  example: "When I started with HTML, CSS, and JavaScript, I built my portfolio website as my first project."
-  description: "Explaining concepts and collaborating with peers strengthens my own understanding.",
-  description: "Every failure is an opportunity to improve. Hackathons and competitions shaped my problem‑solving mindset.",
-  description: "Python is my go‑to for building intelligent systems and solving data‑driven problems.",
-  example: "Built StudyBuddy (planner) and HealthHive (wellness) using HTML, CSS, JavaScript, and Django."
-  description: "Cloud platforms enable efficient scaling and deployment to reach more users.",
-  description: "I’m motivated to solve real challenges in education, productivity, and healthcare.",
-  example: "Preparing for TCS Digital while strengthening DSA, Python, and full‑stack skills."
         </div>
 
         {/* Personal Philosophy Tabs */}
