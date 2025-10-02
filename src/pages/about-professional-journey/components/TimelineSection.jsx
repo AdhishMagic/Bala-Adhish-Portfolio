@@ -166,7 +166,7 @@ skills: [
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gradient mb-4">My Professional Journey</h2>
           <p className="text-base sm:text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
-            Explore the milestones, achievements, and growth that have shaped my path as an AI engineer and full-stack developer.
+            Milestones and growth shaping my path as an AI engineer and full‑stack developer.
           </p>
         </div>
 

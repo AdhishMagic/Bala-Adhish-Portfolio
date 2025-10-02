@@ -4,7 +4,7 @@ import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
 import { getImageForProject } from '../../../utils/projectImages';
 
-const ProjectCard = ({ project, onViewDetails }) => {
+const ProjectCard = ({ project }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const getDifficultyColor = (level) => {
@@ -28,10 +28,9 @@ const ProjectCard = ({ project, onViewDetails }) => {
 
   return (
     <div 
-      className="project-card group cursor-pointer bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+      className="project-card group bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => onViewDetails(project)}
     >
       {/* Project Image */}
       <div className="relative overflow-hidden h-48">
@@ -160,16 +159,7 @@ const ProjectCard = ({ project, onViewDetails }) => {
               </div>
             )}
           </div>
-          
-          <Button
-            variant="ghost"
-            size="sm"
-            iconName="ArrowRight"
-            iconPosition="right"
-            iconSize={14}
-          >
-            Details
-          </Button>
+          {/* Details button removed as requested */}
         </div>
       </div>
     </div>

@@ -3,7 +3,6 @@ import { useForm, ValidationError } from '@formspree/react';
 import Button from '../../../components/ui/Button';
 import Input from '../../../components/ui/Input';
 import Select from '../../../components/ui/Select';
-import { Checkbox } from '../../../components/ui/Checkbox';
 import Icon from '../../../components/AppIcon';
 
 const ContactForm = () => {
@@ -17,7 +16,6 @@ const ContactForm = () => {
     timeline: '',
     budget: '',
     urgency: '',
-    newsletter: false
   });
 
   const handleInputChange = (e) => {
@@ -224,15 +222,7 @@ const ContactForm = () => {
           errors={state.errors}
         />
 
-        <div className="border-t border-border pt-6">
-          <Checkbox
-            label="Subscribe to newsletter"
-            description="Get updates on new projects, blog posts, and professional milestones"
-            name="newsletter"
-            checked={formData.newsletter}
-            onChange={handleInputChange}
-          />
-        </div>
+        {/* Newsletter subscription removed as requested */}
 
         <div className="flex flex-col sm:flex-row gap-4 pt-4">
           <Button

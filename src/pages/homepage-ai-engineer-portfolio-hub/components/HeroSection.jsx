@@ -4,6 +4,7 @@ import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
 import resumePdf from '../../../assets/resume/Resume.pdf';
+import AdhishProfile from '../../../assets/images/AdhishProfile.jpeg';
 
 const HeroSection = () => {
   const navigate = useNavigate();
@@ -55,7 +56,7 @@ const HeroSection = () => {
               </h1>
               
               <p className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                AI Engineer & Full-Stack Developer passionate about creating intelligent solutions that bridge cutting-edge research with practical applications. Transforming complex problems into elegant, scalable systems.
+                AI Engineer & Full‑Stack Developer focused on building intelligent solutions that bridge cutting‑edge research and practical applications. Turning complex problems into elegant, scalable systems.
               </p>
             </div>
 
@@ -131,7 +132,7 @@ const HeroSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full animate-pulse opacity-20"></div>
                 <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl">
                   <Image
-                    src="/src/assets/images/AdhishProfile.jpeg"
+                    src={AdhishProfile}
                     alt="Bala Adhish - AI Engineer"
                     className="w-full h-full object-cover"
                   />

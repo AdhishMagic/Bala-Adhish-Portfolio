@@ -106,7 +106,7 @@ const SocialProof = () => {
               <span>GitHub Activity</span>
             </h3>
             <a
-              href="https://github.com/adhishview"
+              href="https://github.com/AdhishMagic"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary hover:text-primary/80 transition-colors"

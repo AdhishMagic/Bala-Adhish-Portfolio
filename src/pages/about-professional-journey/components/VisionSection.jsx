@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 import resumePdf from '../../../assets/resume/Resume.pdf';
@@ -191,16 +192,16 @@ const VisionSection = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
-                variant="default"
-                size="lg"
-                asChild
-                className="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors duration-300 flex items-center justify-center space-x-2 w-full sm:w-auto"
-              >
-                <a href="/Bala-Adhish-Portfolio/professional-connect-contact-hub">
-                  <Icon name="Mail" size={20} className="mr-2" />
-                  <span>Get In Touch</span>
-                </a>
-              </Button>
+                  variant="default"
+                  size="lg"
+                  asChild
+                  className="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors duration-300 flex items-center justify-center space-x-2 w-full sm:w-auto"
+                >
+                  <Link to="/professional-connect-contact-hub">
+                    <Icon name="Mail" size={20} className="mr-2" />
+                    <span>Get In Touch</span>
+                  </Link>
+                </Button>
                 <Button
                 variant="outline"
                 size="lg"

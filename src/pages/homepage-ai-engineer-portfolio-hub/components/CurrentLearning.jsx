@@ -11,19 +11,19 @@ const CurrentLearning = () => {
       category: "AI/ML",
       icon: "Brain",
       color: "from-blue-500 to-blue-600",
-      estimatedCompletion: "April 2024",
-      description: "Exploring policy gradients, actor-critic methods, and multi-agent systems"
+      estimatedCompletion: "Ongoing",
+  description: "Policy gradients, actor–critic methods, and multi‑agent systems"
     },
     {
       id: 2,
-      title: "Kubernetes & Container Orchestration",
-      provider: "Cloud Native Computing Foundation",
+      title: "AI/ML Mastery",
+      provider: "Self-Directed & Advanced Courses",
       progress: 60,
-      category: "DevOps",
-      icon: "Server",
-      color: "from-green-500 to-green-600",
-      estimatedCompletion: "May 2024",
-      description: "Mastering container deployment, scaling, and management in production"
+      category: "AI/ML",
+      icon: "Brain",
+      color: "from-blue-500 to-blue-600",
+      estimatedCompletion: "Ongoing",
+  description: "Advanced ML algorithms, optimization, and neural network architectures"
     },
     {
       id: 3,
@@ -33,37 +33,35 @@ const CurrentLearning = () => {
       category: "NLP",
       icon: "MessageSquare",
       color: "from-purple-500 to-purple-600",
-      estimatedCompletion: "June 2024",
-      description: "Fine-tuning transformers, prompt engineering, and model optimization"
+      estimatedCompletion: "Ongoing",
+  description: "Fine‑tuning transformers, prompt engineering, and model optimization"
     }
   ];
 
   const researchInterests = [
     {
       title: "Explainable AI",
-      description: "Making AI decisions transparent and interpretable",
+  description: "Techniques to make model decisions transparent and interpretable",
       icon: "Eye",
-      status: "Active Research"
+      status: "Ongoing"
     },
     {
       title: "Edge Computing for ML",
-      description: "Optimizing ML models for resource-constrained devices",
+  description: "Optimizing ML models for resource‑constrained devices",
       icon: "Cpu",
-      status: "Exploring"
+      status: "Ongoing"
     },
     {
       title: "Federated Learning",
-      description: "Privacy-preserving distributed machine learning",
+  description: "Privacy‑preserving distributed machine learning",
       icon: "Shield",
-      status: "Planning"
+      status: "Ongoing"
     }
   ];
 
   const getStatusColor = (status) => {
     const colors = {
-      'Active Research': 'bg-green-100 text-green-800',
-      'Exploring': 'bg-blue-100 text-blue-800',
-      'Planning': 'bg-yellow-100 text-yellow-800'
+      'Ongoing': 'bg-green-100 text-green-800',
     };
     return colors?.[status] || 'bg-gray-100 text-gray-800';
   };
