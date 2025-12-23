@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import Header from '../../components/ui/Header';
@@ -306,7 +307,7 @@ const SkillsMatrixPage = () => {
     { id: 'overview', label: 'Overview', icon: 'BarChart3' },
     { id: 'skills', label: 'Skills Matrix', icon: 'Grid3x3' },
     { id: 'trajectory', label: 'Learning Path', icon: 'TrendingUp' },
-  // Certifications and Skills in Action tabs removed
+    // Certifications and Skills in Action tabs removed
     { id: 'learning', label: 'Recent Learning', icon: 'BookOpen' }
   ];
 
@@ -315,7 +316,7 @@ const SkillsMatrixPage = () => {
       <Helmet>
         <title>Skills Matrix - Technical Competencies | Bala Adhish Portfolio</title>
         <meta name="description" content="Comprehensive technical skills matrix showcasing AI/ML expertise, full-stack development capabilities, and continuous learning journey of Bala Adhish." />
-  <meta name="keywords" content="technical skills, AI ML, Generative AI, Django, Python, React, TensorFlow, learning trajectory" />
+        <meta name="keywords" content="technical skills, AI ML, Generative AI, Django, Python, React, TensorFlow, learning trajectory" />
       </Helmet>
       <Header />
       <main className="pt-20">
@@ -323,19 +324,35 @@ const SkillsMatrixPage = () => {
         <section className="section-padding bg-hero-gradient text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="container-width relative">
-            <div className={`text-center transition-all duration-1000 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}>
+            <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}>
               <div className="flex items-center justify-center space-x-3 mb-4">
                 <Icon name="Code" size={32} color="white" />
                 <Icon name="Brain" size={32} color="white" />
                 <Icon name="Zap" size={32} color="white" />
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">Technical Skills Matrix</h1>
-              <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-4xl md:text-6xl font-bold mb-6"
+              >
+                Technical Skills Matrix
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto"
+              >
                 A concise view of my technical competencies, proficiency levels, and continuous learning across AI/ML and full‑stack development.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4"
+              >
                 <Button
                   variant="secondary"
                   size="lg"
@@ -356,32 +373,36 @@ const SkillsMatrixPage = () => {
                 >
                   View GitHub Profile
                 </Button>
-              </div>
+              </motion.div>
             </div>
           </div>
 
           {/* Animated Background Elements */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full animate-float"></div>
-            <div className="absolute top-40 right-20 w-16 h-16 bg-white/10 rounded-full animate-float" style={{animationDelay: '1s'}}></div>
-            <div className="absolute bottom-20 left-20 w-12 h-12 bg-white/10 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
-            <div className="absolute bottom-40 right-10 w-24 h-24 bg-white/10 rounded-full animate-float" style={{animationDelay: '0.5s'}}></div>
+            <div className="absolute top-40 right-20 w-16 h-16 bg-white/10 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute bottom-20 left-20 w-12 h-12 bg-white/10 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute bottom-40 right-10 w-24 h-24 bg-white/10 rounded-full animate-float" style={{ animationDelay: '0.5s' }}></div>
           </div>
         </section>
 
         {/* Navigation Tabs */}
-        <section className="section-padding bg-surface border-b border-border">
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          className="section-padding bg-surface border-b border-border"
+        >
           <div className="container-width">
             <div className="flex flex-wrap justify-center gap-2">
               {viewOptions?.map((option) => (
                 <button
                   key={option?.id}
                   onClick={() => setActiveView(option?.id)}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
-                    activeView === option?.id
-                      ? 'bg-primary text-white shadow-md'
-                      : 'bg-background text-text-secondary hover:text-primary hover:bg-primary/5'
-                  }`}
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${activeView === option?.id
+                    ? 'bg-primary text-white shadow-md'
+                    : 'bg-background text-text-secondary hover:text-primary hover:bg-primary/5'
+                    }`}
                 >
                   <Icon name={option?.icon} size={16} />
                   <span>{option?.label}</span>
@@ -389,44 +410,95 @@ const SkillsMatrixPage = () => {
               ))}
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Content Sections */}
         <section className="section-padding">
           <div className="container-width">
             <div className="space-y-8">
-              {activeView === 'overview' && <SkillsOverview skillsData={skillsData} />}
-              
-              {activeView === 'skills' && (
-                <div className="space-y-6">
-                  <div className="text-center mb-8">
-                    <h2 className="text-3xl font-bold text-text-primary mb-4">Skills by Category</h2>
-                    <p className="text-text-secondary max-w-2xl mx-auto">
-                      Explore detailed proficiency levels, technologies, and real-world applications 
-                      across different technical domains
-                    </p>
-                  </div>
-                  {skillsData?.map((categoryData) => (
-                    <SkillCategoryCard
-                      key={categoryData?.category}
-                      category={categoryData?.category}
-                      skills={categoryData?.skills}
-                      isExpanded={expandedCategories?.[categoryData?.category]}
-                      onToggle={() => toggleCategory(categoryData?.category)}
-                    />
-                  ))}
-                </div>
-              )}
-              
-              {activeView === 'trajectory' && <LearningTrajectory />}
-              {/* Certifications and Skills in Action sections removed */}
-              {activeView === 'learning' && <RecentLearning />}
+              <AnimatePresence mode="wait">
+                {activeView === 'overview' && (
+                  <motion.div
+                    key="overview"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <SkillsOverview skillsData={skillsData} />
+                  </motion.div>
+                )}
+
+                {activeView === 'skills' && (
+                  <motion.div
+                    key="skills"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3 }}
+                    className="space-y-6"
+                  >
+                    <div className="text-center mb-8">
+                      <h2 className="text-3xl font-bold text-text-primary mb-4">Skills by Category</h2>
+                      <p className="text-text-secondary max-w-2xl mx-auto">
+                        Explore detailed proficiency levels, technologies, and real-world applications
+                        across different technical domains
+                      </p>
+                    </div>
+                    {skillsData?.map((categoryData, idx) => (
+                      <motion.div
+                        key={categoryData?.category}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: idx * 0.1 }}
+                      >
+                        <SkillCategoryCard
+                          category={categoryData?.category}
+                          skills={categoryData?.skills}
+                          isExpanded={expandedCategories?.[categoryData?.category]}
+                          onToggle={() => toggleCategory(categoryData?.category)}
+                        />
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                )}
+
+                {activeView === 'trajectory' && (
+                  <motion.div
+                    key="trajectory"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <LearningTrajectory />
+                  </motion.div>
+                )}
+                {/* Certifications and Skills in Action sections removed */}
+                {activeView === 'learning' && (
+                  <motion.div
+                    key="learning"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <RecentLearning />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
         </section>
 
         {/* Call to Action */}
-        <section className="section-padding bg-surface">
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="section-padding bg-surface"
+        >
           <div className="container-width">
             <div className="text-center">
               <h2 className="text-3xl font-bold text-text-primary mb-4">
@@ -459,7 +531,7 @@ const SkillsMatrixPage = () => {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
       </main>
       {/* Footer */}
       <footer className="bg-text-primary text-white py-8">

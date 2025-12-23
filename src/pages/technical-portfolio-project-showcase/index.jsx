@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { motion, AnimatePresence } from 'framer-motion';
 import Header from '../../components/ui/Header';
 import Icon from '../../components/AppIcon';
 import ProjectCard from './components/ProjectCard';
@@ -42,25 +43,25 @@ const TechnicalPortfolioProjectShowcase = () => {
   const filteredAndSortedProjects = useMemo(() => {
     let filtered = projects?.filter(project => {
       // Search filter
-      const matchesSearch = searchQuery === '' || 
+      const matchesSearch = searchQuery === '' ||
         project?.title?.toLowerCase()?.includes(searchQuery?.toLowerCase()) ||
         project?.description?.toLowerCase()?.includes(searchQuery?.toLowerCase()) ||
         project?.technologies?.some(tech => tech?.toLowerCase()?.includes(searchQuery?.toLowerCase()));
 
       // Type filter
-      const matchesType = activeFilters?.type?.length === 0 || 
+      const matchesType = activeFilters?.type?.length === 0 ||
         activeFilters?.type?.includes(project?.type);
 
       // Technology filter
-      const matchesTechnology = activeFilters?.technology?.length === 0 || 
+      const matchesTechnology = activeFilters?.technology?.length === 0 ||
         activeFilters?.technology?.some(tech => project?.technologies?.includes(tech));
 
       // Difficulty filter
-      const matchesDifficulty = activeFilters?.difficulty?.length === 0 || 
+      const matchesDifficulty = activeFilters?.difficulty?.length === 0 ||
         activeFilters?.difficulty?.includes(project?.difficulty);
 
       // Status filter
-      const matchesStatus = activeFilters?.status?.length === 0 || 
+      const matchesStatus = activeFilters?.status?.length === 0 ||
         activeFilters?.status?.includes(project?.status);
 
       return matchesSearch && matchesType && matchesTechnology && matchesDifficulty && matchesStatus;
@@ -158,7 +159,12 @@ const TechnicalPortfolioProjectShowcase = () => {
       <Header />
       <main className="pt-16">
         {/* Hero Section */}
-        <section className="bg-hero-gradient text-white py-16">
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="bg-hero-gradient text-white py-16"
+        >
           <div className="container-width">
             <div className="text-center max-w-4xl mx-auto px-4">
               <div className="flex items-center justify-center mb-6">
@@ -171,7 +177,7 @@ const TechnicalPortfolioProjectShowcase = () => {
                 </div>
               </div>
               <p className="text-lg text-white/80 leading-relaxed mb-8">
-                Explore my comprehensive collection of technical projects, from AI-powered solutions to full-stack applications. 
+                Explore my comprehensive collection of technical projects, from AI-powered solutions to full-stack applications.
                 Each project demonstrates problem-solving approach, technical implementation, and measurable impact through detailed case studies.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -186,15 +192,26 @@ const TechnicalPortfolioProjectShowcase = () => {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         <div className="container-width px-4 py-12">
           {/* Project Statistics */}
-          <ProjectStats projects={projects} />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <ProjectStats projects={projects} />
+          </motion.div>
 
           {/* Featured Project Carousel */}
           {featuredProjects && featuredProjects?.length > 0 && (
-            <section
+            <motion.section
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
               className="relative"
               onMouseEnter={() => setIsFeaturedHovered(true)}
               onMouseLeave={() => setIsFeaturedHovered(false)}
@@ -229,20 +246,27 @@ const TechnicalPortfolioProjectShowcase = () => {
                   </div>
                 </>
               )}
-            </section>
+            </motion.section>
           )}
 
           {/* Project Filters */}
-          <ProjectFilter
-            filters={filterOptions}
-            activeFilters={activeFilters}
-            onFilterChange={handleFilterChange}
-            onClearFilters={handleClearFilters}
-            searchQuery={searchQuery}
-            onSearchChange={setSearchQuery}
-            sortBy={sortBy}
-            onSortChange={setSortBy}
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+          >
+            <ProjectFilter
+              filters={filterOptions}
+              activeFilters={activeFilters}
+              onFilterChange={handleFilterChange}
+              onClearFilters={handleClearFilters}
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+              sortBy={sortBy}
+              onSortChange={setSortBy}
+            />
+          </motion.div>
 
           {/* Projects Grid */}
           <section>
@@ -260,12 +284,21 @@ const TechnicalPortfolioProjectShowcase = () => {
 
             {filteredAndSortedProjects?.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredAndSortedProjects?.map((project) => (
-                  <ProjectCard
-                    key={project?.id}
-                    project={project}
-                  />
-                ))}
+                <AnimatePresence>
+                  {filteredAndSortedProjects?.map((project, idx) => (
+                    <motion.div
+                      key={project?.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    >
+                      <ProjectCard
+                        project={project}
+                      />
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
               </div>
             ) : (
               <div className="text-center py-16">
@@ -287,7 +320,12 @@ const TechnicalPortfolioProjectShowcase = () => {
           </section>
 
           {/* Call to Action */}
-          <section className="mt-16 bg-surface rounded-xl p-8 text-center">
+          <motion.section
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="mt-16 bg-surface rounded-xl p-8 text-center"
+          >
             <h2 className="text-2xl font-bold text-text-primary mb-4">
               Interested in Collaboration?
             </h2>
@@ -310,7 +348,7 @@ const TechnicalPortfolioProjectShowcase = () => {
                 View GitHub Profile
               </button>
             </div>
-          </section>
+          </motion.section>
         </div>
       </main>
       {/* Project Modal removed as requested */}
