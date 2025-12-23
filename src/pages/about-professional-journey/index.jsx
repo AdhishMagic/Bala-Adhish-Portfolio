@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Header from '../../components/ui/Header';
 import HeroSection from './components/HeroSection';
 import TimelineSection from './components/TimelineSection';
@@ -10,7 +11,7 @@ import DownloadSection from './components/DownloadSection';
 const AboutProfessionalJourney = () => {
   useEffect(() => {
     document.title = 'About - Professional Journey | Bala Adhish - AI Engineer Portfolio';
-    
+
     // Scroll to top on page load
     window.scrollTo(0, 0);
   }, []);
@@ -21,24 +22,65 @@ const AboutProfessionalJourney = () => {
       {/* Main Content */}
       <main className="pt-16">
         {/* Hero Section */}
-        <HeroSection />
-        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <HeroSection />
+        </motion.div>
+
         {/* Timeline Section */}
-        <TimelineSection />
-        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+        >
+          <TimelineSection />
+        </motion.div>
+
         {/* Values Section */}
-        <ValuesSection />
-        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+        >
+          <ValuesSection />
+        </motion.div>
+
         {/* Vision Section */}
-        <VisionSection />
-        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+        >
+          <VisionSection />
+        </motion.div>
+
         {/* Personal Section */}
-        <PersonalSection />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+        >
+          <PersonalSection />
+        </motion.div>
 
         {/* Download Section */}
-        <DownloadSection />
-        
-        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+        >
+          <DownloadSection />
+        </motion.div>
+
+
       </main>
       {/* Footer */}
       <footer className="bg-background text-foreground py-12">
@@ -51,7 +93,7 @@ const AboutProfessionalJourney = () => {
               <h3 className="text-xl font-bold mb-2">Bala Adhish</h3>
               <p className="text-text-secondary">AI Engineer & Full-Stack Visionary</p>
             </div>
-            
+
             <div className="border-t border-border pt-6">
               <p className="text-text-secondary text-sm">
                 © {new Date()?.getFullYear()} Bala Adhish. All rights reserved. Built with passion for innovation and excellence.

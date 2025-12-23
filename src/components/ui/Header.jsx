@@ -11,32 +11,37 @@ const Header = () => {
   const navigate = useNavigate();
 
   const navigationItems = [
-    { 
-      name: 'Home', 
+    {
+      name: 'Home',
       path: '/homepage-ai-engineer-portfolio-hub',
       icon: 'Home'
     },
-    { 
-      name: 'About', 
+    {
+      name: 'About',
       path: '/about-professional-journey',
       icon: 'User'
     },
-    { 
-      name: 'Projects', 
+    {
+      name: 'Experience',
+      path: '/experience-timeline',
+      icon: 'Briefcase'
+    },
+    {
+      name: 'Projects',
       path: '/technical-portfolio-project-showcase',
       icon: 'FolderOpen'
     },
-    { 
-      name: 'Skills', 
+    {
+      name: 'Skills',
       path: '/skills-matrix-technical-competencies',
       icon: 'Code'
     },
-    
+
   ];
 
   const secondaryItems = [
-    { 
-      name: 'Contact', 
+    {
+      name: 'Contact',
       path: '/professional-connect-contact-hub',
       icon: 'Mail'
     }
@@ -65,17 +70,16 @@ const Header = () => {
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-sm bg-white' 
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-sm bg-white'
           : 'bg-transparent bg-white'
-      }`}
+        }`}
     >
       <div className="container-width">
         <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
-          <div 
+          <div
             className="flex items-center space-x-3 cursor-pointer group"
             onClick={() => handleNavigation('/homepage-ai-engineer-portfolio-hub')}
           >
@@ -97,10 +101,9 @@ const Header = () => {
               <button
                 key={item.path}
                 onClick={() => handleNavigation(item.path)}
-                className={`nav-link flex items-center space-x-2 px-3 py-2 rounded-md transition-all duration-300 ${
-                  isActivePath(item.path)
-                    ? 'text-primary bg-primary/5' :'text-text-secondary hover:text-primary hover:bg-surface'
-                }`}
+                className={`nav-link flex items-center space-x-2 px-3 py-2 rounded-md transition-all duration-300 ${isActivePath(item.path)
+                    ? 'text-primary bg-primary/5' : 'text-text-secondary hover:text-primary hover:bg-surface'
+                  }`}
               >
                 <Icon name={item.icon} size={16} />
                 <span className="font-medium">{item.name}</span>
@@ -143,11 +146,10 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div 
-          className={`lg:hidden transition-all duration-300 ease-in-out ${
-            isMenuOpen 
-              ? 'max-h-96 opacity-100' :'max-h-0 opacity-0 overflow-hidden'
-          }`}
+        <div
+          className={`lg:hidden transition-all duration-300 ease-in-out ${isMenuOpen
+              ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+            }`}
         >
           <nav className="px-4 py-4 bg-background/95 backdrop-blur-md border-t border-border">
             <div className="space-y-2">
@@ -155,10 +157,9 @@ const Header = () => {
                 <button
                   key={item.path}
                   onClick={() => handleNavigation(item.path)}
-                  className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-all duration-300 ${
-                    isActivePath(item.path)
-                      ? 'text-primary bg-primary/10 border border-primary/20' :'text-text-secondary hover:text-primary hover:bg-surface'
-                  }`}
+                  className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-all duration-300 ${isActivePath(item.path)
+                      ? 'text-primary bg-primary/10 border border-primary/20' : 'text-text-secondary hover:text-primary hover:bg-surface'
+                    }`}
                 >
                   <Icon name={item.icon} size={20} />
                   <span className="font-medium">{item.name}</span>
@@ -167,7 +168,7 @@ const Header = () => {
                   )}
                 </button>
               ))}
-              
+
               <div className="pt-4 border-t border-border mt-4">
                 <Button
                   variant="default"
@@ -195,20 +196,20 @@ const Header = () => {
               <stop offset="100%" stopColor="var(--color-primary)" stopOpacity="0" />
             </linearGradient>
           </defs>
-          
+
           {/* Animated connection lines */}
-          <line 
-            x1="0" y1="50" x2="800" y2="50" 
-            stroke="url(#connectionGradient)" 
+          <line
+            x1="0" y1="50" x2="800" y2="50"
+            stroke="url(#connectionGradient)"
             strokeWidth="1"
             className="animate-pulse"
           />
-          
+
           {/* Neural nodes */}
           <circle cx="100" cy="50" r="2" className="neural-node" />
-          <circle cx="300" cy="50" r="2" className="neural-node" style={{animationDelay: '0.5s'}} />
-          <circle cx="500" cy="50" r="2" className="neural-node" style={{animationDelay: '1s'}} />
-          <circle cx="700" cy="50" r="2" className="neural-node" style={{animationDelay: '1.5s'}} />
+          <circle cx="300" cy="50" r="2" className="neural-node" style={{ animationDelay: '0.5s' }} />
+          <circle cx="500" cy="50" r="2" className="neural-node" style={{ animationDelay: '1s' }} />
+          <circle cx="700" cy="50" r="2" className="neural-node" style={{ animationDelay: '1.5s' }} />
         </svg>
       </div>
     </header>
