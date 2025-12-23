@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <g transform="translate(400, 300)">
+    <path d="M-60 40 L0 -60 L60 40 L40 40 L0 -20 L-40 40 Z" fill="#d1fae5"/>
+    <rect x="-80" y="60" width="160" height="20" rx="4" fill="#34d399"/>
+    <circle cx="0" cy="-60" r="10" fill="#a7f3d0"/>
+    <text x="0" y="150" text-anchor="middle" fill="#d1fae5" font-family="sans-serif" font-size="24">ACAD ASSIST</text>
+  </g>
+</svg>
