@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#831843"/>
+      <stop offset="100%" stop-color="#9d174d"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <g transform="translate(400, 300)">
+    <rect x="-60" y="-80" width="120" height="160" stroke="#fbcfe8" stroke-width="4" fill="none"/>
+    <rect x="-40" y="-60" width="80" height="60" fill="#fbcfe8"/>
+    <line x1="-40" y1="20" x2="40" y2="20" stroke="#fbcfe8" stroke-width="2"/>
+    <line x1="-40" y1="40" x2="20" y2="40" stroke="#fbcfe8" stroke-width="2"/>
+    <text x="0" y="150" text-anchor="middle" fill="#fbcfe8" font-family="sans-serif" font-size="24">PORTFOLIO MAKER</text>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f2937"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <g transform="translate(400, 300)">
+    <rect x="-100" y="-80" width="200" height="160" rx="8" fill="#374151" stroke="#4b5563"/>
+    <rect x="-80" y="-40" width="160" height="20" rx="4" fill="#9ca3af"/>
+    <rect x="-80" y="10" width="160" height="20" rx="4" fill="#9ca3af"/>
+    <rect x="-80" y="50" width="80" height="20" rx="4" fill="#60a5fa"/>
+    <text x="0" y="150" text-anchor="middle" fill="#d1d5db" font-family="sans-serif" font-size="24">LOGIN & REGISTER</text>
+  </g>
+</svg>

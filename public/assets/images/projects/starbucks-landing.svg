@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14532d"/>
+      <stop offset="100%" stop-color="#166534"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  
+  <g transform="translate(400, 300)">
+    <!-- Cup -->
+    <path d="M-60 -80 H60 L40 80 H-40 Z" fill="#fff"/>
+    <ellipse cx="0" cy="-80" rx="60" ry="10" fill="#f3f4f6"/>
+    
+    <!-- Sleeve -->
+    <path d="M-50 -20 H50 L45 30 H-45 Z" fill="#15803d"/>
+    <circle cx="0" cy="5" r="15" fill="#fff"/>
+    
+    <!-- Straw -->
+    <line x1="20" y1="-80" x2="40" y2="-120" stroke="#16a34a" stroke-width="6"/>
+    
+    <text x="0" y="150" text-anchor="middle" fill="#dcfce7" font-family="sans-serif" font-size="28">COFFEE LANDING PAGE</text>
+  </g>
+</svg>

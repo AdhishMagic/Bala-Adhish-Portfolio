@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#064e3b"/>
+      <stop offset="100%" stop-color="#022c22"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  
+  <g transform="translate(400, 280)">
+    <!-- Apple Shape -->
+    <path d="M-60 -20 C-90 -50 -130 -10 -90 40 L0 130 L90 40 C130 -10 90 -50 60 -20 Q0 -60 -60 -20" fill="#34d399" opacity="0.8"/>
+    <path d="M0 -60 Q20 -90 40 -80" stroke="#10b981" stroke-width="8" stroke-linecap="round"/>
+    
+    <!-- Medical Cross -->
+    <rect x="-25" y="25" width="50" height="15" fill="#ecfdf5"/>
+    <rect x="-7.5" y="7.5" width="15" height="50" fill="#ecfdf5"/>
+    
+    <!-- AI Chips -->
+    <rect x="80" y="-40" width="60" height="60" rx="8" fill="#047857" stroke="#34d399"/>
+    <circle cx="110" cy="-10" r="10" fill="#34d399"/>
+    
+    <text x="0" y="200" text-anchor="middle" fill="#d1fae5" font-family="sans-serif" font-size="28">AI NUTRICARE</text>
+  </g>
+</svg>
