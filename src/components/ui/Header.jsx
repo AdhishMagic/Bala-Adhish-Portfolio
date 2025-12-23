@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Icon from '../AppIcon';
 import Button from './Button';
+import { useTheme } from '../../context/ThemeContext';
 
 
 const Header = () => {
+  const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
@@ -72,8 +74,8 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-sm bg-white'
-          : 'bg-transparent bg-white'
+        ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-sm bg-white'
+        : 'bg-transparent bg-white'
         }`}
     >
       <div className="container-width">
@@ -102,7 +104,7 @@ const Header = () => {
                 key={item.path}
                 onClick={() => handleNavigation(item.path)}
                 className={`nav-link flex items-center space-x-2 px-3 py-2 rounded-md transition-all duration-300 ${isActivePath(item.path)
-                    ? 'text-primary bg-primary/5' : 'text-text-secondary hover:text-primary hover:bg-surface'
+                  ? 'text-primary bg-primary/5' : 'text-text-secondary hover:text-primary hover:bg-surface'
                   }`}
               >
                 <Icon name={item.icon} size={16} />
@@ -113,6 +115,13 @@ const Header = () => {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center space-x-4">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full text-text-secondary hover:text-primary hover:bg-surface transition-all duration-300"
+              aria-label="Toggle theme"
+            >
+              <Icon name={theme === 'dark' ? 'Sun' : 'Moon'} size={20} />
+            </button>
             <Button
               variant="outline"
               size="sm"
@@ -148,7 +157,7 @@ const Header = () => {
         {/* Mobile Navigation */}
         <div
           className={`lg:hidden transition-all duration-300 ease-in-out ${isMenuOpen
-              ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+            ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
             }`}
         >
           <nav className="px-4 py-4 bg-background/95 backdrop-blur-md border-t border-border">
@@ -158,7 +167,7 @@ const Header = () => {
                   key={item.path}
                   onClick={() => handleNavigation(item.path)}
                   className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-all duration-300 ${isActivePath(item.path)
-                      ? 'text-primary bg-primary/10 border border-primary/20' : 'text-text-secondary hover:text-primary hover:bg-surface'
+                    ? 'text-primary bg-primary/10 border border-primary/20' : 'text-text-secondary hover:text-primary hover:bg-surface'
                     }`}
                 >
                   <Icon name={item.icon} size={20} />
@@ -169,7 +178,14 @@ const Header = () => {
                 </button>
               ))}
 
-              <div className="pt-4 border-t border-border mt-4">
+              <div className="pt-4 border-t border-border mt-4 space-y-3">
+                <button
+                  onClick={toggleTheme}
+                  className="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left text-text-secondary hover:text-primary hover:bg-surface transition-all duration-300"
+                >
+                  <Icon name={theme === 'dark' ? 'Sun' : 'Moon'} size={20} />
+                  <span className="font-medium">Switch to {theme === 'dark' ? 'Light' : 'Dark'} Mode</span>
+                </button>
                 <Button
                   variant="default"
                   fullWidth

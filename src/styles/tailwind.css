@@ -7,68 +7,68 @@
 @layer base {
   :root {
     /* Core System Colors */
-    --color-background: #ffffff; /* white */
-    --color-foreground: #0f172a; /* slate-900 */
-    --color-border: #e2e8f0; /* slate-200 */
-    --color-input: #ffffff; /* white */
-    --color-ring: #2563eb; /* blue-600 */
+    --color-background: #ffffff;
+    --color-foreground: #0f172a;
+    --color-border: #e2e8f0;
+    --color-input: #ffffff;
+    --color-ring: #2563eb;
     
     /* Card & Surface Colors */
-    --color-card: #ffffff; /* white */
-    --color-card-foreground: #0f172a; /* slate-900 */
-    --color-popover: #ffffff; /* white */
-    --color-popover-foreground: #0f172a; /* slate-900 */
-    --color-muted: #f8fafc; /* slate-50 */
-    --color-muted-foreground: #64748b; /* slate-500 */
+    --color-card: #ffffff;
+    --color-card-foreground: #0f172a;
+    --color-popover: #ffffff;
+    --color-popover-foreground: #0f172a;
+    --color-muted: #f8fafc;
+    --color-muted-foreground: #64748b;
     
     /* Brand Primary Colors */
-    --color-primary: #2563eb; /* blue-600 */
-    --color-primary-foreground: #ffffff; /* white */
-    --color-secondary: #0ea5e9; /* sky-500 */
-    --color-secondary-foreground: #ffffff; /* white */
+    --color-primary: #2563eb;
+    --color-primary-foreground: #ffffff;
+    --color-secondary: #0ea5e9;
+    --color-secondary-foreground: #ffffff;
     
     /* Semantic Colors */
-    --color-destructive: #ef4444; /* red-500 */
-    --color-destructive-foreground: #ffffff; /* white */
-    --color-accent: #06b6d4; /* cyan-500 */
-    --color-accent-foreground: #ffffff; /* white */
-    --color-success: #10b981; /* emerald-500 */
-    --color-success-foreground: #ffffff; /* white */
-    --color-warning: #f59e0b; /* amber-500 */
-    --color-warning-foreground: #ffffff; /* white */
-    --color-error: #ef4444; /* red-500 */
-    --color-error-foreground: #ffffff; /* white */
+    --color-destructive: #ef4444;
+    --color-destructive-foreground: #ffffff;
+    --color-accent: #06b6d4;
+    --color-accent-foreground: #ffffff;
+    --color-success: #10b981;
+    --color-success-foreground: #ffffff;
+    --color-warning: #f59e0b;
+    --color-warning-foreground: #ffffff;
+    --color-error: #ef4444;
+    --color-error-foreground: #ffffff;
     
     /* Text Hierarchy */
-    --color-text-primary: #0f172a; /* slate-900 */
-    --color-text-secondary: #64748b; /* slate-500 */
-    --color-text-muted: #94a3b8; /* slate-400 */
+    --color-text-primary: #0f172a;
+    --color-text-secondary: #64748b;
+    --color-text-muted: #94a3b8;
     
     /* Surface Variations */
-    --color-surface: #f8fafc; /* slate-50 */
-    --color-surface-hover: #f1f5f9; /* slate-100 */
-    --color-surface-active: #e2e8f0; /* slate-200 */
+    --color-surface: #f8fafc;
+    --color-surface-hover: #f1f5f9;
+    --color-surface-active: #e2e8f0;
     
     /* Interactive States */
-    --color-hover: #1d4ed8; /* blue-700 */
-    --color-active: #1e40af; /* blue-800 */
-    --color-focus: #2563eb; /* blue-600 */
+    --color-hover: #1d4ed8;
+    --color-active: #1e40af;
+    --color-focus: #2563eb;
     
     /* Spacing System */
-    --spacing-xs: 0.25rem; /* 4px */
-    --spacing-sm: 0.5rem; /* 8px */
-    --spacing-md: 1rem; /* 16px */
-    --spacing-lg: 1.5rem; /* 24px */
-    --spacing-xl: 2rem; /* 32px */
-    --spacing-2xl: 3rem; /* 48px */
-    --spacing-3xl: 4rem; /* 64px */
-    --spacing-4xl: 6rem; /* 96px */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+    --spacing-4xl: 6rem;
     
     /* Border Radius */
-    --radius-sm: 0.25rem; /* 4px */
-    --radius-md: 0.5rem; /* 8px */
-    --radius-lg: 0.75rem; /* 12px */
-    --radius-xl: 1rem; /* 16px */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
     
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -82,16 +82,66 @@
     --duration-slow: 600ms;
     
     /* Typography Scale */
-    --font-size-xs: 0.75rem; /* 12px */
-    --font-size-sm: 0.875rem; /* 14px */
-    --font-size-base: 1rem; /* 16px */
-    --font-size-lg: 1.125rem; /* 18px */
-    --font-size-xl: 1.25rem; /* 20px */
-    --font-size-2xl: 1.5rem; /* 24px */
-    --font-size-3xl: 1.875rem; /* 30px */
-    --font-size-4xl: 2.25rem; /* 36px */
-    --font-size-5xl: 3rem; /* 48px */
-    --font-size-6xl: 3.75rem; /* 60px */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+    --font-size-6xl: 3.75rem;
+  }
+
+  .dark {
+    /* Core System Colors - Dark */
+    --color-background: #020617;
+    --color-foreground: #f8fafc;
+    --color-border: #1e293b;
+    --color-input: #020617;
+    --color-ring: #1d4ed8;
+    
+    /* Card & Surface Colors - Dark */
+    --color-card: #0f172a;
+    --color-card-foreground: #f8fafc;
+    --color-popover: #0f172a;
+    --color-popover-foreground: #f8fafc;
+    --color-muted: #1e293b;
+    --color-muted-foreground: #94a3b8;
+    
+    /* Brand Primary Colors - Dark */
+    --color-primary: #3b82f6;
+    --color-primary-foreground: #ffffff;
+    --color-secondary: #0ea5e9;
+    --color-secondary-foreground: #ffffff;
+    
+    /* Semantic Colors - Dark */
+    --color-destructive: #7f1d1d;
+    --color-destructive-foreground: #f8fafc;
+    --color-accent: #0891b2;
+    --color-accent-foreground: #ffffff;
+    --color-success: #059669;
+    --color-success-foreground: #ffffff;
+    --color-warning: #d97706;
+    --color-warning-foreground: #ffffff;
+    --color-error: #dc2626;
+    --color-error-foreground: #ffffff;
+    
+    /* Text Hierarchy - Dark */
+    --color-text-primary: #f8fafc;
+    --color-text-secondary: #cbd5e1;
+    --color-text-muted: #64748b;
+    
+    /* Surface Variations - Dark */
+    --color-surface: #1e293b;
+    --color-surface-hover: #334155;
+    --color-surface-active: #475569;
+    
+    /* Interactive States - Dark */
+    --color-hover: #1e40af;
+    --color-active: #1e3a8a;
+    --color-focus: #3b82f6;
   }
   
   * {
