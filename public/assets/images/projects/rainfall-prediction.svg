@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c4a6e"/>
+      <stop offset="100%" stop-color="#164e63"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  
+  <g transform="translate(400, 250)">
+    <!-- Cloud -->
+    <path d="M-60 0 Q-80 -40 -40 -60 Q-20 -90 40 -80 Q80 -90 100 -50 Q140 -40 120 0 Z" fill="#bae6fd"/>
+    
+    <!-- Rain -->
+    <line x1="-40" y1="20" x2="-60" y2="60" stroke="#38bdf8" stroke-width="4"/>
+    <line x1="0" y1="20" x2="-20" y2="60" stroke="#38bdf8" stroke-width="4"/>
+    <line x1="40" y1="20" x2="20" y2="60" stroke="#38bdf8" stroke-width="4"/>
+    <line x1="80" y1="20" x2="60" y2="60" stroke="#38bdf8" stroke-width="4"/>
+    
+    <!-- Chart overlay -->
+    <rect x="-100" y="100" width="200" height="150" fill="#082f49" opacity="0.5"/>
+    <path d="M-80 200 L-40 180 L0 220 L40 150 L80 190" stroke="#38bdf8" stroke-width="4" fill="none"/>
+    
+    <text x="0" y="300" text-anchor="middle" fill="#e0f2fe" font-family="sans-serif" font-size="24">RAINFALL ANALYSIS</text>
+  </g>
+</svg>

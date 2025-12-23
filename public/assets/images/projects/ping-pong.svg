@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#022c22"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  
+  <g transform="translate(400, 300)">
+    <!-- Table -->
+    <line x1="-150" y1="0" x2="150" y2="0" stroke="#fff" stroke-width="2" stroke-dasharray="8 8"/>
+    <rect x="-180" y="-100" width="360" height="200" stroke="#fff" stroke-width="4" fill="none"/>
+    
+    <!-- Paddles -->
+    <rect x="-170" y="-30" width="10" height="60" fill="#fff"/>
+    <rect x="160" y="-30" width="10" height="60" fill="#fff"/>
+    
+    <!-- Ball -->
+    <circle cx="0" cy="0" r="10" fill="#eab308"/>
+    
+    <text x="0" y="160" text-anchor="middle" fill="#86efac" font-family="sans-serif" font-size="24">PING PONG</text>
+  </g>
+</svg>

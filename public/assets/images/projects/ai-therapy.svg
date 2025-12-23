@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#be185d"/>
+      <stop offset="100%" stop-color="#831843"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  
+  <g transform="translate(400, 300)">
+    <!-- Heart -->
+    <path d="M0 20 C-40 -20 -80 -20 -80 -60 C-80 -90 -50 -110 -20 -110 C0 -110 0 -90 0 -90 C0 -90 0 -110 20 -110 C50 -110 80 -90 80 -60 C80 -20 40 -20 0 20" fill="#fbcfe8"/>
+    
+    <!-- Chat Icon -->
+    <path d="M-50 40 H50 V-20 H-50 Z" fill="#fff" opacity="0.8"/>
+    <circle cx="-20" cy="10" r="4" fill="#be185d"/>
+    <circle cx="0" cy="10" r="4" fill="#be185d"/>
+    <circle cx="20" cy="10" r="4" fill="#be185d"/>
+    
+    <text x="0" y="150" text-anchor="middle" fill="#fce7f3" font-family="sans-serif" font-size="24">THERAPY BOT</text>
+  </g>
+</svg>

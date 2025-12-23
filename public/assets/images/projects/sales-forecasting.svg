@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <filter id="shadow" x="-4" y="-4" width="808" height="608" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#g1)"/>
+  
+  <!-- Dashboard Card -->
+  <g transform="translate(40, 40)">
+    <!-- Header -->
+    <rect width="720" height="60" rx="8" fill="#334155" opacity="0.5"/>
+    <circle cx="30" cy="30" r="6" fill="#ef4444"/>
+    <circle cx="50" cy="30" r="6" fill="#f59e0b"/>
+    <circle cx="70" cy="30" r="6" fill="#10b981"/>
+    <rect x="100" y="20" width="200" height="20" rx="4" fill="#475569"/>
+    
+    <!-- Chart Area -->
+    <rect y="80" width="480" height="300" rx="8" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    
+    <!-- Y-axis lines -->
+    <line x1="40" y1="340" x2="440" y2="340" stroke="#334155" stroke-dasharray="4 4"/>
+    <line x1="40" y1="280" x2="440" y2="280" stroke="#334155" stroke-dasharray="4 4"/>
+    <line x1="40" y1="220" x2="440" y2="220" stroke="#334155" stroke-dasharray="4 4"/>
+    <line x1="40" y1="160" x2="440" y2="160" stroke="#334155" stroke-dasharray="4 4"/>
+    
+    <!-- Trend Line -->
+    <path d="M40 340 C100 300, 150 320, 200 240 S300 180, 440 140" stroke="url(#lineGrad)" stroke-width="4" fill="none"/>
+    <path d="M40 340 L440 340 L440 140" fill="url(#lineGrad)" opacity="0.1"/>
+    
+    <!-- Side Panel -->
+    <rect x="500" y="80" width="220" height="300" rx="8" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    <rect x="520" y="100" width="100" height="20" rx="4" fill="#475569"/>
+    <rect x="520" y="140" width="180" height="40" rx="4" fill="#334155"/>
+    <rect x="520" y="200" width="180" height="40" rx="4" fill="#334155"/>
+    <rect x="520" y="260" width="180" height="40" rx="4" fill="#334155"/>
+    
+    <!-- Bottom Stats -->
+    <rect y="400" width="220" height="100" rx="8" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    <rect x="250" y="400" width="220" height="100" rx="8" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    <rect x="500" y="400" width="220" height="100" rx="8" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    
+    <text x="30" y="440" fill="#94a3b8" font-family="sans-serif" font-size="14">RMSE</text>
+    <text x="30" y="470" fill="#f8fafc" font-family="sans-serif" font-size="24" font-weight="bold">0.85</text>
+    
+    <text x="280" y="440" fill="#94a3b8" font-family="sans-serif" font-size="14">Accuracy</text>
+    <text x="280" y="470" fill="#f8fafc" font-family="sans-serif" font-size="24" font-weight="bold">94.2%</text>
+
+  </g>
+</svg>

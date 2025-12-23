@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14532d"/>
+      <stop offset="100%" stop-color="#052e16"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  
+  <g transform="translate(400, 300)">
+    <!-- Bat -->
+    <rect x="-20" y="-80" width="40" height="160" rx="4" fill="#d97706" transform="rotate(-30)"/>
+    <rect x="25" y="-120" width="10" height="60" rx="2" fill="#000" transform="rotate(-30)"/>
+    
+    <!-- Ball -->
+    <circle cx="80" cy="40" r="20" fill="#b91c1c"/>
+    <path d="M65 40 Q80 50 95 40" stroke="#fff" fill="none"/>
+    
+    <!-- Scoreboard -->
+    <rect x="-120" y="80" width="240" height="80" rx="8" fill="#1f2937"/>
+    <text x="0" y="130" text-anchor="middle" fill="#eab308" font-family="monospace" font-size="32" font-weight="bold">185/3</text>
+    
+    <text x="0" y="200" text-anchor="middle" fill="#86efac" font-family="sans-serif" font-size="24">IPL SCORE PREDICTION</text>
+  </g>
+</svg>

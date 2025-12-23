@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c2410c"/>
+      <stop offset="100%" stop-color="#9a3412"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  
+  <g transform="translate(400, 300)">
+    <!-- Pizza Slice -->
+    <path d="M0 -80 L-60 20 Q0 40 60 20 Z" fill="#ffd700"/>
+    <circle cx="-10" cy="-20" r="6" fill="#ef4444"/>
+    <circle cx="20" cy="0" r="6" fill="#ef4444"/>
+    <circle cx="0" cy="10" r="6" fill="#ef4444"/>
+    
+    <!-- Location Pin -->
+    <path d="M80 0 Q100 -20 120 0 Q100 40 80 0" fill="#fff" transform="rotate(90 100 0) translate(-20 0)"/>
+    
+    <text x="0" y="150" text-anchor="middle" fill="#fff7ed" font-family="sans-serif" font-size="24">DELIVERY API</text>
+  </g>
+</svg>
