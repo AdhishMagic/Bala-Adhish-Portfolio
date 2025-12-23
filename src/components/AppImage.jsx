@@ -31,6 +31,7 @@ function Image({
       src={src}
       alt={alt}
       className={className}
+      loading="lazy"
       onError={(e) => {
         // Prevent infinite loop if fallback also fails
         e.currentTarget.onerror = null;

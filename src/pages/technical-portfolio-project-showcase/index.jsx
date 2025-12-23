@@ -23,6 +23,11 @@ const TechnicalPortfolioProjectShowcase = () => {
   });
   const [featuredIndex, setFeaturedIndex] = useState(0);
   const [isFeaturedHovered, setIsFeaturedHovered] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(9); // Show 9 projects initially
+
+  const handleLoadMore = () => {
+    setVisibleCount(prev => prev + 9);
+  };
 
   // Get available filter options
   const filterOptions = useMemo(() => {
@@ -89,6 +94,11 @@ const TechnicalPortfolioProjectShowcase = () => {
     return filtered;
   }, [projects, searchQuery, activeFilters, sortBy]);
 
+  // Reset visible count when filters/search/sort change
+  useEffect(() => {
+    setVisibleCount(9);
+  }, [searchQuery, activeFilters, sortBy]);
+
   const featuredProjects = projects?.filter(p => p?.featured);
 
   useEffect(() => {
@@ -131,6 +141,7 @@ const TechnicalPortfolioProjectShowcase = () => {
       ...prev,
       [category]: filters
     }));
+    setVisibleCount(9); // Reset pagination on filter change
   };
 
   const handleClearFilters = () => {
@@ -141,6 +152,7 @@ const TechnicalPortfolioProjectShowcase = () => {
       status: []
     });
     setSearchQuery('');
+    setVisibleCount(9); // Reset pagination
   };
 
   // Details modal handlers removed
@@ -283,23 +295,37 @@ const TechnicalPortfolioProjectShowcase = () => {
             </div>
 
             {filteredAndSortedProjects?.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <AnimatePresence>
-                  {filteredAndSortedProjects?.map((project, idx) => (
-                    <motion.div
-                      key={project?.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: idx * 0.1 }}
+              <>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <AnimatePresence mode="popLayout">
+                    {filteredAndSortedProjects?.slice(0, visibleCount).map((project, idx) => (
+                      <motion.div
+                        key={project?.id}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.3 }}
+                        layout
+                      >
+                        <ProjectCard
+                          project={project}
+                        />
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
+                </div>
+                {visibleCount < filteredAndSortedProjects.length && (
+                  <div className="flex justify-center mt-12">
+                    <button
+                      onClick={handleLoadMore}
+                      className="px-8 py-3 bg-surface hover:bg-surface-hover border border-border rounded-full font-medium text-text-primary transition-all duration-300 shadow-sm hover:shadow-md flex items-center space-x-2"
                     >
-                      <ProjectCard
-                        project={project}
-                      />
-                    </motion.div>
-                  ))}
-                </AnimatePresence>
-              </div>
+                      <Icon name="ChevronDown" size={20} />
+                      <span>Load More Projects ({filteredAndSortedProjects.length - visibleCount} remaining)</span>
+                    </button>
+                  </div>
+                )}
+              </>
             ) : (
               <div className="text-center py-16">
                 <div className="w-24 h-24 bg-surface rounded-full flex items-center justify-center mx-auto mb-6">
