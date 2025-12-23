@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#064e3b"/>
+      <stop offset="100%" stop-color="#022c22"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="600" fill="url(#bg)"/>
+  
+  <!-- Scorecard / Stats -->
+  <rect x="100" y="100" width="600" height="400" rx="16" fill="#fff" opacity="0.1"/>
+  
+  <text x="400" y="150" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="32" font-weight="bold">Match Winner Prediction</text>
+  
+  <!-- Teams -->
+  <g transform="translate(150, 200)">
+    <circle cx="60" cy="60" r="40" fill="#3b82f6"/>
+    <text x="60" y="120" text-anchor="middle" fill="#fff" font-family="sans-serif" font-weight="bold">CSK</text>
+    
+    <text x="250" y="70" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="24">VS</text>
+    
+    <circle cx="440" cy="60" r="40" fill="#ef4444"/>
+    <text x="440" y="120" text-anchor="middle" fill="#fff" font-family="sans-serif" font-weight="bold">RCB</text>
+  </g>
+  
+  <!-- Win Probability Bar -->
+  <g transform="translate(150, 350)">
+    <text x="0" y="-10" fill="#9ca3af" font-family="sans-serif">Win Probability</text>
+    <rect width="500" height="24" rx="12" fill="#374151"/>
+    <rect width="320" height="24" rx="12" fill="#3b82f6"/> <!-- 64% -->
+    <text x="160" y="17" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="12">64%</text>
+    <text x="410" y="17" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="12">36%</text>
+  </g>
+
+  <!-- Cricekt Ball Deco -->
+  <circle cx="700" cy="500" r="60" fill="#b91c1c"/>
+  <path d="M680 445 Q720 500 680 555" stroke="#fff" stroke-width="4" fill="none" opacity="0.7"/>
+</svg>

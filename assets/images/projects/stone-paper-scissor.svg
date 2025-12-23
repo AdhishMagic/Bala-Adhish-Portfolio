@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c2d12"/>
+      <stop offset="100%" stop-color="#9a3412"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <g transform="translate(400, 300)">
+    <circle cx="-60" cy="-20" r="30" fill="#d6d3d1"/> <!-- Stone -->
+    <rect x="30" y="-50" width="40" height="60" fill="#fff"/> <!-- Paper -->
+    <path d="M0 60 L20 20 L-20 20 Z" fill="#fbbf24" transform="rotate(180)"/> <!-- Scissor idea -->
+    <text x="0" y="150" text-anchor="middle" fill="#ffedd5" font-family="sans-serif" font-size="24">STONE PAPER SCISSOR</text>
+  </g>
+</svg>
