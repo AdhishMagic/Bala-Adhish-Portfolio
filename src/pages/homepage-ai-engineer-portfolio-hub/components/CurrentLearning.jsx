@@ -12,7 +12,7 @@ const CurrentLearning = () => {
       icon: "Brain",
       color: "from-blue-500 to-blue-600",
       estimatedCompletion: "Ongoing",
-  description: "Policy gradients, actor–critic methods, and multi‑agent systems"
+      description: "Policy gradients, actor–critic methods, and multi‑agent systems"
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ const CurrentLearning = () => {
       icon: "Brain",
       color: "from-blue-500 to-blue-600",
       estimatedCompletion: "Ongoing",
-  description: "Advanced ML algorithms, optimization, and neural network architectures"
+      description: "Advanced ML algorithms, optimization, and neural network architectures"
     },
     {
       id: 3,
@@ -34,26 +34,26 @@ const CurrentLearning = () => {
       icon: "MessageSquare",
       color: "from-purple-500 to-purple-600",
       estimatedCompletion: "Ongoing",
-  description: "Fine‑tuning transformers, prompt engineering, and model optimization"
+      description: "Fine‑tuning transformers, prompt engineering, and model optimization"
     }
   ];
 
   const researchInterests = [
     {
       title: "Explainable AI",
-  description: "Techniques to make model decisions transparent and interpretable",
+      description: "Techniques to make model decisions transparent and interpretable",
       icon: "Eye",
       status: "Ongoing"
     },
     {
       title: "Edge Computing for ML",
-  description: "Optimizing ML models for resource‑constrained devices",
+      description: "Optimizing ML models for resource‑constrained devices",
       icon: "Cpu",
       status: "Ongoing"
     },
     {
       title: "Federated Learning",
-  description: "Privacy‑preserving distributed machine learning",
+      description: "Privacy‑preserving distributed machine learning",
       icon: "Shield",
       status: "Ongoing"
     }
@@ -61,13 +61,13 @@ const CurrentLearning = () => {
 
   const getStatusColor = (status) => {
     const colors = {
-      'Ongoing': 'bg-green-100 text-green-800',
+      'Ongoing': 'bg-green-500/10 text-green-500',
     };
-    return colors?.[status] || 'bg-gray-100 text-gray-800';
+    return colors?.[status] || 'bg-surface text-text-secondary';
   };
 
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section className="py-16 sm:py-20 bg-background">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">
@@ -89,7 +89,7 @@ const CurrentLearning = () => {
             {learningItems?.map((item) => (
               <div
                 key={item?.id}
-                className="bg-white rounded-xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300"
+                className="bg-card rounded-xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300"
               >
                 <div className="flex items-start space-x-4">
                   <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${item?.color} flex items-center justify-center flex-shrink-0`}>
@@ -124,7 +124,7 @@ const CurrentLearning = () => {
                           {item?.progress}%
                         </span>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="w-full bg-muted rounded-full h-2">
                         <div
                           className={`h-full bg-gradient-to-r ${item?.color} rounded-full transition-all duration-300`}
                           style={{ width: `${item?.progress}%` }}
@@ -148,7 +148,7 @@ const CurrentLearning = () => {
               {researchInterests?.map((research, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300"
+                  className="bg-card rounded-xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex items-start space-x-4">
                     <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-teal-600 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -174,7 +174,7 @@ const CurrentLearning = () => {
             </div>
 
             {/* Learning Stats */}
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-border">
+            <div className="bg-card rounded-xl p-6 shadow-lg border border-border">
               <h4 className="text-lg font-bold text-text-primary mb-4">
                 Learning Statistics
               </h4>
@@ -201,7 +201,7 @@ const CurrentLearning = () => {
         </div>
 
         {/* Learning Philosophy */}
-        <div className="mt-12 bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-border">
+        <div className="mt-12 bg-card rounded-2xl p-6 sm:p-8 shadow-lg border border-border">
           <div className="text-center">
             <Icon name="Quote" size={32} color="#64748b" className="mx-auto mb-4" />
             <blockquote className="text-lg sm:text-xl text-text-primary font-medium mb-4 italic">

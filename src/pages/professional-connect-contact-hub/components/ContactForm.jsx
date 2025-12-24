@@ -113,12 +113,12 @@ const ContactForm = () => {
             onChange={handleInputChange}
             required
           />
-          <ValidationError 
-            prefix="Name" 
+          <ValidationError
+            prefix="Name"
             field="name"
             errors={state.errors}
           />
-          
+
           <Input
             label="Email Address"
             name="email"
@@ -128,8 +128,8 @@ const ContactForm = () => {
             onChange={handleInputChange}
             required
           />
-          <ValidationError 
-            prefix="Email" 
+          <ValidationError
+            prefix="Email"
             field="email"
             errors={state.errors}
           />
@@ -144,7 +144,7 @@ const ContactForm = () => {
             value={formData.company}
             onChange={handleInputChange}
           />
-          
+
           <Select
             label="Inquiry Type"
             placeholder="Select inquiry type"
@@ -154,8 +154,8 @@ const ContactForm = () => {
             onChange={(value) => handleSelectChange('inquiryType', value)}
             required
           />
-          <ValidationError 
-            prefix="Inquiry Type" 
+          <ValidationError
+            prefix="Inquiry Type"
             field="inquiryType"
             errors={state.errors}
           />
@@ -168,14 +168,14 @@ const ContactForm = () => {
           <textarea
             name="projectDetails"
             rows={4}
-            className="w-full px-3 py-2 border border-input rounded-md bg-background text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent resize-none"
+            className="w-full px-3 py-2 border border-input rounded-md bg-background text-text-primary placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 resize-none"
             placeholder="Please describe your project, opportunity, or inquiry in detail. Include any specific requirements, technologies involved, or questions you have."
             value={formData.projectDetails}
             onChange={handleInputChange}
             required
           />
-          <ValidationError 
-            prefix="Project Details" 
+          <ValidationError
+            prefix="Project Details"
             field="projectDetails"
             errors={state.errors}
           />
@@ -191,12 +191,12 @@ const ContactForm = () => {
             onChange={(value) => handleSelectChange('timeline', value)}
             required
           />
-          <ValidationError 
-            prefix="Timeline" 
+          <ValidationError
+            prefix="Timeline"
             field="timeline"
             errors={state.errors}
           />
-          
+
           <Select
             label="Budget Range (Optional)"
             placeholder="Select budget range"
@@ -216,8 +216,8 @@ const ContactForm = () => {
           onChange={(value) => handleSelectChange('urgency', value)}
           required
         />
-        <ValidationError 
-          prefix="Urgency" 
+        <ValidationError
+          prefix="Urgency"
           field="urgency"
           errors={state.errors}
         />

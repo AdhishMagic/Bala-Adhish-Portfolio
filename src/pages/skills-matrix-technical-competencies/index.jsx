@@ -534,7 +534,7 @@ const SkillsMatrixPage = () => {
         </motion.section>
       </main>
       {/* Footer */}
-      <footer className="bg-text-primary text-white py-8">
+      <footer className="bg-slate-900 text-white py-8">
         <div className="container-width">
           <div className="text-center">
             <p className="text-white/80">

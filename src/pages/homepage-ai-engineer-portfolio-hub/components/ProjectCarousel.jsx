@@ -56,20 +56,20 @@ const ProjectCarousel = () => {
 
   const getCategoryColor = (category) => {
     const colors = {
-      'AI/ML': 'bg-blue-100 text-blue-800',
-      'Full-Stack': 'bg-green-100 text-green-800',
-      'Data Science': 'bg-purple-100 text-purple-800'
+      'AI/ML': 'bg-blue-500/10 text-blue-500',
+      'Full-Stack': 'bg-green-500/10 text-green-500',
+      'Data Science': 'bg-purple-500/10 text-purple-500'
     };
-    return colors?.[category] || 'bg-gray-100 text-gray-800';
+    return colors?.[category] || 'bg-surface text-text-secondary';
   };
 
   const getStatusColor = (status) => {
     const colors = {
-      'Completed': 'bg-green-100 text-green-800',
-      'In Development': 'bg-yellow-100 text-yellow-800',
-      'Planning': 'bg-gray-100 text-gray-800'
+      'Completed': 'bg-green-500/10 text-green-500',
+      'In Development': 'bg-yellow-500/10 text-yellow-500',
+      'Planning': 'bg-muted text-text-secondary'
     };
-    return colors?.[status] || 'bg-gray-100 text-gray-800';
+    return colors?.[status] || 'bg-surface text-text-secondary';
   };
 
   // Swipe handlers for mobile
@@ -94,7 +94,7 @@ const ProjectCarousel = () => {
 
   return (
     <section
-      className="py-16 sm:py-20 bg-white"
+      className="py-16 sm:py-20 bg-background"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onTouchStart={onTouchStart}
@@ -113,7 +113,7 @@ const ProjectCarousel = () => {
 
         <div className="relative max-w-6xl mx-auto">
           {/* Main Project Display */}
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-border transition-shadow duration-500">
+          <div className="bg-card rounded-2xl shadow-xl overflow-hidden border border-border transition-shadow duration-500">
             <div className="grid lg:grid-cols-2 gap-0">
               {/* Project Image */}
               <div className="relative h-64 lg:h-auto transition-opacity duration-500" key={`img-${projects?.[currentProject]?.id ?? currentProject}`}>
@@ -123,7 +123,7 @@ const ProjectCarousel = () => {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                
+
                 {/* Category Badge */}
                 <div className="absolute top-4 left-4">
                   <span className={`px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(projects?.[currentProject]?.category)}`}>
@@ -152,11 +152,11 @@ const ProjectCarousel = () => {
                   </div>
 
                   {/* Impact Metric */}
-                  <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-4 rounded-lg border border-blue-100">
+                  <div className="bg-surface p-4 rounded-lg border border-border">
                     <div className="flex items-center space-x-2">
                       <Icon name="TrendingUp" size={20} color="#2563eb" />
-                      <span className="font-semibold text-blue-800">Impact:</span>
-                      <span className="text-blue-700 text-sm sm:text-base">{projects?.[currentProject]?.impact}</span>
+                      <span className="font-semibold text-primary">Impact:</span>
+                      <span className="text-text-secondary text-sm sm:text-base">{projects?.[currentProject]?.impact}</span>
                     </div>
                   </div>
 
@@ -210,10 +210,9 @@ const ProjectCarousel = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentProject(index)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    index === currentProject
-                      ? 'bg-primary scale-125' :'bg-border hover:bg-text-secondary'
-                  }`}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${index === currentProject
+                    ? 'bg-primary scale-125' : 'bg-border hover:bg-text-secondary'
+                    }`}
                 />
               ))}
             </div>

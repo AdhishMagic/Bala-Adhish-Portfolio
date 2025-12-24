@@ -9,25 +9,25 @@ const ProjectCard = ({ project }) => {
 
   const getDifficultyColor = (level) => {
     switch (level) {
-      case 'Beginner': return 'text-green-600 bg-green-50 border-green-200';
-      case 'Intermediate': return 'text-yellow-600 bg-yellow-50 border-yellow-200';
-      case 'Advanced': return 'text-red-600 bg-red-50 border-red-200';
-      default: return 'text-gray-600 bg-gray-50 border-gray-200';
+      case 'Beginner': return 'text-green-600 bg-green-500/10 border-green-500/20';
+      case 'Intermediate': return 'text-yellow-600 bg-yellow-500/10 border-yellow-500/20';
+      case 'Advanced': return 'text-red-600 bg-red-500/10 border-red-500/20';
+      default: return 'text-text-secondary bg-muted border-border';
     }
   };
 
   const getTypeColor = (type) => {
     switch (type) {
-      case 'AI/ML': return 'text-purple-600 bg-purple-50 border-purple-200';
-      case 'Web Development': return 'text-blue-600 bg-blue-50 border-blue-200';
-      case 'Mobile': return 'text-green-600 bg-green-50 border-green-200';
-      case 'Data Science': return 'text-orange-600 bg-orange-50 border-orange-200';
-      default: return 'text-gray-600 bg-gray-50 border-gray-200';
+      case 'AI/ML': return 'text-purple-600 bg-purple-500/10 border-purple-500/20';
+      case 'Web Development': return 'text-blue-600 bg-blue-500/10 border-blue-500/20';
+      case 'Mobile': return 'text-green-600 bg-green-500/10 border-green-500/20';
+      case 'Data Science': return 'text-orange-600 bg-orange-500/10 border-orange-500/20';
+      default: return 'text-text-secondary bg-muted border-border';
     }
   };
 
   return (
-    <div 
+    <div
       className="project-card group bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -40,23 +40,21 @@ const ProjectCard = ({ project }) => {
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        
+
         {/* Status Badge */}
         <div className="absolute top-3 right-3">
-          <span className={`px-2 py-1 rounded-full text-xs font-medium border ${
-            project?.status === 'Completed' 
-              ? 'text-green-600 bg-green-50 border-green-200' 
-              : project?.status === 'In Progress' ?'text-blue-600 bg-blue-50 border-blue-200' :'text-orange-600 bg-orange-50 border-orange-200'
-          }`}>
+          <span className={`px-2 py-1 rounded-full text-xs font-medium border ${project?.status === 'Completed'
+            ? 'text-green-600 bg-green-500/10 border-green-500/20'
+            : project?.status === 'In Progress' ? 'text-blue-600 bg-blue-500/10 border-blue-500/20' : 'text-orange-600 bg-orange-500/10 border-orange-500/20'
+            }`}>
             {project?.status}
           </span>
         </div>
 
         {/* Live Demo Button */}
         {project?.liveDemo && (
-          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
-            isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-          }`}>
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+            }`}>
             <Button
               variant="secondary"
               size="sm"

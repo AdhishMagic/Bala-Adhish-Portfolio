@@ -66,12 +66,12 @@ const VisionSection = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-white">
+    <section className="py-16 sm:py-20 bg-background">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gradient mb-4">Vision & Future Goals</h2>
           <p className="text-base sm:text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
-            My roadmap for making a meaningful impact in AI engineering and full-stack development, 
+            My roadmap for making a meaningful impact in AI engineering and full-stack development,
             with a focus on building solutions that benefit humanity.
           </p>
         </div>
@@ -81,13 +81,12 @@ const VisionSection = () => {
           {visionAreas?.map((area) => (
             <div
               key={area?.id}
-              className="bg-gradient-to-br from-white to-slate-50 rounded-2xl p-6 sm:p-8 border border-border shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              className="bg-card rounded-2xl p-6 sm:p-8 border border-border shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             >
               <div className="text-center mb-6">
-                <div className={`w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-xl flex items-center justify-center shadow-lg mb-4 ${
-                  area?.color === 'primary' ? 'bg-primary' :
+                <div className={`w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-xl flex items-center justify-center shadow-lg mb-4 ${area?.color === 'primary' ? 'bg-primary' :
                   area?.color === 'secondary' ? 'bg-secondary' : 'bg-accent'
-                }`}>
+                  }`}>
                   <Icon name={area?.icon} size={24} sm:size={28} color="white" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-text-primary">{area?.title}</h3>
@@ -101,10 +100,9 @@ const VisionSection = () => {
                 <h4 className="font-semibold text-text-primary text-sm">Key Goals:</h4>
                 {area?.goals?.map((goal, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <Icon name="Target" size={16} className={`mt-0.5 flex-shrink-0 ${
-                      area?.color === 'primary' ? 'text-primary' :
+                    <Icon name="Target" size={16} className={`mt-0.5 flex-shrink-0 ${area?.color === 'primary' ? 'text-primary' :
                       area?.color === 'secondary' ? 'text-secondary' : 'text-accent'
-                    }`} />
+                      }`} />
                     <span className="text-sm text-text-secondary">{goal}</span>
                   </div>
                 ))}
@@ -114,7 +112,7 @@ const VisionSection = () => {
         </div>
 
         {/* Future Roadmap */}
-        <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-3xl p-6 sm:p-8 lg:p-12">
+        <div className="bg-surface rounded-3xl p-6 sm:p-8 lg:p-12">
           <div className="text-center mb-12">
             <h3 className="text-2xl sm:text-3xl font-bold text-gradient mb-4">Future Roadmap</h3>
             <p className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto">
@@ -139,7 +137,7 @@ const VisionSection = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 bg-white rounded-xl p-6 shadow-md border border-border">
+                  <div className="flex-1 bg-card rounded-xl p-6 shadow-md border border-border">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                       <h4 className="text-lg sm:text-xl font-bold text-text-primary">{goal?.title}</h4>
                       <span className="text-primary font-semibold bg-primary/10 px-3 py-1 rounded-full text-xs sm:text-sm mt-2 sm:mt-0 inline-block self-start">
@@ -187,7 +185,7 @@ const VisionSection = () => {
               <Icon name="Rocket" size={48} className="mx-auto mb-6" />
               <h3 className="text-2xl sm:text-3xl font-bold mb-4">Let's Build the Future Together</h3>
               <p className="text-base sm:text-lg lg:text-xl opacity-90 max-w-2xl mx-auto mb-8">
-                I'm always excited to collaborate with like-minded individuals and organizations 
+                I'm always excited to collaborate with like-minded individuals and organizations
                 who share the vision of using technology to create positive impact.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -203,20 +201,20 @@ const VisionSection = () => {
                   </Link>
                 </Button>
                 <Button
-                variant="outline"
-                size="lg"
-                asChild
-                className="w-full sm:w-auto"
-              >
-                <a
-                  href={resumePdf}
-                  download="Bala_Adhish_Resume.pdf"
-                  className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-all duration-300 flex items-center justify-center space-x-2"
+                  variant="outline"
+                  size="lg"
+                  asChild
+                  className="w-full sm:w-auto"
                 >
-                  <Icon name="Download" size={20} className="mr-2" />
-                  <span>Download Resume</span>
-                </a>
-              </Button>
+                  <a
+                    href={resumePdf}
+                    download="Bala_Adhish_Resume.pdf"
+                    className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-all duration-300 flex items-center justify-center space-x-2"
+                  >
+                    <Icon name="Download" size={20} className="mr-2" />
+                    <span>Download Resume</span>
+                  </a>
+                </Button>
               </div>
             </div>
           </div>

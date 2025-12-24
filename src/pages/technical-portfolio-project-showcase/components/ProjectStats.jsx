@@ -20,48 +20,48 @@ const ProjectStats = ({ projects }) => {
       value: stats?.total,
       icon: 'FolderOpen',
       color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
-      borderColor: 'border-blue-200'
+      bgColor: 'bg-blue-500/10',
+      borderColor: 'border-blue-500/20'
     },
     {
       label: 'Completed',
       value: stats?.completed,
       icon: 'CheckCircle',
       color: 'text-green-600',
-      bgColor: 'bg-green-50',
-      borderColor: 'border-green-200'
+      bgColor: 'bg-green-500/10',
+      borderColor: 'border-green-500/20'
     },
     {
       label: 'In Progress',
       value: stats?.inProgress,
       icon: 'Clock',
       color: 'text-orange-600',
-      bgColor: 'bg-orange-50',
-      borderColor: 'border-orange-200'
+      bgColor: 'bg-orange-500/10',
+      borderColor: 'border-orange-500/20'
     },
     {
       label: 'Technologies',
       value: stats?.technologies,
       icon: 'Code',
       color: 'text-purple-600',
-      bgColor: 'bg-purple-50',
-      borderColor: 'border-purple-200'
+      bgColor: 'bg-purple-500/10',
+      borderColor: 'border-purple-500/20'
     },
     {
       label: 'Lines of Code',
       value: `${(stats?.totalLinesOfCode / 1000)?.toFixed(1)}K+`,
       icon: 'FileText',
       color: 'text-indigo-600',
-      bgColor: 'bg-indigo-50',
-      borderColor: 'border-indigo-200'
+      bgColor: 'bg-indigo-500/10',
+      borderColor: 'border-indigo-500/20'
     },
     {
       label: 'Awards Won',
       value: stats?.awards,
       icon: 'Award',
       color: 'text-yellow-600',
-      bgColor: 'bg-yellow-50',
-      borderColor: 'border-yellow-200'
+      bgColor: 'bg-yellow-500/10',
+      borderColor: 'border-yellow-500/20'
     }
   ];
 
@@ -115,7 +115,7 @@ const ProjectStats = ({ projects }) => {
               ></div>
             </div>
           </div>
-          
+
           <div>
             <div className="flex items-center justify-between mb-2 text-sm">
               <span className="font-medium text-text-primary">Active Development</span>

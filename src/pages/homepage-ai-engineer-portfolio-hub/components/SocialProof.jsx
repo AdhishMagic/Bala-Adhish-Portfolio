@@ -87,7 +87,7 @@ const SocialProof = () => {
   };
 
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-background">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">
@@ -99,7 +99,7 @@ const SocialProof = () => {
         </div>
 
         {/* GitHub Contribution Graph */}
-        <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-8 mb-12">
+        <div className="bg-surface rounded-2xl p-8 mb-12">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-2xl font-bold text-text-primary flex items-center space-x-2">
               <Icon name="Github" size={24} color="#2563eb" />
@@ -143,7 +143,7 @@ const SocialProof = () => {
           </div>
 
           {/* Mock Contribution Graph */}
-          <div className="bg-white rounded-lg p-4 border border-border">
+          <div className="bg-card rounded-lg p-4 border border-border">
             <div className="grid grid-cols-53 gap-1">
               {Array.from({ length: 371 }, (_, index) => {
                 const intensity = Math.floor(Math.random() * 5);
@@ -180,7 +180,7 @@ const SocialProof = () => {
             {testimonials?.map((testimonial) => (
               <div
                 key={testimonial?.id}
-                className="bg-white rounded-xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300"
+                className="bg-card rounded-xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300"
               >
                 <div className="flex items-center space-x-4 mb-4">
                   <img
@@ -218,7 +218,7 @@ const SocialProof = () => {
           {communityEngagement?.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300 text-center"
+              className="bg-card rounded-xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300"
             >
               <div className={`w-16 h-16 ${item?.bgColor} rounded-full flex items-center justify-center mx-auto mb-4`}>
                 <Icon name={item?.icon} size={24} className={item?.color} />

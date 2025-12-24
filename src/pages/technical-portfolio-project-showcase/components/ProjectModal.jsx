@@ -8,7 +8,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
   const [activeTab, setActiveTab] = useState('overview');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  useEffect(() => { 
+  useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
       setActiveTab('overview');
@@ -32,13 +32,13 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
   ];
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => 
+    setCurrentImageIndex((prev) =>
       prev === project?.gallery?.length - 1 ? 0 : prev + 1
     );
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => 
+    setCurrentImageIndex((prev) =>
       prev === 0 ? project?.gallery?.length - 1 : prev - 1
     );
   };
@@ -71,10 +71,9 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
             <button
               key={tab?.id}
               onClick={() => setActiveTab(tab?.id)}
-              className={`flex items-center space-x-2 px-6 py-4 font-medium transition-all duration-300 ${
-                activeTab === tab?.id
-                  ? 'text-primary border-b-2 border-primary bg-background' :'text-text-secondary hover:text-text-primary hover:bg-surface-hover'
-              }`}
+              className={`flex items-center space-x-2 px-6 py-4 font-medium transition-all duration-300 ${activeTab === tab?.id
+                  ? 'text-primary border-b-2 border-primary bg-background' : 'text-text-secondary hover:text-text-primary hover:bg-surface-hover'
+                }`}
             >
               <Icon name={tab?.icon} size={16} />
               <span>{tab?.label}</span>
@@ -122,11 +121,10 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                         </Button>
                       )}
                     </div>
-                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                      project?.status === 'Completed' 
-                        ? 'text-green-600 bg-green-50 border border-green-200' 
-                        : project?.status === 'In Progress' ?'text-blue-600 bg-blue-50 border border-blue-200' :'text-orange-600 bg-orange-50 border border-orange-200'
-                    }`}>
+                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${project?.status === 'Completed'
+                        ? 'text-green-600 bg-green-500/10 border border-green-500/20'
+                        : project?.status === 'In Progress' ? 'text-blue-600 bg-blue-500/10 border border-blue-500/20' : 'text-orange-600 bg-orange-500/10 border border-orange-500/20'
+                      }`}>
                       {project?.status}
                     </span>
                   </div>
@@ -178,7 +176,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                     {project?.awards?.map((award, index) => (
                       <span
                         key={index}
-                        className="inline-flex items-center space-x-1 px-3 py-1 bg-yellow-50 text-yellow-700 rounded-full border border-yellow-200"
+                        className="inline-flex items-center space-x-1 px-3 py-1 bg-yellow-500/10 text-yellow-600 rounded-full border border-yellow-500/20"
                       >
                         <Icon name="Award" size={14} />
                         <span className="text-sm font-medium">{award}</span>
@@ -297,7 +295,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                         alt={`Gallery image ${currentImageIndex + 1}`}
                         className="w-full h-full object-cover"
                       />
-                      
+
                       {/* Navigation Arrows */}
                       {project?.gallery?.length > 1 && (
                         <>
@@ -329,10 +327,9 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                           <button
                             key={index}
                             onClick={() => setCurrentImageIndex(index)}
-                            className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
-                              index === currentImageIndex
-                                ? 'border-primary' :'border-transparent hover:border-border'
-                            }`}
+                            className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-300 ${index === currentImageIndex
+                                ? 'border-primary' : 'border-transparent hover:border-border'
+                              }`}
                           >
                             <Image
                               src={image}

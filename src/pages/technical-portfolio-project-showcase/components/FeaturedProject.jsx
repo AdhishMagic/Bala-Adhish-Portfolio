@@ -19,7 +19,7 @@ const FeaturedProject = ({ project }) => {
 
   const nextImage = () => {
     if (project?.gallery && project?.gallery?.length > 1) {
-      setCurrentImageIndex((prev) => 
+      setCurrentImageIndex((prev) =>
         prev === project?.gallery?.length - 1 ? 0 : prev + 1
       );
     }
@@ -27,7 +27,7 @@ const FeaturedProject = ({ project }) => {
 
   const prevImage = () => {
     if (project?.gallery && project?.gallery?.length > 1) {
-      setCurrentImageIndex((prev) => 
+      setCurrentImageIndex((prev) =>
         prev === 0 ? project?.gallery?.length - 1 : prev - 1
       );
     }
@@ -61,7 +61,7 @@ const FeaturedProject = ({ project }) => {
             alt={project?.title}
             className="w-full h-full object-cover"
           />
-          
+
           {/* Image Navigation */}
           {project?.gallery && project?.gallery?.length > 1 && (
             <>
@@ -77,16 +77,15 @@ const FeaturedProject = ({ project }) => {
               >
                 <Icon name="ChevronRight" size={20} />
               </button>
-              
+
               {/* Image Indicators */}
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
                 {project?.gallery?.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      index === currentImageIndex ? 'bg-white' : 'bg-white/50'
-                    }`}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImageIndex ? 'bg-white' : 'bg-white/50'
+                      }`}
                   />
                 ))}
               </div>
@@ -95,11 +94,10 @@ const FeaturedProject = ({ project }) => {
 
           {/* Status Badge */}
           <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
-            <span className={`px-2.5 py-1 rounded-full text-xs sm:text-sm font-medium border ${
-              project?.status === 'Completed' 
-                ? 'text-green-600 bg-green-50 border-green-200' 
-                : project?.status === 'In Progress' ?'text-blue-600 bg-blue-50 border-blue-200' :'text-orange-600 bg-orange-50 border-orange-200'
-            }`}>
+            <span className={`px-2.5 py-1 rounded-full text-xs sm:text-sm font-medium border ${project?.status === 'Completed'
+              ? 'text-green-600 bg-green-500/10 border-green-500/20'
+              : project?.status === 'In Progress' ? 'text-blue-600 bg-blue-500/10 border-blue-500/20' : 'text-orange-600 bg-orange-500/10 border-orange-500/20'
+              }`}>
               {project?.status}
             </span>
           </div>
@@ -107,7 +105,7 @@ const FeaturedProject = ({ project }) => {
           {/* Awards Badge */}
           {project?.awards && project?.awards?.length > 0 && (
             <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
-              <div className="flex items-center space-x-1 px-2.5 py-1 bg-yellow-50 text-yellow-700 rounded-full border border-yellow-200">
+              <div className="flex items-center space-x-1 px-2.5 py-1 bg-yellow-500/10 text-yellow-600 rounded-full border border-yellow-500/20">
                 <Icon name="Award" size={14} />
                 <span className="text-xs sm:text-sm font-medium">{project?.awards?.[0]}</span>
               </div>
@@ -122,17 +120,15 @@ const FeaturedProject = ({ project }) => {
             <div className="mb-4">
               <h3 className="text-xl sm:text-2xl font-bold text-text-primary mb-2">{project?.title}</h3>
               <div className="flex items-center space-x-2 mb-3">
-                <span className={`px-3 py-1 rounded-full text-xs sm:text-sm font-medium border ${
-                  project?.type === 'AI/ML' ? 'text-purple-600 bg-purple-50 border-purple-200' :
-                  project?.type === 'Web Development' ? 'text-blue-600 bg-blue-50 border-blue-200' :
-                  project?.type === 'Mobile'? 'text-green-600 bg-green-50 border-green-200' : 'text-gray-600 bg-gray-50 border-gray-200'
-                }`}>
+                <span className={`px-3 py-1 rounded-full text-xs sm:text-sm font-medium border ${project?.type === 'AI/ML' ? 'text-purple-600 bg-purple-500/10 border-purple-500/20' :
+                  project?.type === 'Web Development' ? 'text-blue-600 bg-blue-500/10 border-blue-500/20' :
+                    project?.type === 'Mobile' ? 'text-green-600 bg-green-500/10 border-green-500/20' : 'text-text-secondary bg-muted border-border'
+                  }`}>
                   {project?.type}
                 </span>
-                <span className={`px-3 py-1 rounded-full text-xs sm:text-sm font-medium border ${
-                  project?.difficulty === 'Advanced' ? 'text-red-600 bg-red-50 border-red-200' :
-                  project?.difficulty === 'Intermediate'? 'text-yellow-600 bg-yellow-50 border-yellow-200' : 'text-green-600 bg-green-50 border-green-200'
-                }`}>
+                <span className={`px-3 py-1 rounded-full text-xs sm:text-sm font-medium border ${project?.difficulty === 'Advanced' ? 'text-red-600 bg-red-500/10 border-red-500/20' :
+                  project?.difficulty === 'Intermediate' ? 'text-yellow-600 bg-yellow-500/10 border-yellow-500/20' : 'text-green-600 bg-green-500/10 border-green-500/20'
+                  }`}>
                   {project?.difficulty}
                 </span>
               </div>
