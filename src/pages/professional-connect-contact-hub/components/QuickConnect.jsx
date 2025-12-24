@@ -15,8 +15,8 @@ const QuickConnect = () => {
       icon: 'Linkedin',
       description: 'Professional network and career updates',
       color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
-      hoverColor: 'hover:bg-blue-100',
+      bgColor: 'bg-blue-500/10',
+      hoverColor: 'hover:bg-blue-500/20',
       followers: '500+ connections'
     },
     {
@@ -25,9 +25,9 @@ const QuickConnect = () => {
       url: 'https://github.com/AdhishMagic',
       icon: 'Github',
       description: 'Open source projects and code repositories',
-      color: 'text-gray-800',
-      bgColor: 'bg-gray-50',
-      hoverColor: 'hover:bg-gray-100',
+      color: 'text-text-primary',
+      bgColor: 'bg-muted',
+      hoverColor: 'hover:bg-muted/80',
       followers: '150+ followers'
     },
     {
@@ -36,9 +36,9 @@ const QuickConnect = () => {
       url: 'mailto:balaadhish.cbe@gmail.com',
       icon: 'Mail',
       description: 'Direct professional communication',
-      color: 'text-red-600',
-      bgColor: 'bg-red-50',
-      hoverColor: 'hover:bg-red-100',
+      color: 'text-red-500',
+      bgColor: 'bg-red-500/10',
+      hoverColor: 'hover:bg-red-500/20',
       followers: 'Primary contact'
     }
   ];
@@ -99,7 +99,7 @@ const QuickConnect = () => {
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-4">
-                <div className={`w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow`}>
+                <div className={`w-10 h-10 bg-card rounded-lg flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow`}>
                   <Icon name={profile?.icon} size={20} className={profile?.color} />
                 </div>
                 <div>
@@ -126,7 +126,7 @@ const QuickConnect = () => {
           <Icon name="Rocket" size={18} />
           <span>Quick Actions</span>
         </h4>
-        
+
         <div className="grid grid-cols-1 gap-3">
           {quickActions?.map((action, index) => (
             <Button

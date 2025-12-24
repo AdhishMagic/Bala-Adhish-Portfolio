@@ -31,7 +31,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden pt-20 pb-10 md:pt-0 md:pb-0">
+    <section className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden pt-20 pb-10 md:pt-0 md:pb-0">
       {/* Background Animation */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
@@ -47,26 +47,26 @@ const HeroSection = () => {
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                 <span className="text-sm font-medium text-text-secondary">Available for opportunities</span>
               </div>
-              
+
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-tight">
                 Building the Future Through{' '}
                 <span className="text-gradient bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                   Intelligent Code
                 </span>
               </h1>
-              
+
               <p className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                 AI Engineer & Full‑Stack Developer focused on building intelligent solutions that bridge cutting‑edge research and practical applications. Turning complex problems into elegant, scalable systems.
               </p>
             </div>
 
             {/* Dynamic Skills Display */}
-            <div className="flex items-center space-x-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-border shadow-sm max-w-md mx-auto lg:max-w-none lg:mx-0">
+            <div className="flex items-center space-x-4 p-4 bg-card/80 backdrop-blur-sm rounded-xl border border-border shadow-sm max-w-md mx-auto lg:max-w-none lg:mx-0">
               <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex-shrink-0">
-                <Icon 
-                  name={skills?.[currentSkillIndex]?.icon} 
-                  size={24} 
-                  color="white" 
+                <Icon
+                  name={skills?.[currentSkillIndex]?.icon}
+                  size={24}
+                  color="white"
                 />
               </div>
               <div>
@@ -90,7 +90,7 @@ const HeroSection = () => {
               >
                 View Technical Portfolio
               </Button>
-              
+
               <Button
                 variant="outline"
                 size="lg"
@@ -140,13 +140,13 @@ const HeroSection = () => {
               </div>
 
               {/* Floating Tech Icons */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center animate-float">
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-card rounded-full shadow-lg flex items-center justify-center animate-float">
                 <Icon name="Brain" size={24} color="#2563eb" />
               </div>
-              <div className="absolute top-1/2 -left-8 w-14 h-14 bg-white rounded-full shadow-lg flex items-center justify-center animate-float" style={{animationDelay: '1s'}}>
+              <div className="absolute top-1/2 -left-8 w-14 h-14 bg-white rounded-full shadow-lg flex items-center justify-center animate-float" style={{ animationDelay: '1s' }}>
                 <Icon name="Code" size={20} color="#10b981" />
               </div>
-              <div className="absolute -bottom-4 right-8 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center animate-float" style={{animationDelay: '2s'}}>
+              <div className="absolute -bottom-4 right-8 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center animate-float" style={{ animationDelay: '2s' }}>
                 <Icon name="Database" size={18} color="#8b5cf6" />
               </div>
             </div>

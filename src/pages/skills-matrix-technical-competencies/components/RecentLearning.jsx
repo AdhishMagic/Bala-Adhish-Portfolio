@@ -16,7 +16,7 @@ const RecentLearning = () => {
       skills: ['Prompt Engineering', 'RAG', 'LLM Safety'],
       icon: 'BookOpen',
       color: 'text-blue-500',
-      bgColor: 'bg-blue-50'
+      bgColor: 'bg-blue-500/10'
     },
     {
       id: 2,
@@ -29,7 +29,7 @@ const RecentLearning = () => {
       skills: ['Django', 'DRF', 'API Design'],
       icon: 'Play',
       color: 'text-green-500',
-      bgColor: 'bg-green-50'
+      bgColor: 'bg-green-500/10'
     },
     {
       id: 3,
@@ -42,7 +42,7 @@ const RecentLearning = () => {
       skills: ['LangChain', 'Retrievers', 'Evaluation'],
       icon: 'FileText',
       color: 'text-purple-500',
-      bgColor: 'bg-purple-50'
+      bgColor: 'bg-purple-500/10'
     },
     {
       id: 4,
@@ -55,7 +55,7 @@ const RecentLearning = () => {
       skills: ['Qdrant', 'Embeddings', 'LLMOps'],
       icon: 'Code',
       color: 'text-orange-500',
-      bgColor: 'bg-orange-50'
+      bgColor: 'bg-orange-500/10'
     },
     {
       id: 5,
@@ -68,7 +68,7 @@ const RecentLearning = () => {
       skills: ['Security', 'Key Management', 'Best Practices'],
       icon: 'Newspaper',
       color: 'text-indigo-500',
-      bgColor: 'bg-indigo-50'
+      bgColor: 'bg-indigo-500/10'
     }
   ];
 
@@ -160,10 +160,9 @@ const RecentLearning = () => {
                     <span className="font-medium text-text-primary">{activity?.progress}%</span>
                   </div>
                   <div className="w-full bg-muted rounded-full h-2">
-                    <div 
-                      className={`h-2 rounded-full transition-all duration-1000 ${
-                        activity?.status === 'Completed' ? 'bg-success' : 'bg-primary'
-                      }`}
+                    <div
+                      className={`h-2 rounded-full transition-all duration-1000 ${activity?.status === 'Completed' ? 'bg-success' : 'bg-primary'
+                        }`}
                       style={{ width: `${activity?.progress}%` }}
                     />
                   </div>
@@ -172,7 +171,7 @@ const RecentLearning = () => {
                 {/* Skills Tags */}
                 <div className="flex flex-wrap gap-2 mb-3">
                   {activity?.skills?.map((skill) => (
-                    <span 
+                    <span
                       key={skill}
                       className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md"
                     >
@@ -188,9 +187,9 @@ const RecentLearning = () => {
                       <>Completed: {formatDate(activity?.completedDate)}</>
                     ) : (
                       <>Started: {formatDate(activity?.startDate)}
-                      {activity?.estimatedCompletion && (
-                        <span className="hidden sm:inline"> • Est. completion: {formatDate(activity?.estimatedCompletion)}</span>
-                      )}</>
+                        {activity?.estimatedCompletion && (
+                          <span className="hidden sm:inline"> • Est. completion: {formatDate(activity?.estimatedCompletion)}</span>
+                        )}</>
                     )}
                   </div>
                   <div className="flex items-center space-x-2 self-end sm:self-center">
@@ -229,7 +228,7 @@ const RecentLearning = () => {
           <Icon name="Target" size={20} />
           <span>Current Learning Goals</span>
         </h3>
-        
+
         <div className="grid md:grid-cols-2 gap-4">
           <div className="p-4 bg-surface rounded-lg border border-border">
             <div className="flex items-center space-x-3 mb-2">
@@ -241,7 +240,7 @@ const RecentLearning = () => {
             </p>
             <div className="text-xs text-text-secondary">Target: December 2025</div>
           </div>
-          
+
           <div className="p-4 bg-surface rounded-lg border border-border">
             <div className="flex items-center space-x-3 mb-2">
               <Icon name="Cloud" size={20} className="text-blue-500" />

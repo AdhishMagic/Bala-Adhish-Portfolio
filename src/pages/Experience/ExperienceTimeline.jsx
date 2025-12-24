@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet';
 import Header from '../../components/ui/Header';
@@ -287,18 +288,18 @@ const ExperienceTimeline = () => {
                                     Interested in discussing opportunities or collaborating on innovative projects? I'd love to hear from you.
                                 </p>
                                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                    <a href="/contact-opportunities">
+                                    <Link to="/professional-connect-contact-hub">
                                         <button className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-accent text-accent-foreground rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
                                             <Icon name="Mail" size={20} />
                                             <span>Get in Touch</span>
                                         </button>
-                                    </a>
-                                    <a href="/projects-showcase">
+                                    </Link>
+                                    <Link to="/technical-portfolio-project-showcase">
                                         <button className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-card text-foreground border border-border rounded-lg font-medium hover:bg-muted transition-colors flex items-center justify-center gap-2">
                                             <Icon name="FolderOpen" size={20} />
                                             <span>View Projects</span>
                                         </button>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -306,29 +307,38 @@ const ExperienceTimeline = () => {
                 </main>
 
                 {/* Footer */}
-                <footer className="bg-card border-t border-border py-8 md:py-12">
-                    <div className="container mx-auto px-4 md:px-6 lg:px-8">
-                        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                            <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                                    <Icon name="Rocket" size={24} color="var(--color-primary)" />
+                <footer className="py-12 bg-card border-t border-border">
+                    <div className="container-width px-4 sm:px-6 lg:px-8">
+                        <div className="text-center">
+                            <div className="flex items-center justify-center space-x-3 mb-4">
+                                <div className="w-10 h-10 bg-hero-gradient rounded-lg flex items-center justify-center">
+                                    <span className="text-white font-bold text-lg">B</span>
                                 </div>
-                                <span className="text-lg font-semibold text-foreground">Portfolio</span>
+                                <div className="text-left">
+                                    <h3 className="text-xl font-bold text-gradient">Bala Adhish</h3>
+                                    <p className="text-sm text-text-secondary">AI Engineer & Full-Stack Visionary</p>
+                                </div>
                             </div>
-                            <p className="text-sm text-muted-foreground text-center md:text-left">
-                                © {new Date()?.getFullYear()} All rights reserved. Built with passion and React.
+
+                            <p className="text-text-secondary mb-6">
+                                Building the future through intelligent code and innovative solutions.
                             </p>
-                            <div className="flex items-center gap-4">
-                                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                                    <Icon name="Github" size={20} />
+
+                            <div className="flex justify-center space-x-6 mb-6">
+                                <a href="https://github.com/AdhishMagic" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                                    <Icon name="Github" size={24} />
                                 </a>
-                                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                                    <Icon name="Linkedin" size={20} />
+                                <a href="https://www.linkedin.com/in/bala-adhish4/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                                    <Icon name="Linkedin" size={24} />
                                 </a>
-                                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                                    <Icon name="Twitter" size={20} />
+                                <a href="mailto:balaadhish.cbe@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                                    <Icon name="Mail" size={24} />
                                 </a>
                             </div>
+
+                            <p className="text-sm text-muted-foreground">
+                                © {new Date()?.getFullYear()} Bala Adhish. All rights reserved. Built with passion for innovation and excellence.
+                            </p>
                         </div>
                     </div>
                 </footer>

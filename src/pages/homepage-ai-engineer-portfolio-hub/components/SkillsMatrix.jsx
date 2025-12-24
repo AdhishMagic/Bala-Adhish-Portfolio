@@ -67,7 +67,7 @@ const SkillsMatrix = () => {
   };
 
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-background to-muted/30">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-10 sm:mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">
@@ -88,14 +88,13 @@ const SkillsMatrix = () => {
                   key={idx}
                   type="button"
                   onClick={() => setActiveTab(idx)}
-                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border transition-all text-sm sm:text-base ${
-                    isActive
-                      ? 'bg-slate-900 text-white border-slate-900 shadow'
-                      : 'bg-white text-slate-700 border-border hover:border-slate-300 hover:bg-slate-50'
-                  }`}
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border transition-all text-sm sm:text-base ${isActive
+                    ? 'bg-slate-900 text-white border-slate-900 shadow'
+                    : 'bg-card text-text-secondary border-border hover:border-primary hover:bg-surface'
+                    }`}
                   aria-pressed={isActive}
                 >
-                  <Icon name={tab?.icon} size={18} color={isActive ? 'white' : '#0f172a'} />
+                  <Icon name={tab?.icon} size={18} className={isActive ? 'text-white' : 'text-text-primary'} />
                   <span className="font-medium">{tab?.title}</span>
                 </button>
               );
@@ -109,7 +108,7 @@ const SkillsMatrix = () => {
             const categoryIndex = activeTab;
             const category = skillCategories?.[categoryIndex];
             return (
-              <div className="bg-white rounded-2xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
+              <div className="bg-card rounded-2xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
                 {/* Category Header */}
                 <div className="flex items-center space-x-3 mb-6">
                   <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${category?.color} flex items-center justify-center flex-shrink-0`}>
@@ -130,7 +129,7 @@ const SkillsMatrix = () => {
                       <div key={skillIndex} className="space-y-2">
                         <div className="flex items-center justify-between text-sm sm:text-base">
                           <div className="flex items-center space-x-2">
-                            <Icon name={skill?.icon} size={16} color="#64748b" />
+                            <Icon name={skill?.icon} size={16} className="text-text-secondary" />
                             <span className="font-medium text-text-primary">
                               {skill?.name}
                             </span>
@@ -140,11 +139,10 @@ const SkillsMatrix = () => {
                           </span>
                         </div>
                         {/* Progress Bar */}
-                        <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                        <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
                           <div
-                            className={`h-full bg-gradient-to-r ${category?.color} rounded-full transition-all duration-1000 ease-out ${
-                              isAnimated ? 'opacity-100' : 'opacity-0'
-                            }`}
+                            className={`h-full bg-gradient-to-r ${category?.color} rounded-full transition-all duration-1000 ease-out ${isAnimated ? 'opacity-100' : 'opacity-0'
+                              }`}
                             style={{
                               width: isAnimated ? `${skill?.level}%` : '0%'
                             }}
@@ -170,7 +168,7 @@ const SkillsMatrix = () => {
         </div>
 
         {/* Overall Skills Summary */}
-        <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-border">
+        <div className="bg-card rounded-2xl p-6 sm:p-8 shadow-lg border border-border">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div className="space-y-1">
               <div className="text-2xl sm:text-3xl font-bold text-blue-600">15+</div>
