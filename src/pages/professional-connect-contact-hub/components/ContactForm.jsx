@@ -6,7 +6,11 @@ import Select from '../../../components/ui/Select';
 import Icon from '../../../components/AppIcon';
 
 const ContactForm = () => {
-  const [state, handleSubmit] = useForm(import.meta.env.VITE_FORMSPREE_FORM_ID);
+  const formspreeFormId = import.meta.env.VITE_FORMSPREE_FORM_ID;
+  const isFormspreeConfigured = Boolean(formspreeFormId);
+  // useForm requires a string key; we avoid actual submission if not configured.
+  const [state, handleSubmit] = useForm(formspreeFormId || 'myForm');
+  const [configError, setConfigError] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -91,6 +95,17 @@ const ContactForm = () => {
     );
   }
 
+  const onSubmit = (e) => {
+    if (!isFormspreeConfigured) {
+      e?.preventDefault?.();
+      setConfigError('Contact form is not configured yet. Set VITE_FORMSPREE_FORM_ID in a .env file and restart the dev server.');
+      return;
+    }
+
+    setConfigError('');
+    handleSubmit(e);
+  };
+
   return (
     <div className="bg-card border border-border rounded-xl p-6 lg:p-8">
       <div className="flex items-center space-x-3 mb-6">
@@ -102,7 +117,27 @@ const ContactForm = () => {
           <p className="text-sm text-text-secondary">Let's discuss your project or opportunity</p>
         </div>
       </div>
-      <form onSubmit={(e) => handleSubmit(e, formData)} className="space-y-6">
+      {!isFormspreeConfigured && (
+        <div className="bg-warning/10 border border-warning/20 rounded-lg p-4 text-sm text-text-secondary">
+          <div className="flex items-start gap-2">
+            <Icon name="AlertTriangle" size={18} className="text-warning mt-0.5" />
+            <div>
+              <p className="font-medium text-text-primary">Contact form setup required</p>
+              <p>
+                Create a <span className="font-mono">.env</span> file with <span className="font-mono">VITE_FORMSPREE_FORM_ID</span>, then restart Vite.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {configError && (
+        <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-4 text-sm text-text-secondary">
+          {configError}
+        </div>
+      )}
+
+      <form onSubmit={onSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Input
             label="Full Name"
@@ -232,7 +267,7 @@ const ContactForm = () => {
             iconName="Send"
             iconPosition="right"
             className="flex-1"
-            disabled={state.submitting}
+            disabled={state.submitting || !isFormspreeConfigured}
           >
             {state.submitting ? 'Sending Message...' : 'Send Message'}
           </Button>
