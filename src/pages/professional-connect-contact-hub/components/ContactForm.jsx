@@ -6,8 +6,14 @@ import Select from '../../../components/ui/Select';
 import Icon from '../../../components/AppIcon';
 
 const ContactForm = () => {
-  const formspreeFormId = import.meta.env.VITE_FORMSPREE_FORM_ID;
+  // Formspree "form id" is not a secret; it can live in the client bundle.
+  // Keep env override for flexibility, but fall back so production deployments
+  // don't show setup warnings if the build-time env var wasn't injected.
+  const DEFAULT_FORMSPREE_FORM_ID = 'xqayknyq';
+  const envFormId = import.meta.env.VITE_FORMSPREE_FORM_ID;
+  const formspreeFormId = envFormId || DEFAULT_FORMSPREE_FORM_ID;
   const isFormspreeConfigured = Boolean(formspreeFormId);
+  const showSetupWarning = import.meta.env.DEV && !envFormId;
   // useForm requires a string key; we avoid actual submission if not configured.
   const [state, handleSubmit] = useForm(formspreeFormId || 'myForm');
   const [configError, setConfigError] = useState('');
@@ -96,12 +102,6 @@ const ContactForm = () => {
   }
 
   const onSubmit = (e) => {
-    if (!isFormspreeConfigured) {
-      e?.preventDefault?.();
-      setConfigError('Contact form is not configured yet. Set VITE_FORMSPREE_FORM_ID in a .env file and restart the dev server.');
-      return;
-    }
-
     setConfigError('');
     handleSubmit(e);
   };
@@ -117,7 +117,7 @@ const ContactForm = () => {
           <p className="text-sm text-text-secondary">Let's discuss your project or opportunity</p>
         </div>
       </div>
-      {!isFormspreeConfigured && (
+      {showSetupWarning && (
         <div className="bg-warning/10 border border-warning/20 rounded-lg p-4 text-sm text-text-secondary">
           <div className="flex items-start gap-2">
             <Icon name="AlertTriangle" size={18} className="text-warning mt-0.5" />
@@ -267,7 +267,7 @@ const ContactForm = () => {
             iconName="Send"
             iconPosition="right"
             className="flex-1"
-            disabled={state.submitting || !isFormspreeConfigured}
+            disabled={state.submitting}
           >
             {state.submitting ? 'Sending Message...' : 'Send Message'}
           </Button>
